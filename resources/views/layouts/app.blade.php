@@ -6,7 +6,7 @@
     <title>@yield('title', 'Jaya Abadi Konstruksi')</title>
 
     {{-- icon --}}
-    <link rel="icon" type="image/x-icon" href="{{ asset('/favicon.ico') }}">
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
