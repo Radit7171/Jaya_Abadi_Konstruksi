@@ -6,7 +6,7 @@
     <title>@yield('title', 'Jaya Abadi Konstruksi')</title>
 
     {{-- icon --}}
-    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
+    <link rel="icon" type="image/x-icon" href="{{ asset('/favicon.ico') }}">
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -144,7 +144,7 @@
             <!-- Logo -->
             <div class="flex items-center space-x-3">
                 <div class="logo-rotate">
-                    <img src="{{ asset('/public/images/logo.png') }}" class="" style="width: 100px; height: 100px;" alt="Logo Jaya Abadi Konstruksi">
+                    <img src="{{ asset('/images/logo.png') }}" class="" style="width: 100px; height: 100px;" alt="Logo Jaya Abadi Konstruksi">
                 </div>
                 <span class="text-xl font-bold bg-gradient-to-r from-blue-600 to-indigo-700 bg-clip-text text-transparent">Jaya Abadi Konstruksi</span>
             </div>
