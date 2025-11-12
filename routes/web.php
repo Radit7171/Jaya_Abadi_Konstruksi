@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
+// index view
 Route::get('/', function () {
-    return view('layouts.app');
-});
+    return view('home.home');
+})->name('home');
