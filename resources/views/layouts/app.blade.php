@@ -1,18 +1,33 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title', 'Jaya Abadi Konstruksi')</title>
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+    <style>
+        body {
+            visibility: hidden;
+        }
+    </style>
+
+    <link rel="preload" href="https://cdn.tailwindcss.com" as="script">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+
 
     {{-- icon --}}
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
 
     <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    {{-- <script src="https://cdn.tailwindcss.com"></script> --}}
 
     <!-- Font Poppins -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
 
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
@@ -30,6 +45,7 @@
                 opacity: 0;
                 transform: translateY(-20px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -41,6 +57,7 @@
                 opacity: 0;
                 transform: translateY(-30px) scale(0.95);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0) scale(1);
@@ -139,14 +156,18 @@
 
 <body class="bg-gray-50 font-[Poppins] flex flex-col min-h-screen">
     <!-- Navbar Component -->
-    <nav id="navbar" class="fixed top-0 left-0 w-full z-50 glass transition-all duration-500 ease-out" data-aos="fade-down">
+    <nav id="navbar" class="fixed top-0 left-0 w-full z-50 glass transition-all duration-500 ease-out"
+        data-aos="fade-down">
         <div class="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between py-3">
             <!-- Logo -->
             <div class="flex items-center space-x-3">
                 <div class="logo-rotate">
-                    <img src="{{ asset('/images/logo.png') }}" class="" style="width: 100px; height: 100px;" alt="Logo Jaya Abadi Konstruksi">
+                    <img src="{{ asset('/images/logo.png') }}" class="" style="width: 100px; height: 100px;"
+                        alt="Logo Jaya Abadi Konstruksi">
                 </div>
-                <span class="text-xl font-bold bg-gradient-to-r from-blue-600 to-indigo-700 bg-clip-text text-transparent">Jaya Abadi Konstruksi</span>
+                <span
+                    class="text-xl font-bold bg-gradient-to-r from-blue-600 to-indigo-700 bg-clip-text text-transparent">Jaya
+                    Abadi Konstruksi</span>
             </div>
 
             <!-- Menu Desktop -->
@@ -164,24 +185,32 @@
                 <!-- Dropdown Pages -->
                 <li class="relative group" id="pages-dropdown">
                     <button class="nav-link flex items-center hover:text-blue-600 transition-colors duration-300">
-                        Pages <i class="bi bi-chevron-down ml-1 text-sm transition-transform duration-300 group-hover:rotate-180"></i>
+                        Pages <i
+                            class="bi bi-chevron-down ml-1 text-sm transition-transform duration-300 group-hover:rotate-180"></i>
                     </button>
-                    <ul class="absolute hidden group-hover:block animate-slideInFromTop bg-white/95 backdrop-blur-lg shadow-xl rounded-lg py-2 w-48 mt-2 overflow-hidden border border-gray-100">
+                    <ul
+                        class="absolute hidden group-hover:block animate-slideInFromTop bg-white/95 backdrop-blur-lg shadow-xl rounded-lg py-2 w-48 mt-2 overflow-hidden border border-gray-100">
                         <li>
-                            <a href="#services" class="flex items-center px-4 py-3 hover:bg-blue-50 transition-all duration-200 group/item">
-                                <i class="bi bi-tools mr-2 text-blue-500 group-hover/item:scale-110 transition-transform"></i>
+                            <a href="#services"
+                                class="flex items-center px-4 py-3 hover:bg-blue-50 transition-all duration-200 group/item">
+                                <i
+                                    class="bi bi-tools mr-2 text-blue-500 group-hover/item:scale-110 transition-transform"></i>
                                 <span>Services</span>
                             </a>
                         </li>
                         <li>
-                            <a href="#projects" class="flex items-center px-4 py-3 hover:bg-blue-50 transition-all duration-200 group/item">
-                                <i class="bi bi-building mr-2 text-blue-500 group-hover/item:scale-110 transition-transform"></i>
+                            <a href="#projects"
+                                class="flex items-center px-4 py-3 hover:bg-blue-50 transition-all duration-200 group/item">
+                                <i
+                                    class="bi bi-building mr-2 text-blue-500 group-hover/item:scale-110 transition-transform"></i>
                                 <span>Projects</span>
                             </a>
                         </li>
                         <li>
-                            <a href="#team" class="flex items-center px-4 py-3 hover:bg-blue-50 transition-all duration-200 group/item">
-                                <i class="bi bi-people mr-2 text-blue-500 group-hover/item:scale-110 transition-transform"></i>
+                            <a href="#team"
+                                class="flex items-center px-4 py-3 hover:bg-blue-50 transition-all duration-200 group/item">
+                                <i
+                                    class="bi bi-people mr-2 text-blue-500 group-hover/item:scale-110 transition-transform"></i>
                                 <span>Our Team</span>
                             </a>
                         </li>
@@ -191,18 +220,24 @@
                 <!-- Dropdown Blog -->
                 <li class="relative group" id="blog-dropdown">
                     <button class="nav-link flex items-center hover:text-blue-600 transition-colors duration-300">
-                        Blog <i class="bi bi-chevron-down ml-1 text-sm transition-transform duration-300 group-hover:rotate-180"></i>
+                        Blog <i
+                            class="bi bi-chevron-down ml-1 text-sm transition-transform duration-300 group-hover:rotate-180"></i>
                     </button>
-                    <ul class="absolute hidden group-hover:block animate-slideInFromTop bg-white/95 backdrop-blur-lg shadow-xl rounded-lg py-2 w-48 mt-2 overflow-hidden border border-gray-100">
+                    <ul
+                        class="absolute hidden group-hover:block animate-slideInFromTop bg-white/95 backdrop-blur-lg shadow-xl rounded-lg py-2 w-48 mt-2 overflow-hidden border border-gray-100">
                         <li>
-                            <a href="#blog" class="flex items-center px-4 py-3 hover:bg-blue-50 transition-all duration-200 group/item">
-                                <i class="bi bi-journal-text mr-2 text-blue-500 group-hover/item:scale-110 transition-transform"></i>
+                            <a href="#blog"
+                                class="flex items-center px-4 py-3 hover:bg-blue-50 transition-all duration-200 group/item">
+                                <i
+                                    class="bi bi-journal-text mr-2 text-blue-500 group-hover/item:scale-110 transition-transform"></i>
                                 <span>All Posts</span>
                             </a>
                         </li>
                         <li>
-                            <a href="#blog-single" class="flex items-center px-4 py-3 hover:bg-blue-50 transition-all duration-200 group/item">
-                                <i class="bi bi-file-text mr-2 text-blue-500 group-hover/item:scale-110 transition-transform"></i>
+                            <a href="#blog-single"
+                                class="flex items-center px-4 py-3 hover:bg-blue-50 transition-all duration-200 group/item">
+                                <i
+                                    class="bi bi-file-text mr-2 text-blue-500 group-hover/item:scale-110 transition-transform"></i>
                                 <span>Single Post</span>
                             </a>
                         </li>
@@ -210,51 +245,60 @@
                 </li>
 
                 <li>
-                    <a href="#contact" class="nav-link hover:text-blue-600 transition-colors duration-300">Contact Us</a>
+                    <a href="#contact" class="nav-link hover:text-blue-600 transition-colors duration-300">Contact
+                        Us</a>
                 </li>
             </ul>
 
             <!-- Hamburger Menu -->
-            <button id="menu-btn" class="md:hidden text-2xl text-gray-700 focus:outline-none transition-transform duration-300 hover:scale-110">
+            <button id="menu-btn"
+                class="md:hidden text-2xl text-gray-700 focus:outline-none transition-transform duration-300 hover:scale-110">
                 <i class="bi bi-list"></i>
             </button>
         </div>
 
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white/95 backdrop-blur-lg shadow-xl border-t border-gray-100 overflow-hidden">
+        <div id="mobile-menu"
+            class="hidden md:hidden bg-white/95 backdrop-blur-lg shadow-xl border-t border-gray-100 overflow-hidden">
             <ul class="flex flex-col px-6 py-4 text-gray-700 font-medium space-y-1">
                 <li>
-                    <a href="#home" class="flex items-center px-4 py-3 rounded-lg hover:bg-blue-50 transition-all duration-200 group">
+                    <a href="#home"
+                        class="flex items-center px-4 py-3 rounded-lg hover:bg-blue-50 transition-all duration-200 group">
                         <i class="bi bi-house mr-3 text-blue-500"></i>
                         <span>Home</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#about" class="flex items-center px-4 py-3 rounded-lg hover:bg-blue-50 transition-all duration-200 group">
+                    <a href="#about"
+                        class="flex items-center px-4 py-3 rounded-lg hover:bg-blue-50 transition-all duration-200 group">
                         <i class="bi bi-info-circle mr-3 text-blue-500"></i>
                         <span>About Us</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#services" class="flex items-center px-4 py-3 rounded-lg hover:bg-blue-50 transition-all duration-200 group">
+                    <a href="#services"
+                        class="flex items-center px-4 py-3 rounded-lg hover:bg-blue-50 transition-all duration-200 group">
                         <i class="bi bi-tools mr-3 text-blue-500"></i>
                         <span>Services</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#projects" class="flex items-center px-4 py-3 rounded-lg hover:bg-blue-50 transition-all duration-200 group">
+                    <a href="#projects"
+                        class="flex items-center px-4 py-3 rounded-lg hover:bg-blue-50 transition-all duration-200 group">
                         <i class="bi bi-building mr-3 text-blue-500"></i>
                         <span>Projects</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#blog" class="flex items-center px-4 py-3 rounded-lg hover:bg-blue-50 transition-all duration-200 group">
+                    <a href="#blog"
+                        class="flex items-center px-4 py-3 rounded-lg hover:bg-blue-50 transition-all duration-200 group">
                         <i class="bi bi-journal-text mr-3 text-blue-500"></i>
                         <span>Blog</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#contact" class="flex items-center px-4 py-3 rounded-lg hover:bg-blue-50 transition-all duration-200 group">
+                    <a href="#contact"
+                        class="flex items-center px-4 py-3 rounded-lg hover:bg-blue-50 transition-all duration-200 group">
                         <i class="bi bi-telephone mr-3 text-blue-500"></i>
                         <span>Contact Us</span>
                     </a>
@@ -283,16 +327,20 @@
                         Kami berkomitmen untuk memberikan hasil terbaik dalam setiap proyek.
                     </p>
                     <div class="flex space-x-4">
-                        <a href="#" class="social-icon bg-white/10 p-3 rounded-full hover:bg-white/20 transition-all duration-300">
+                        <a href="#"
+                            class="social-icon bg-white/10 p-3 rounded-full hover:bg-white/20 transition-all duration-300">
                             <i class="bi bi-facebook text-xl"></i>
                         </a>
-                        <a href="#" class="social-icon bg-white/10 p-3 rounded-full hover:bg-white/20 transition-all duration-300">
+                        <a href="#"
+                            class="social-icon bg-white/10 p-3 rounded-full hover:bg-white/20 transition-all duration-300">
                             <i class="bi bi-twitter text-xl"></i>
                         </a>
-                        <a href="#" class="social-icon bg-white/10 p-3 rounded-full hover:bg-white/20 transition-all duration-300">
+                        <a href="#"
+                            class="social-icon bg-white/10 p-3 rounded-full hover:bg-white/20 transition-all duration-300">
                             <i class="bi bi-instagram text-xl"></i>
                         </a>
-                        <a href="#" class="social-icon bg-white/10 p-3 rounded-full hover:bg-white/20 transition-all duration-300">
+                        <a href="#"
+                            class="social-icon bg-white/10 p-3 rounded-full hover:bg-white/20 transition-all duration-300">
                             <i class="bi bi-linkedin text-xl"></i>
                         </a>
                     </div>
@@ -348,8 +396,10 @@
                         <p class="text-blue-100">Dapatkan update terbaru tentang proyek dan layanan kami</p>
                     </div>
                     <div class="flex w-full md:w-auto">
-                        <input type="email" placeholder="Email Anda" class="px-4 py-3 rounded-l-lg w-full md:w-64 text-gray-800 focus:outline-none">
-                        <button class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-r-lg font-medium transition-colors duration-300">
+                        <input type="email" placeholder="Email Anda"
+                            class="px-4 py-3 rounded-l-lg w-full md:w-64 text-gray-800 focus:outline-none">
+                        <button
+                            class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-r-lg font-medium transition-colors duration-300">
                             Subscribe
                         </button>
                     </div>
@@ -369,6 +419,13 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        window.addEventListener('load', function() {
+            document.body.style.visibility = 'visible';
+        });
+    </script>
+
 
     <!-- Script AOS -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -404,15 +461,26 @@
             if (isMenuOpen) {
                 mobileMenu.classList.remove('hidden');
                 // Animasi GSAP untuk menu mobile
-                gsap.fromTo(mobileMenu,
-                    { opacity: 0, height: 0 },
-                    { opacity: 1, height: 'auto', duration: 0.4, ease: "power2.out" }
-                );
+                gsap.fromTo(mobileMenu, {
+                    opacity: 0,
+                    height: 0
+                }, {
+                    opacity: 1,
+                    height: 'auto',
+                    duration: 0.4,
+                    ease: "power2.out"
+                });
                 // Animasi untuk item menu
-                gsap.fromTo(mobileMenu.querySelectorAll('li'),
-                    { opacity: 0, x: -20 },
-                    { opacity: 1, x: 0, stagger: 0.1, duration: 0.3, delay: 0.2 }
-                );
+                gsap.fromTo(mobileMenu.querySelectorAll('li'), {
+                    opacity: 0,
+                    x: -20
+                }, {
+                    opacity: 1,
+                    x: 0,
+                    stagger: 0.1,
+                    duration: 0.3,
+                    delay: 0.2
+                });
                 // Ubah ikon hamburger menjadi X
                 menuBtn.innerHTML = '<i class="bi bi-x"></i>';
             } else {
@@ -431,7 +499,12 @@
             }
 
             // Animasi tombol menu
-            gsap.to(menuBtn, { scale: 1.1, duration: 0.1, yoyo: true, repeat: 1 });
+            gsap.to(menuBtn, {
+                scale: 1.1,
+                duration: 0.1,
+                yoyo: true,
+                repeat: 1
+            });
         });
 
         // Animasi hover untuk dropdown
@@ -440,10 +513,16 @@
 
             group.addEventListener('mouseenter', () => {
                 if (dropdown) {
-                    gsap.fromTo(dropdown,
-                        { opacity: 0, y: -10, scale: 0.95 },
-                        { opacity: 1, y: 0, scale: 1, duration: 0.2 }
-                    );
+                    gsap.fromTo(dropdown, {
+                        opacity: 0,
+                        y: -10,
+                        scale: 0.95
+                    }, {
+                        opacity: 1,
+                        y: 0,
+                        scale: 1,
+                        duration: 0.2
+                    });
                 }
             });
         });
@@ -461,4 +540,5 @@
 
     @yield('scripts')
 </body>
+
 </html>
