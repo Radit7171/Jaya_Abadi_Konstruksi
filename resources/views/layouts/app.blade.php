@@ -7,12 +7,6 @@
     <title>@yield('title', 'Jaya Abadi Konstruksi')</title>
     {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
 
-    <style>
-        body {
-            visibility: hidden;
-        }
-    </style>
-
     <link rel="preload" href="https://cdn.tailwindcss.com" as="script">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -154,10 +148,11 @@
     </style>
 </head>
 
-<body class="bg-gray-50 font-[Poppins] flex flex-col min-h-screen">
+<body class="bg-gray-50 font-[Poppins] overflow-x-hidden">
     <!-- Navbar Component -->
-    <nav id="navbar" class="fixed top-0 left-0 w-full z-50 glass transition-all duration-500 ease-out"
-        data-aos="fade-down">
+    <nav id="navbar"
+     class="fixed inset-x-0 top-0 z-50 glass transition-all duration-500 ease-out"
+     data-aos="fade-down">
         <div class="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between py-3">
             <!-- Logo -->
             <div class="flex items-center space-x-3">
@@ -419,13 +414,6 @@
             </div>
         </div>
     </footer>
-
-    <script>
-        window.addEventListener('load', function() {
-            document.body.style.visibility = 'visible';
-        });
-    </script>
-
 
     <!-- Script AOS -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>

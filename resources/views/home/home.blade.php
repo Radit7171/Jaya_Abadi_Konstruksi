@@ -181,16 +181,26 @@
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" data-aos="fade-up">
-            @foreach([1,2,3,4,5,6] as $project)
+            @php
+                $projectImages = [
+                    'proyek.jpg',
+                    'proyek2.jpg',
+                    'proyek3.jpg',
+                    'proyek4.jpg',
+                    'proyek5.jpg',
+                    'proyek6.jpg',
+                ];
+            @endphp
+            @foreach($projectImages as $image)
             <div class="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500">
                 <div class="aspect-w-16 aspect-h-12 bg-gray-200 overflow-hidden">
-                    <img src="{{ asset('images/proyek'.$project.'.jpg') }}"
-                         alt="Proyek {{ $project }}"
+                    <img src="{{ asset('images/projects/' . $image) }}"
+                         alt="{{ $image }}"
                          class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-700">
                 </div>
                 <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
                     <div class="text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                        <h3 class="text-xl font-bold mb-2">Proyek {{ $project }}</h3>
+                        <h3 class="text-xl font-bold mb-2">Proyek</h3>
                         <p class="text-gray-200 text-sm">Struktur besi berkualitas tinggi</p>
                     </div>
                 </div>
@@ -256,13 +266,13 @@
         <div class="grid lg:grid-cols-2 gap-12 items-center">
             <div data-aos="fade-right">
                 <span class="text-blue-600 font-semibold text-lg mb-2 block">TIM KAMI</span>
-                <h2 class="text-4xl font-bold text-gray-800 mb-4">Charles Walker</h2>
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">Maryanto</h2>
                 <h4 class="text-blue-600 text-xl font-semibold mb-6">Founder & Project Manager</h4>
                 <blockquote class="text-gray-600 text-lg leading-relaxed mb-8 border-l-4 border-blue-500 pl-6 italic">
                     "Kualitas dan ketelitian adalah dasar utama dalam setiap pekerjaan kami. Dengan pengalaman bertahun-tahun dalam dunia konstruksi besi, kami memastikan setiap detail diperhatikan dengan cermat untuk memberikan hasil yang terbaik bagi klien kami."
                 </blockquote>
                 <div class="flex items-center space-x-6">
-                    <img src="{{ asset('images/signature.png') }}" alt="Tanda Tangan" class="h-12 opacity-80">
+                    {{-- <img src="{{ asset('images/signature.png') }}" alt="Tanda Tangan" class="h-12 opacity-80"> --}}
                     <div class="border-l border-gray-300 pl-6">
                         <p class="text-gray-500 font-semibold">10+ Tahun Pengalaman</p>
                         <p class="text-gray-400 text-sm">Spesialis Konstruksi Besi</p>
@@ -272,9 +282,9 @@
             <div class="relative" data-aos="fade-left">
                 <div class="relative z-10">
                     <img src="{{ asset('images/founder.jpg') }}" alt="Founder"
-                         class="rounded-2xl shadow-2xl w-full max-w-md mx-auto">
+                         class="rounded-2xl shadow-2xl w-full max-w-md mx-auto border-2 border-blue-500">
                 </div>
-                <div class="absolute -bottom-6 -right-6 w-full h-full border-2 border-blue-500 rounded-2xl"></div>
+                {{-- <div class="absolute inset-0 translate-x-3 translate-y-3 border-2 border-blue-500 rounded-2xl"></div> --}}
             </div>
         </div>
     </div>
@@ -334,7 +344,7 @@
 </section>
 
 <!-- Blog Section -->
-<section class="py-20 bg-white" id="blog">
+{{-- <section class="py-20 bg-white" id="blog">
     <div class="max-w-7xl mx-auto px-6">
         <div class="text-center mb-16" data-aos="fade-up">
             <span class="text-blue-600 font-semibold text-lg mb-2 block">ARTIKEL</span>
@@ -394,7 +404,7 @@
             </a>
         </div>
     </div>
-</section>
+</section> --}}
 
 <!-- CTA Section -->
 <section class="py-16 bg-gradient-to-r from-blue-600 to-cyan-500 text-white">
