@@ -172,7 +172,10 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#about" class="nav-link hover:text-blue-600 transition-colors duration-300">About Us</a>
+                    <a href="{{ route('about') }}"
+                        class="nav-link transition-colors duration-300 {{ request()->routeIs('about') ? 'text-blue-600' : 'hover:text-blue-600' }}">
+                        About Us
+                    </a>
                 </li>
 
                 <!-- Dropdown Pages -->
@@ -255,14 +258,14 @@
             class="hidden md:hidden bg-white/95 backdrop-blur-lg shadow-xl border-t border-gray-100 overflow-hidden">
             <ul class="flex flex-col px-6 py-4 text-gray-700 font-medium space-y-1">
                 <li>
-                    <a href="#home"
+                    <a href="{{ route('home') }}"
                         class="flex items-center px-4 py-3 rounded-lg hover:bg-blue-50 transition-all duration-200 group">
                         <i class="bi bi-house mr-3 text-blue-500"></i>
                         <span>Home</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#about"
+                    <a href="{{ route('about') }}"
                         class="flex items-center px-4 py-3 rounded-lg hover:bg-blue-50 transition-all duration-200 group">
                         <i class="bi bi-info-circle mr-3 text-blue-500"></i>
                         <span>About Us</span>

@@ -8,11 +8,7 @@ Route::get('/', function () {
     return view('home.home');
 })->name('home');
 
-Route::get('/clear-cache', function () {
-    Artisan::call('config:clear');
-    Artisan::call('cache:clear');
-    Artisan::call('route:clear');
-    Artisan::call('view:clear');
-    Artisan::call('config:cache');
-    return '✅ Cache cleared!';
-});
+Route::get('/about', function () {
+    return view('aboutus.about');
+})->name('about');
+
