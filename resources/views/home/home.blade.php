@@ -52,7 +52,7 @@
     </section>
 
     <!-- Stats Section -->
-    <section class="py-16 bg-white relative -mt-20 z-20">
+    <section class="py-16 bg-white relative mt-10 z-20">
         <div class="max-w-7xl mx-auto px-6">
             <div class="grid grid-cols-2 md:grid-cols-4 gap-8" data-aos="fade-up">
                 <div class="text-center group">
