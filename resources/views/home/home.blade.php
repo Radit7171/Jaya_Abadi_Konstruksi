@@ -304,7 +304,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="relative overflow-hidden" data-aos="fade-left" data-aos-anchor-placement="top-bottom">
+                <div class="relative overflow-hidden" data-aos="fade-right" data-aos-anchor-placement="top-bottom">
                     <div class="relative z-10">
                         <img src="{{ asset('images/founder.jpg') }}" alt="Founder"
                             class="rounded-2xl shadow-2xl w-full max-w-md mx-auto border-2 border-blue-500">
