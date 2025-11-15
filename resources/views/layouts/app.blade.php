@@ -489,83 +489,20 @@
                     </a>
                 </li>
 
-                <!-- Enhanced Dropdown Pages -->
-                <li class="relative group">
-                    <button class="nav-link flex items-center hover:text-blue-600 transition-all duration-300">
-                        <i class="bi bi-stack mr-2"></i>Pages
-                        <i
-                            class="bi bi-chevron-down ml-1 text-xs transition-transform duration-300 group-hover:rotate-180"></i>
-                    </button>
-                    <ul
-                        class="dropdown-menu absolute left-0 mt-2 w-56 glass-dark rounded-2xl shadow-2xl py-3 overflow-hidden">
-                        <li>
-                            <a href="#services"
-                                class="flex items-center px-5 py-3 text-white hover:bg-white/10 transition-all duration-300 group/item border-l-4 border-transparent hover:border-blue-400">
-                                <i
-                                    class="bi bi-tools mr-3 text-blue-400 group-hover/item:scale-110 transition-transform"></i>
-                                <div>
-                                    <span class="font-semibold">Services</span>
-                                    <p class="text-sm text-blue-200">Layanan kami</p>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#projects"
-                                class="flex items-center px-5 py-3 text-white hover:bg-white/10 transition-all duration-300 group/item border-l-4 border-transparent hover:border-green-400">
-                                <i
-                                    class="bi bi-building mr-3 text-green-400 group-hover/item:scale-110 transition-transform"></i>
-                                <div>
-                                    <span class="font-semibold">Projects</span>
-                                    <p class="text-sm text-blue-200">Portfolio kami</p>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#team"
-                                class="flex items-center px-5 py-3 text-white hover:bg-white/10 transition-all duration-300 group/item border-l-4 border-transparent hover:border-purple-400">
-                                <i
-                                    class="bi bi-people mr-3 text-purple-400 group-hover/item:scale-110 transition-transform"></i>
-                                <div>
-                                    <span class="font-semibold">Our Team</span>
-                                    <p class="text-sm text-blue-200">Tim profesional</p>
-                                </div>
-                            </a>
-                        </li>
-                    </ul>
+                <!-- Services Menu -->
+                <li>
+                    <a href="#services"
+                        class="nav-link {{ request()->routeIs('services') ? 'active text-blue-600' : 'hover:text-blue-600' }}">
+                        <i class="bi bi-tools mr-2"></i>Services
+                    </a>
                 </li>
 
-                <!-- Enhanced Dropdown Blog -->
-                <li class="relative group">
-                    <button class="nav-link flex items-center hover:text-blue-600 transition-all duration-300">
-                        <i class="bi bi-journal-text mr-2"></i>Blog
-                        <i
-                            class="bi bi-chevron-down ml-1 text-xs transition-transform duration-300 group-hover:rotate-180"></i>
-                    </button>
-                    <ul
-                        class="dropdown-menu absolute left-0 mt-2 w-56 glass-dark rounded-2xl shadow-2xl py-3 overflow-hidden">
-                        <li>
-                            <a href="#blog"
-                                class="flex items-center px-5 py-3 text-white hover:bg-white/10 transition-all duration-300 group/item border-l-4 border-transparent hover:border-cyan-400">
-                                <i
-                                    class="bi bi-journal-text mr-3 text-cyan-400 group-hover/item:scale-110 transition-transform"></i>
-                                <div>
-                                    <span class="font-semibold">All Posts</span>
-                                    <p class="text-sm text-blue-200">Artikel terbaru</p>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#blog-single"
-                                class="flex items-center px-5 py-3 text-white hover:bg-white/10 transition-all duration-300 group/item border-l-4 border-transparent hover:border-yellow-400">
-                                <i
-                                    class="bi bi-file-text mr-3 text-yellow-400 group-hover/item:scale-110 transition-transform"></i>
-                                <div>
-                                    <span class="font-semibold">Single Post</span>
-                                    <p class="text-sm text-blue-200">Detail artikel</p>
-                                </div>
-                            </a>
-                        </li>
-                    </ul>
+                <!-- Gallery Menu -->
+                <li>
+                    <a href="#gallery"
+                        class="nav-link {{ request()->routeIs('gallery') ? 'active text-blue-600' : 'hover:text-blue-600' }}">
+                        <i class="bi bi-images mr-2"></i>Gallery
+                    </a>
                 </li>
 
                 <li>
@@ -626,57 +563,29 @@
                             </a>
                         </li>
 
-                        <!-- Our Services Section -->
-                        <li class="mt-6 pt-6 border-t border-gray-100">
-                            <div
-                                class="text-sm font-semibold text-gray-500 uppercase tracking-wider px-4 mb-4 bg-gray-50 py-3 rounded-lg">
-                                Our Services
-                            </div>
-                            <div class="space-y-2">
-                                <a href="#services"
-                                    class="mobile-menu-item flex items-center px-4 py-4 rounded-xl hover:bg-purple-50 transition-all duration-300 group text-gray-700 text-lg">
-                                    <i
-                                        class="bi bi-tools mr-4 text-purple-600 text-xl group-hover:scale-110 transition-transform"></i>
-                                    <span>Services</span>
-                                </a>
-                                <a href="#projects"
-                                    class="mobile-menu-item flex items-center px-4 py-4 rounded-xl hover:bg-cyan-50 transition-all duration-300 group text-gray-700 text-lg">
-                                    <i
-                                        class="bi bi-building mr-4 text-cyan-600 text-xl group-hover:scale-110 transition-transform"></i>
-                                    <span>Projects</span>
-                                </a>
-                                <a href="#team"
-                                    class="mobile-menu-item flex items-center px-4 py-4 rounded-xl hover:bg-orange-50 transition-all duration-300 group text-gray-700 text-lg">
-                                    <i
-                                        class="bi bi-people mr-4 text-orange-600 text-xl group-hover:scale-110 transition-transform"></i>
-                                    <span>Our Team</span>
-                                </a>
-                            </div>
+                        <!-- Services Section -->
+                        <li>
+                            <a href="#services"
+                                class="mobile-menu-item flex items-center px-4 py-4 rounded-xl hover:bg-blue-50 transition-all duration-300 group text-gray-800 font-semibold text-lg">
+                                <i
+                                    class="bi bi-tools mr-4 text-purple-600 text-xl group-hover:scale-110 transition-transform"></i>
+                                <span class="flex-1">Services</span>
+                                <i class="bi bi-chevron-right text-gray-400"></i>
+                            </a>
                         </li>
 
-                        <!-- Blog Section -->
-                        <li class="mt-6 pt-6 border-t border-gray-100">
-                            <div
-                                class="text-sm font-semibold text-gray-500 uppercase tracking-wider px-4 mb-4 bg-gray-50 py-3 rounded-lg">
-                                Blog
-                            </div>
-                            <div class="space-y-2">
-                                <a href="#blog"
-                                    class="mobile-menu-item flex items-center px-4 py-4 rounded-xl hover:bg-red-50 transition-all duration-300 group text-gray-700 text-lg">
-                                    <i
-                                        class="bi bi-journal-text mr-4 text-red-600 text-xl group-hover:scale-110 transition-transform"></i>
-                                    <span>All Posts</span>
-                                </a>
-                                <a href="#blog-single"
-                                    class="mobile-menu-item flex items-center px-4 py-4 rounded-xl hover:bg-yellow-50 transition-all duration-300 group text-gray-700 text-lg">
-                                    <i
-                                        class="bi bi-file-text mr-4 text-yellow-600 text-xl group-hover:scale-110 transition-transform"></i>
-                                    <span>Single Post</span>
-                                </a>
-                            </div>
+                        <!-- Gallery Section -->
+                        <li>
+                            <a href="#gallery"
+                                class="mobile-menu-item flex items-center px-4 py-4 rounded-xl hover:bg-blue-50 transition-all duration-300 group text-gray-800 font-semibold text-lg">
+                                <i
+                                    class="bi bi-images mr-4 text-cyan-600 text-xl group-hover:scale-110 transition-transform"></i>
+                                <span class="flex-1">Gallery</span>
+                                <i class="bi bi-chevron-right text-gray-400"></i>
+                            </a>
                         </li>
 
-                        <li class="mt-6">
+                        <li>
                             <a href="#contact"
                                 class="mobile-menu-item flex items-center px-4 py-4 rounded-xl hover:bg-blue-50 transition-all duration-300 group text-gray-800 font-semibold text-lg">
                                 <i
@@ -783,9 +692,9 @@
                                 class="footer-link text-blue-100 hover:text-white text-lg font-medium flex items-center">
                                 <i class="bi bi-chevron-right mr-2 text-blue-300"></i>Services
                             </a></li>
-                        <li><a href="#projects"
+                        <li><a href="#gallery"
                                 class="footer-link text-blue-100 hover:text-white text-lg font-medium flex items-center">
-                                <i class="bi bi-chevron-right mr-2 text-blue-300"></i>Projects
+                                <i class="bi bi-chevron-right mr-2 text-blue-300"></i>Gallery
                             </a></li>
                         <li><a href="#contact"
                                 class="footer-link text-blue-100 hover:text-white text-lg font-medium flex items-center">
@@ -1046,35 +955,6 @@
             } else {
                 console.error('Mobile menu elements not found');
             }
-
-            // Enhanced dropdown animations
-            document.querySelectorAll('.group').forEach(group => {
-                const dropdown = group.querySelector('.dropdown-menu');
-
-                if (dropdown) {
-                    group.addEventListener('mouseenter', () => {
-                        gsap.to(dropdown, {
-                            opacity: 1,
-                            visibility: 'visible',
-                            y: 0,
-                            scale: 1,
-                            duration: 0.3,
-                            ease: "power2.out"
-                        });
-                    });
-
-                    group.addEventListener('mouseleave', () => {
-                        gsap.to(dropdown, {
-                            opacity: 0,
-                            visibility: 'hidden',
-                            y: -10,
-                            scale: 0.95,
-                            duration: 0.2,
-                            ease: "power2.in"
-                        });
-                    });
-                }
-            });
 
             // Enhanced active link animation
             document.querySelectorAll('.nav-link').forEach(link => {
