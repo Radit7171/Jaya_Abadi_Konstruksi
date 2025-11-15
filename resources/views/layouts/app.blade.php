@@ -688,7 +688,7 @@
                                 class="footer-link text-blue-100 hover:text-white text-lg font-medium flex items-center">
                                 <i class="bi bi-chevron-right mr-2 text-blue-300"></i>About Us
                             </a></li>
-                        <li><a href="#services"
+                        <li><a href="{{ route('services') }}"
                                 class="footer-link text-blue-100 hover:text-white text-lg font-medium flex items-center">
                                 <i class="bi bi-chevron-right mr-2 text-blue-300"></i>Services
                             </a></li>
