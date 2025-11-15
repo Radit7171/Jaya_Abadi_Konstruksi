@@ -10,7 +10,7 @@
         <div class="absolute inset-0 bg-black/40 z-0"></div>
         <div class="absolute inset-0">
             <div class="absolute inset-0 bg-gradient-to-r from-blue-900/80 to-cyan-900/60 z-10"></div>
-            <img src="{{ asset('images/projects/proyek4.jpg') }}" alt="Services Hero"
+            <img src="{{ asset('images/projects/proyek3.jpg') }}" alt="Services Hero"
                 class="w-full h-full object-cover transform scale-110 animate-slow-zoom">
         </div>
 
@@ -108,7 +108,7 @@
                     </div>
                     <h3 class="text-2xl font-bold text-gray-800 mb-4">Fabrikasi Custom</h3>
                     <p class="text-gray-600 leading-relaxed mb-6">
-                        Pembuatan komponen besi custom sesuai kebutuhan spesifik dengan teknologi CNC dan fabrikasi presisi.
+                        Pembuatan komponen besi custom sesuai kebutuhan spesifik dengan fabrikasi presisi.
                     </p>
                     <ul class="space-y-3 mb-8">
                         <li class="flex items-center text-gray-600">
@@ -335,7 +335,7 @@
                 </div>
                 <div class="relative" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
                     <div class="bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl p-2 overflow-hidden shadow-2xl">
-                        <img src="{{ asset('images/services/struktur-baja.jpg') }}" alt="Konstruksi Struktur Baja"
+                        <img src="{{ asset('images/services_gallery/servis1.jpg') }}" alt="Konstruksi Struktur Baja"
                             class="w-full h-96 object-cover rounded-xl">
                     </div>
                     <div class="absolute -bottom-6 -left-6 bg-white rounded-2xl p-6 shadow-xl border border-gray-100">
@@ -351,7 +351,7 @@
             <div class="grid lg:grid-cols-2 gap-16 items-center mb-32">
                 <div class="order-2 lg:order-1" data-aos="fade-right" data-aos-duration="1000">
                     <div class="bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-2xl p-2 overflow-hidden shadow-2xl">
-                        <img src="{{ asset('images/services/fabrikasi.jpg') }}" alt="Fabrikasi Custom"
+                        <img src="{{ asset('images/services_gallery/servis2.jpg') }}" alt="Fabrikasi Custom"
                             class="w-full h-96 object-cover rounded-xl">
                     </div>
                     <div class="absolute -bottom-6 -right-6 bg-white rounded-2xl p-6 shadow-xl border border-gray-100">
@@ -385,10 +385,6 @@
                         <div class="flex items-center">
                             <div class="bg-cyan-100 w-10 h-10 rounded-full flex items-center justify-center mr-4">
                                 <i class="bi bi-tools text-cyan-600"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-gray-800">Teknologi CNC</h4>
-                                <p class="text-gray-600 text-sm">Presisi tinggi dengan teknologi komputerisasi</p>
                             </div>
                         </div>
                         <div class="flex items-center">
