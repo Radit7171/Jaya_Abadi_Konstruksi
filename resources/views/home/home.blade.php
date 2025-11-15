@@ -197,10 +197,6 @@
                         </li>
                         <li class="flex items-center text-gray-600 group-hover:text-gray-700 transition-colors">
                             <i class="bi bi-check-circle-fill text-cyan-500 mr-3 text-lg"></i>
-                            CNC Precision
-                        </li>
-                        <li class="flex items-center text-gray-600 group-hover:text-gray-700 transition-colors">
-                            <i class="bi bi-check-circle-fill text-cyan-500 mr-3 text-lg"></i>
                             Quality Control
                         </li>
                     </ul>
@@ -289,7 +285,7 @@
                     <div
                         class="group relative overflow-hidden rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 cursor-pointer"
                         data-aos="fade-up" data-aos-duration="800" data-aos-delay="{{ $index * 100 }}"
-                        onclick="openLightbox({{ $index }})">
+                        >
                         <div class="aspect-w-16 aspect-h-12 bg-gray-200 overflow-hidden">
                             <img src="{{ asset('images/projects/' . $image) }}" alt="{{ $projectTitles[$index] }}"
                                 class="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-700">
