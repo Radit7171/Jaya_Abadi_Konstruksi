@@ -491,7 +491,7 @@
 
                 <!-- Services Menu -->
                 <li>
-                    <a href="#services"
+                    <a href="{{ route('services') }}"
                         class="nav-link {{ request()->routeIs('services') ? 'active text-blue-600' : 'hover:text-blue-600' }}">
                         <i class="bi bi-tools mr-2"></i>Services
                     </a>
