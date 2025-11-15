@@ -3,10 +3,11 @@
 @section('title', 'Layanan Kami | Jaya Abadi Konstruksi')
 
 @section('content')
-    <!-- Enhanced Hero Section -->
+    <!-- Enhanced Hero Section with Particles -->
     <section
-        class="relative min-h-[80vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-900 via-blue-900 to-cyan-900">
-        <!-- Animated Background -->
+        class="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-900 via-blue-900 to-cyan-900">
+        <!-- Animated Background Particles -->
+        <div id="particles-js" class="absolute inset-0 z-0"></div>
         <div class="absolute inset-0 bg-black/40 z-0"></div>
         <div class="absolute inset-0">
             <div class="absolute inset-0 bg-gradient-to-r from-blue-900/80 to-cyan-900/60 z-10"></div>
@@ -38,7 +39,7 @@
                 <div class="flex flex-col sm:flex-row gap-4 justify-center items-center" data-aos="fade-up"
                     data-aos-delay="400" data-aos-once="true">
                     <a href="#services"
-                        class="group bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white px-8 py-4 rounded-2xl font-semibold shadow-2xl transform hover:-translate-y-1 transition-all duration-300 flex items-center shadow-blue-500/30">
+                        class="group bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white px-8 py-4 rounded-2xl font-semibold shadow-2xl transform hover:-translate-y-1 transition-all duration-300 flex items-center shadow-blue-500/30 hover:shadow-blue-500/50">
                         <span>Jelajahi Layanan</span>
                         <i class="bi bi-arrow-down ml-2 group-hover:translate-y-1 transition-transform duration-300"></i>
                     </a>
@@ -67,199 +68,135 @@
             </div>
 
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Service 1 -->
-                <div class="bg-white rounded-3xl p-8 shadow-xl border border-gray-100 group hover:shadow-2xl transition-all duration-500 hover:-translate-y-2"
-                    data-aos="fade-up" data-aos-duration="800">
-                    <div
-                        class="bg-gradient-to-br from-blue-500 to-blue-600 w-20 h-20 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
-                        <i class="bi bi-building text-3xl text-white"></i>
+                @foreach ([
+            [
+                'icon' => 'bi-building',
+                'title' => 'Konstruksi Struktur Baja',
+                'description' => 'Desain dan konstruksi struktur baja untuk gedung, pabrik, gudang, dan bangunan industri dengan presisi tinggi.',
+                'features' => ['Rangka atap baja', 'Struktur gedung bertingkat', 'Kanopi dan shelter'],
+                'color' => 'blue',
+            ],
+            [
+                'icon' => 'bi-hammer',
+                'title' => 'Fabrikasi Custom',
+                'description' => 'Pembuatan komponen besi custom sesuai kebutuhan spesifik dengan fabrikasi presisi.',
+                'features' => ['Tangga dan railing besi', 'Partisi dan panel dekoratif', 'Furniture dan ornamen besi'],
+                'color' => 'cyan',
+            ],
+            [
+                'icon' => 'bi-wrench-adjustable',
+                'title' => 'Perbaikan & Maintenance',
+                'description' => 'Layanan perbaikan, pemeliharaan, dan renovasi struktur besi dengan standar keamanan dan kualitas terjamin.',
+                'features' => ['Perbaikan struktur rusak', 'Penggantian komponen', 'Perawatan preventif'],
+                'color' => 'green',
+            ],
+            [
+                'icon' => 'bi-palette',
+                'title' => 'Finishing & Coating',
+                'description' => 'Aplikasi finishing dan coating untuk perlindungan korosi serta estetika dengan berbagai pilihan warna dan tekstur.',
+                'features' => ['Cat epoxy dan powder coating', 'Galvanizing & zinc coating', 'Finishing dekoratif'],
+                'color' => 'purple',
+            ],
+            [
+                'icon' => 'bi-clipboard-check',
+                'title' => 'Konsultasi & Desain',
+                'description' => 'Layanan konsultasi dan desain struktur besi dengan analisis teknis, perhitungan beban, dan solusi optimal.',
+                'features' => ['Analisis struktur', 'Desain 3D & rendering', 'Perhitungan teknis'],
+                'color' => 'orange',
+            ],
+            [
+                'icon' => 'bi-lightning-charge',
+                'title' => 'Instalasi Cepat',
+                'description' => 'Layanan instalasi cepat untuk proyek dengan tenggat waktu ketat tanpa mengorbankan kualitas dan keamanan.',
+                'features' => ['Tim berpengalaman', 'Peralatan modern', 'Garansi pengerjaan'],
+                'color' => 'red',
+            ],
+        ] as $index => $service)
+                    <div class="bg-white rounded-3xl p-8 shadow-xl border border-gray-100 group hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 service-card"
+                        data-aos="fade-up" data-aos-duration="800" data-aos-delay="{{ $index * 100 }}">
+                        <div
+                            class="bg-gradient-to-br from-{{ $service['color'] }}-500 to-{{ $service['color'] }}-600 w-20 h-20 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500 service-icon">
+                            <i class="{{ $service['icon'] }} text-3xl text-white"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4">{{ $service['title'] }}</h3>
+                        <p class="text-gray-600 leading-relaxed mb-6">
+                            {{ $service['description'] }}
+                        </p>
+                        <ul class="space-y-3 mb-8">
+                            @foreach ($service['features'] as $feature)
+                                <li class="flex items-center text-gray-600">
+                                    <i class="bi bi-check-circle-fill mr-3 text-green-500"></i>
+                                    {{ $feature }}
+                                </li>
+                            @endforeach
+                        </ul>
+                        <a href="#contact"
+                            class="inline-flex items-center text-{{ $service['color'] }}-600 font-semibold group">
+                            <span>Konsultasi Proyek</span>
+                            <i class="bi bi-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+                        </a>
                     </div>
-                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Konstruksi Struktur Baja</h3>
-                    <p class="text-gray-600 leading-relaxed mb-6">
-                        Desain dan konstruksi struktur baja untuk gedung, pabrik, gudang, dan bangunan industri dengan
-                        presisi tinggi.
-                    </p>
-                    <ul class="space-y-3 mb-8">
-                        <li class="flex items-center text-gray-600">
-                            <i class="bi bi-check-circle-fill mr-3 text-green-500"></i>
-                            Rangka atap baja
-                        </li>
-                        <li class="flex items-center text-gray-600">
-                            <i class="bi bi-check-circle-fill mr-3 text-green-500"></i>
-                            Struktur gedung bertingkat
-                        </li>
-                        <li class="flex items-center text-gray-600">
-                            <i class="bi bi-check-circle-fill mr-3 text-green-500"></i>
-                            Kanopi dan shelter
-                        </li>
-                    </ul>
-                    <a href="#contact" class="inline-flex items-center text-blue-600 font-semibold group">
-                        <span>Konsultasi Proyek</span>
-                        <i class="bi bi-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
-                    </a>
-                </div>
-
-                <!-- Service 2 -->
-                <div class="bg-white rounded-3xl p-8 shadow-xl border border-gray-100 group hover:shadow-2xl transition-all duration-500 hover:-translate-y-2"
-                    data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
-                    <div
-                        class="bg-gradient-to-br from-cyan-500 to-cyan-600 w-20 h-20 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
-                        <i class="bi bi-hammer text-3xl text-white"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Fabrikasi Custom</h3>
-                    <p class="text-gray-600 leading-relaxed mb-6">
-                        Pembuatan komponen besi custom sesuai kebutuhan spesifik dengan fabrikasi presisi.
-                    </p>
-                    <ul class="space-y-3 mb-8">
-                        <li class="flex items-center text-gray-600">
-                            <i class="bi bi-check-circle-fill mr-3 text-green-500"></i>
-                            Tangga dan railing besi
-                        </li>
-                        <li class="flex items-center text-gray-600">
-                            <i class="bi bi-check-circle-fill mr-3 text-green-500"></i>
-                            Partisi dan panel dekoratif
-                        </li>
-                        <li class="flex items-center text-gray-600">
-                            <i class="bi bi-check-circle-fill mr-3 text-green-500"></i>
-                            Furniture dan ornamen besi
-                        </li>
-                    </ul>
-                    <a href="#contact" class="inline-flex items-center text-cyan-600 font-semibold group">
-                        <span>Diskusi Kebutuhan</span>
-                        <i class="bi bi-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
-                    </a>
-                </div>
-
-                <!-- Service 3 -->
-                <div class="bg-white rounded-3xl p-8 shadow-xl border border-gray-100 group hover:shadow-2xl transition-all duration-500 hover:-translate-y-2"
-                    data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
-                    <div
-                        class="bg-gradient-to-br from-green-500 to-green-600 w-20 h-20 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
-                        <i class="bi bi-wrench-adjustable text-3xl text-white"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Perbaikan & Maintenance</h3>
-                    <p class="text-gray-600 leading-relaxed mb-6">
-                        Layanan perbaikan, pemeliharaan, dan renovasi struktur besi dengan standar keamanan dan kualitas
-                        terjamin.
-                    </p>
-                    <ul class="space-y-3 mb-8">
-                        <li class="flex items-center text-gray-600">
-                            <i class="bi bi-check-circle-fill mr-3 text-green-500"></i>
-                            Perbaikan struktur rusak
-                        </li>
-                        <li class="flex items-center text-gray-600">
-                            <i class="bi bi-check-circle-fill mr-3 text-green-500"></i>
-                            Penggantian komponen
-                        </li>
-                        <li class="flex items-center text-gray-600">
-                            <i class="bi bi-check-circle-fill mr-3 text-green-500"></i>
-                            Perawatan preventif
-                        </li>
-                    </ul>
-                    <a href="#contact" class="inline-flex items-center text-green-600 font-semibold group">
-                        <span>Jadwalkan Survey</span>
-                        <i class="bi bi-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
-                    </a>
-                </div>
-
-                <!-- Service 4 -->
-                <div class="bg-white rounded-3xl p-8 shadow-xl border border-gray-100 group hover:shadow-2xl transition-all duration-500 hover:-translate-y-2"
-                    data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
-                    <div
-                        class="bg-gradient-to-br from-purple-500 to-purple-600 w-20 h-20 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
-                        <i class="bi bi-palette text-3xl text-white"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Finishing & Coating</h3>
-                    <p class="text-gray-600 leading-relaxed mb-6">
-                        Aplikasi finishing dan coating untuk perlindungan korosi serta estetika dengan berbagai pilihan
-                        warna dan tekstur.
-                    </p>
-                    <ul class="space-y-3 mb-8">
-                        <li class="flex items-center text-gray-600">
-                            <i class="bi bi-check-circle-fill mr-3 text-green-500"></i>
-                            Cat epoxy dan powder coating
-                        </li>
-                        <li class="flex items-center text-gray-600">
-                            <i class="bi bi-check-circle-fill mr-3 text-green-500"></i>
-                            Galvanizing & zinc coating
-                        </li>
-                        <li class="flex items-center text-gray-600">
-                            <i class="bi bi-check-circle-fill mr-3 text-green-500"></i>
-                            Finishing dekoratif
-                        </li>
-                    </ul>
-                    <a href="#contact" class="inline-flex items-center text-purple-600 font-semibold group">
-                        <span>Lihat Katalog</span>
-                        <i class="bi bi-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
-                    </a>
-                </div>
-
-                <!-- Service 5 -->
-                <div class="bg-white rounded-3xl p-8 shadow-xl border border-gray-100 group hover:shadow-2xl transition-all duration-500 hover:-translate-y-2"
-                    data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
-                    <div
-                        class="bg-gradient-to-br from-orange-500 to-orange-600 w-20 h-20 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
-                        <i class="bi bi-clipboard-check text-3xl text-white"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Konsultasi & Desain</h3>
-                    <p class="text-gray-600 leading-relaxed mb-6">
-                        Layanan konsultasi dan desain struktur besi dengan analisis teknis, perhitungan beban, dan solusi
-                        optimal.
-                    </p>
-                    <ul class="space-y-3 mb-8">
-                        <li class="flex items-center text-gray-600">
-                            <i class="bi bi-check-circle-fill mr-3 text-green-500"></i>
-                            Analisis struktur
-                        </li>
-                        <li class="flex items-center text-gray-600">
-                            <i class="bi bi-check-circle-fill mr-3 text-green-500"></i>
-                            Desain 3D & rendering
-                        </li>
-                        <li class="flex items-center text-gray-600">
-                            <i class="bi bi-check-circle-fill mr-3 text-green-500"></i>
-                            Perhitungan teknis
-                        </li>
-                    </ul>
-                    <a href="#contact" class="inline-flex items-center text-orange-600 font-semibold group">
-                        <span>Konsultasi Gratis</span>
-                        <i class="bi bi-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
-                    </a>
-                </div>
-
-                <!-- Service 6 -->
-                <div class="bg-white rounded-3xl p-8 shadow-xl border border-gray-100 group hover:shadow-2xl transition-all duration-500 hover:-translate-y-2"
-                    data-aos="fade-up" data-aos-duration="800" data-aos-delay="500">
-                    <div
-                        class="bg-gradient-to-br from-red-500 to-red-600 w-20 h-20 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
-                        <i class="bi bi-lightning-charge text-3xl text-white"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Instalasi Cepat</h3>
-                    <p class="text-gray-600 leading-relaxed mb-6">
-                        Layanan instalasi cepat untuk proyek dengan tenggat waktu ketat tanpa mengorbankan kualitas dan
-                        keamanan.
-                    </p>
-                    <ul class="space-y-3 mb-8">
-                        <li class="flex items-center text-gray-600">
-                            <i class="bi bi-check-circle-fill mr-3 text-green-500"></i>
-                            Tim berpengalaman
-                        </li>
-                        <li class="flex items-center text-gray-600">
-                            <i class="bi bi-check-circle-fill mr-3 text-green-500"></i>
-                            Peralatan modern
-                        </li>
-                        <li class="flex items-center text-gray-600">
-                            <i class="bi bi-check-circle-fill mr-3 text-green-500"></i>
-                            Garansi pengerjaan
-                        </li>
-                    </ul>
-                    <a href="#contact" class="inline-flex items-center text-red-600 font-semibold group">
-                        <span>Dapatkan Penawaran</span>
-                        <i class="bi bi-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
-                    </a>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>
+
+    <!-- Interactive Service Showcase -->
+    <section class="py-20 bg-gradient-to-br from-gray-50 to-blue-50/30 relative overflow-hidden" id="showcase">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16" data-aos="fade-up" data-aos-duration="1000">
+            <div class="inline-flex items-center px-4 py-2 bg-blue-100 rounded-full text-blue-700 font-medium mb-4">
+                <i class="bi bi-stars mr-2"></i>
+                INOVASI TEKNOLOGI
+            </div>
+            <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">Teknologi Konstruksi Modern</h2>
+            <p class="text-gray-600 max-w-2xl mx-auto text-lg">
+                Mengintegrasikan teknologi terkini untuk hasil konstruksi yang presisi dan efisien
+            </p>
+        </div>
+
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+            <div data-aos="fade-right" data-aos-duration="1000">
+                <div class="space-y-8">
+                    @foreach ([['icon' => 'bi-cpu', 'title' => 'Desain 3D & BIM', 'desc' => 'Menggunakan Building Information Modeling untuk visualisasi dan koordinasi proyek yang akurat'], ['icon' => 'bi-robot', 'title' => 'Fabrikasi Robotik', 'desc' => 'Presisi tinggi dengan teknologi robotik untuk hasil yang konsisten dan berkualitas'], ['icon' => 'bi-graph-up', 'title' => 'Analisis Struktur Digital', 'desc' => 'Simulasi dan analisis struktur dengan software terkini untuk keamanan optimal'], ['icon' => 'bi-shield-check', 'title' => 'Quality Control Digital', 'desc' => 'Sistem monitoring digital untuk memastikan kualitas di setiap tahap pengerjaan']] as $tech)
+                        <div class="flex items-start group" data-aos="fade-up" data-aos-duration="800">
+                            <div
+                                class="bg-blue-100 w-14 h-14 rounded-2xl flex items-center justify-center mr-5 flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                                <i class="{{ $tech['icon'] }} text-blue-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800 text-xl mb-2">{{ $tech['title'] }}</h4>
+                                <p class="text-gray-600">{{ $tech['desc'] }}</p>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+
+            <div class="relative" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
+                <div class="bg-gradient-to-br from-blue-500 to-blue-600 rounded-3xl p-1 shadow-2xl">
+                    <div class="bg-white rounded-2xl p-8 h-full">
+                        <!-- Foto showcase -->
+                        <div class="aspect-video bg-gray-100 rounded-xl overflow-hidden">
+                            <img
+                                src="{{ asset('images/construction-tech-showcase.jpg') }}"
+                                alt="Teknologi Konstruksi Modern"
+                                class="w-full h-full object-cover"
+                                onerror="this.src='https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80'"
+                            >
+                        </div>
+
+                        <!-- Keterangan foto -->
+                        <div class="mt-6">
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Teknologi Konstruksi Modern</h3>
+                            <p class="text-gray-600">Implementasi teknologi canggih dalam proses konstruksi untuk efisiensi dan presisi yang lebih baik</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
     <!-- Detailed Services Section -->
     <section class="py-24 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden" id="services">
@@ -386,6 +323,10 @@
                             <div class="bg-cyan-100 w-10 h-10 rounded-full flex items-center justify-center mr-4">
                                 <i class="bi bi-tools text-cyan-600"></i>
                             </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800">Fabrikasi Presisi</h4>
+                                <p class="text-gray-600 text-sm">Pengerjaan dengan mesin CNC untuk hasil yang akurat</p>
+                            </div>
                         </div>
                         <div class="flex items-center">
                             <div class="bg-cyan-100 w-10 h-10 rounded-full flex items-center justify-center mr-4">
@@ -429,64 +370,26 @@
             </div>
 
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- Step 1 -->
-                <div class="text-center group" data-aos="fade-up" data-aos-duration="800">
-                    <div class="relative mb-8">
-                        <div
-                            class="bg-gradient-to-br from-blue-500 to-blue-600 w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:scale-110 transition-transform duration-500">
-                            <span class="text-white text-2xl font-bold">1</span>
+                @foreach ([['num' => '1', 'title' => 'Konsultasi & Analisis', 'desc' => 'Diskusi kebutuhan, survey lokasi, dan analisis teknis untuk menentukan solusi terbaik', 'color' => 'blue'], ['num' => '2', 'title' => 'Desain & Perencanaan', 'desc' => 'Pembuatan desain detail, perhitungan struktur, dan perencanaan pengerjaan', 'color' => 'cyan'], ['num' => '3', 'title' => 'Produksi & Fabrikasi', 'desc' => 'Proses fabrikasi dengan teknologi terkini dan quality control ketat', 'color' => 'green'], ['num' => '4', 'title' => 'Instalasi & Serah Terima', 'desc' => 'Instalasi profesional, testing, dan serah terima proyek dengan dokumentasi lengkap', 'color' => 'purple']] as $step)
+                    <div class="text-center group process-step" data-aos="fade-up" data-aos-duration="800"
+                        data-aos-delay="{{ $loop->index * 100 }}">
+                        <div class="relative mb-8">
+                            <div
+                                class="bg-gradient-to-br from-{{ $step['color'] }}-500 to-{{ $step['color'] }}-600 w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:scale-110 transition-transform duration-500">
+                                <span class="text-white text-2xl font-bold">{{ $step['num'] }}</span>
+                            </div>
+                            @if (!$loop->last)
+                                <div
+                                    class="hidden lg:block absolute top-10 left-1/2 w-full h-1 bg-{{ $step['color'] }}-200 -z-10">
+                                </div>
+                            @endif
                         </div>
-                        <div class="hidden lg:block absolute top-10 left-1/2 w-full h-1 bg-blue-200 -z-10"></div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-4">{{ $step['title'] }}</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            {{ $step['desc'] }}
+                        </p>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-4">Konsultasi & Analisis</h3>
-                    <p class="text-gray-600 text-sm leading-relaxed">
-                        Diskusi kebutuhan, survey lokasi, dan analisis teknis untuk menentukan solusi terbaik
-                    </p>
-                </div>
-
-                <!-- Step 2 -->
-                <div class="text-center group" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
-                    <div class="relative mb-8">
-                        <div
-                            class="bg-gradient-to-br from-cyan-500 to-cyan-600 w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:scale-110 transition-transform duration-500">
-                            <span class="text-white text-2xl font-bold">2</span>
-                        </div>
-                        <div class="hidden lg:block absolute top-10 left-1/2 w-full h-1 bg-cyan-200 -z-10"></div>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-4">Desain & Perencanaan</h3>
-                    <p class="text-gray-600 text-sm leading-relaxed">
-                        Pembuatan desain detail, perhitungan struktur, dan perencanaan pengerjaan
-                    </p>
-                </div>
-
-                <!-- Step 3 -->
-                <div class="text-center group" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
-                    <div class="relative mb-8">
-                        <div
-                            class="bg-gradient-to-br from-green-500 to-green-600 w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:scale-110 transition-transform duration-500">
-                            <span class="text-white text-2xl font-bold">3</span>
-                        </div>
-                        <div class="hidden lg:block absolute top-10 left-1/2 w-full h-1 bg-green-200 -z-10"></div>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-4">Produksi & Fabrikasi</h3>
-                    <p class="text-gray-600 text-sm leading-relaxed">
-                        Proses fabrikasi dengan teknologi terkini dan quality control ketat
-                    </p>
-                </div>
-
-                <!-- Step 4 -->
-                <div class="text-center group" data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
-                    <div class="relative mb-8">
-                        <div
-                            class="bg-gradient-to-br from-purple-500 to-purple-600 w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:scale-110 transition-transform duration-500">
-                            <span class="text-white text-2xl font-bold">4</span>
-                        </div>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-4">Instalasi & Serah Terima</h3>
-                    <p class="text-gray-600 text-sm leading-relaxed">
-                        Instalasi profesional, testing, dan serah terima proyek dengan dokumentasi lengkap
-                    </p>
-                </div>
+                @endforeach
             </div>
 
             <!-- Process CTA -->
@@ -517,97 +420,34 @@
                     </p>
 
                     <div class="space-y-6">
-                        <div class="flex items-start group">
-                            <div
-                                class="bg-blue-100 w-12 h-12 rounded-2xl flex items-center justify-center mr-5 flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
-                                <i class="bi bi-shield-check text-blue-600 text-xl"></i>
+                        @foreach ([['icon' => 'bi-shield-check', 'title' => 'Bersertifikat & Berpengalaman', 'desc' => 'Tim profesional dengan sertifikasi dan pengalaman dalam berbagai proyek', 'color' => 'blue'], ['icon' => 'bi-tools', 'title' => 'Teknologi Terkini', 'desc' => 'Menggunakan peralatan modern dan teknologi terkini untuk hasil presisi', 'color' => 'cyan'], ['icon' => 'bi-clock', 'title' => 'Tepat Waktu', 'desc' => 'Komitmen pada deadline dengan sistem manajemen proyek yang terstruktur', 'color' => 'green'], ['icon' => 'bi-headset', 'title' => 'Layanan 24/7', 'desc' => 'Dukungan teknis dan layanan purna jual yang responsif', 'color' => 'purple']] as $feature)
+                            <div class="flex items-start group">
+                                <div
+                                    class="bg-{{ $feature['color'] }}-100 w-12 h-12 rounded-2xl flex items-center justify-center mr-5 flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                                    <i class="{{ $feature['icon'] }} text-{{ $feature['color'] }}-600 text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gray-800 text-lg mb-2">{{ $feature['title'] }}</h4>
+                                    <p class="text-gray-600">{{ $feature['desc'] }}</p>
+                                </div>
                             </div>
-                            <div>
-                                <h4 class="font-bold text-gray-800 text-lg mb-2">Bersertifikat & Berpengalaman</h4>
-                                <p class="text-gray-600">Tim profesional dengan sertifikasi dan pengalaman dalam berbagai
-                                    proyek</p>
-                            </div>
-                        </div>
-
-                        <div class="flex items-start group">
-                            <div
-                                class="bg-cyan-100 w-12 h-12 rounded-2xl flex items-center justify-center mr-5 flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
-                                <i class="bi bi-tools text-cyan-600 text-xl"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-gray-800 text-lg mb-2">Teknologi Terkini</h4>
-                                <p class="text-gray-600">Menggunakan peralatan modern dan teknologi terkini untuk hasil
-                                    presisi</p>
-                            </div>
-                        </div>
-
-                        <div class="flex items-start group">
-                            <div
-                                class="bg-green-100 w-12 h-12 rounded-2xl flex items-center justify-center mr-5 flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
-                                <i class="bi bi-clock text-green-600 text-xl"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-gray-800 text-lg mb-2">Tepat Waktu</h4>
-                                <p class="text-gray-600">Komitmen pada deadline dengan sistem manajemen proyek yang
-                                    terstruktur</p>
-                            </div>
-                        </div>
-
-                        <div class="flex items-start group">
-                            <div
-                                class="bg-purple-100 w-12 h-12 rounded-2xl flex items-center justify-center mr-5 flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
-                                <i class="bi bi-headset text-purple-600 text-xl"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-gray-800 text-lg mb-2">Layanan 24/7</h4>
-                                <p class="text-gray-600">Dukungan teknis dan layanan purna jual yang responsif</p>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
 
                 <div class="relative" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
                     <div class="grid grid-cols-2 gap-6">
-                        <div class="space-y-6">
+                        @foreach ([['icon' => 'bi-building', 'value' => '50+', 'label' => 'Proyek Selesai', 'color' => 'blue'], ['icon' => 'bi-check-circle', 'value' => '100%', 'label' => 'Klien Puas', 'color' => 'green'], ['icon' => 'bi-people', 'value' => '15+', 'label' => 'Tim Ahli', 'color' => 'cyan'], ['icon' => 'bi-award', 'value' => '10+', 'label' => 'Tahun Pengalaman', 'color' => 'purple']] as $stat)
                             <div
                                 class="bg-white rounded-2xl p-6 text-center shadow-xl border border-gray-100 group hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
                                 <div
-                                    class="bg-gradient-to-br from-blue-500 to-blue-600 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
-                                    <i class="bi bi-building text-2xl text-white"></i>
+                                    class="bg-gradient-to-br from-{{ $stat['color'] }}-500 to-{{ $stat['color'] }}-600 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
+                                    <i class="{{ $stat['icon'] }} text-2xl text-white"></i>
                                 </div>
-                                <h4 class="font-bold text-gray-800 text-xl mb-1">50+</h4>
-                                <p class="text-gray-600">Proyek Selesai</p>
+                                <h4 class="font-bold text-gray-800 text-xl mb-1">{{ $stat['value'] }}</h4>
+                                <p class="text-gray-600">{{ $stat['label'] }}</p>
                             </div>
-                            <div
-                                class="bg-white rounded-2xl p-6 text-center shadow-xl border border-gray-100 group hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
-                                <div
-                                    class="bg-gradient-to-br from-green-500 to-green-600 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
-                                    <i class="bi bi-check-circle text-2xl text-white"></i>
-                                </div>
-                                <h4 class="font-bold text-gray-800 text-xl mb-1">100%</h4>
-                                <p class="text-gray-600">Klien Puas</p>
-                            </div>
-                        </div>
-                        <div class="space-y-6 mt-12">
-                            <div
-                                class="bg-white rounded-2xl p-6 text-center shadow-xl border border-gray-100 group hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
-                                <div
-                                    class="bg-gradient-to-br from-cyan-500 to-cyan-600 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
-                                    <i class="bi bi-people text-2xl text-white"></i>
-                                </div>
-                                <h4 class="font-bold text-gray-800 text-xl mb-1">15+</h4>
-                                <p class="text-gray-600">Tim Ahli</p>
-                            </div>
-                            <div
-                                class="bg-white rounded-2xl p-6 text-center shadow-xl border border-gray-100 group hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
-                                <div
-                                    class="bg-gradient-to-br from-purple-500 to-purple-600 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
-                                    <i class="bi bi-award text-2xl text-white"></i>
-                                </div>
-                                <h4 class="font-bold text-gray-800 text-xl mb-1">10+</h4>
-                                <p class="text-gray-600">Tahun Pengalaman</p>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
 
                     <!-- Background Decoration -->
@@ -615,6 +455,57 @@
                         class="absolute -z-10 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-blue-100 rounded-full blur-3xl opacity-30">
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-24 bg-gradient-to-b from-gray-50 to-white" id="faq">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up" data-aos-duration="1000">
+                <div class="inline-flex items-center px-4 py-2 bg-blue-100 rounded-full text-blue-700 font-medium mb-4">
+                    <i class="bi bi-question-circle mr-2"></i>
+                    PERTANYAAN UMUM
+                </div>
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">Pertanyaan yang Sering Diajukan</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto text-lg">
+                    Temukan jawaban untuk pertanyaan umum seputar layanan konstruksi besi kami
+                </p>
+            </div>
+
+            <div class="space-y-4" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                @foreach ([
+            [
+                'question' => 'Berapa lama waktu pengerjaan proyek konstruksi besi?',
+                'answer' => 'Waktu pengerjaan bervariasi tergantung kompleksitas dan skala proyek. Proyek kecil seperti kanopi biasanya 1-2 minggu, sedangkan struktur gedung besar dapat memakan waktu 2-4 bulan.',
+            ],
+            [
+                'question' => 'Apakah material yang digunakan berkualitas?',
+                'answer' => 'Ya, kami hanya menggunakan material berkualitas dengan sertifikasi SNI dan standar internasional. Semua material melalui proses quality control ketat sebelum digunakan.',
+            ],
+            [
+                'question' => 'Bagaimana sistem pembayaran proyek?',
+                'answer' => 'Kami menawarkan sistem pembayaran yang fleksibel, biasanya dengan DP 30-50% di awal, progres payment selama pengerjaan, dan pelunasan saat serah terima proyek.',
+            ],
+            [
+                'question' => 'Apakah ada garansi untuk pekerjaan?',
+                'answer' => 'Ya, semua pekerjaan kami berikan garansi mulai dari 1-5 tahun tergantung jenis pekerjaan. Garansi mencakup material dan pengerjaan.',
+            ],
+            [
+                'question' => 'Bagaimana proses konsultasi dan penawaran?',
+                'answer' => 'Proses dimulai dengan konsultasi gratis, survey lokasi, kemudian kami buat desain dan penawaran detail. Semua proses tanpa biaya hingga Anda menyetujui penawaran.',
+            ],
+        ] as $faq)
+                    <div class="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 faq-item">
+                        <div class="flex justify-between items-center cursor-pointer">
+                            <h3 class="text-lg font-semibold text-gray-800">{{ $faq['question'] }}</h3>
+                            <i class="bi bi-chevron-down text-blue-600 text-xl transition-transform duration-300"></i>
+                        </div>
+                        <div class="mt-4 text-gray-600 hidden">
+                            {{ $faq['answer'] }}
+                        </div>
+                    </div>
+                @endforeach
             </div>
         </div>
     </section>
@@ -656,6 +547,9 @@
 @endsection
 
 @section('scripts')
+    <!-- Include Particles.js -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
     <script>
         // Enhanced AOS initialization
         document.addEventListener('DOMContentLoaded', function() {
@@ -669,6 +563,93 @@
                 anchorPlacement: 'top-bottom',
                 disable: window.innerWidth < 768
             });
+
+            // Initialize Particles.js
+            if (document.getElementById('particles-js')) {
+                particlesJS('particles-js', {
+                    particles: {
+                        number: {
+                            value: 80,
+                            density: {
+                                enable: true,
+                                value_area: 800
+                            }
+                        },
+                        color: {
+                            value: "#ffffff"
+                        },
+                        shape: {
+                            type: "circle",
+                            stroke: {
+                                width: 0,
+                                color: "#000000"
+                            }
+                        },
+                        opacity: {
+                            value: 0.3,
+                            random: true,
+                            anim: {
+                                enable: true,
+                                speed: 1,
+                                opacity_min: 0.1,
+                                sync: false
+                            }
+                        },
+                        size: {
+                            value: 3,
+                            random: true,
+                            anim: {
+                                enable: true,
+                                speed: 2,
+                                size_min: 0.1,
+                                sync: false
+                            }
+                        },
+                        line_linked: {
+                            enable: true,
+                            distance: 150,
+                            color: "#ffffff",
+                            opacity: 0.2,
+                            width: 1
+                        },
+                        move: {
+                            enable: true,
+                            speed: 1,
+                            direction: "none",
+                            random: true,
+                            straight: false,
+                            out_mode: "out",
+                            bounce: false
+                        }
+                    },
+                    interactivity: {
+                        detect_on: "canvas",
+                        events: {
+                            onhover: {
+                                enable: true,
+                                mode: "grab"
+                            },
+                            onclick: {
+                                enable: true,
+                                mode: "push"
+                            },
+                            resize: true
+                        },
+                        modes: {
+                            grab: {
+                                distance: 140,
+                                line_linked: {
+                                    opacity: 0.5
+                                }
+                            },
+                            push: {
+                                particles_nb: 4
+                            }
+                        }
+                    },
+                    retina_detect: true
+                });
+            }
 
             // Enhanced smooth scroll untuk anchor links
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -691,14 +672,14 @@
             // Parallax effect for hero section
             window.addEventListener('scroll', function() {
                 const scrolled = window.pageYOffset;
-                const hero = document.querySelector('.relative.min-h-\\[80vh\\]');
+                const hero = document.querySelector('.relative.min-h-\\[90vh\\]');
                 if (hero) {
                     hero.style.transform = `translateY(${scrolled * 0.5}px)`;
                 }
             });
 
             // Service cards interaction
-            const serviceCards = document.querySelectorAll('.bg-white.rounded-3xl.p-8');
+            const serviceCards = document.querySelectorAll('.service-card');
 
             serviceCards.forEach(card => {
                 card.addEventListener('mouseenter', function() {
@@ -710,6 +691,30 @@
                 });
             });
 
+            // FAQ Accordion functionality
+            const faqItems = document.querySelectorAll('.faq-item');
+
+            faqItems.forEach(item => {
+                const question = item.querySelector('.cursor-pointer');
+                const answer = item.querySelector('.hidden');
+                const icon = item.querySelector('.bi-chevron-down');
+
+                question.addEventListener('click', () => {
+                    // Toggle current item
+                    answer.classList.toggle('hidden');
+                    icon.classList.toggle('rotate-180');
+
+                    // Close other items
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.querySelector('.hidden').classList.add('hidden');
+                            otherItem.querySelector('.bi-chevron-down').classList.remove(
+                                'rotate-180');
+                        }
+                    });
+                });
+            });
+
             // Refresh AOS pada event tertentu
             window.addEventListener('load', function() {
                 AOS.refresh();
@@ -718,39 +723,40 @@
             window.addEventListener('resize', function() {
                 setTimeout(() => AOS.refresh(), 500);
             });
-        });
 
-        // Counter animation for stats
-        function animateCounter(element, target, duration) {
-            let start = 0;
-            const increment = target / (duration / 16);
-            const timer = setInterval(() => {
-                start += increment;
-                if (start >= target) {
-                    element.textContent = target + '+';
-                    clearInterval(timer);
-                } else {
-                    element.textContent = Math.floor(start) + '+';
-                }
-            }, 16);
-        }
+            // Add intersection observer for counters
+            const counters = document.querySelectorAll('[data-counter]');
 
-        // Initialize counters when in viewport
-        const counterObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const target = parseInt(entry.target.textContent);
-                    animateCounter(entry.target, target, 2000);
-                    counterObserver.unobserve(entry.target);
-                }
+            const counterObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const target = parseInt(entry.target.getAttribute('data-counter'));
+                        animateCounter(entry.target, target, 2000);
+                        counterObserver.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.5
             });
-        }, {
-            threshold: 0.5
-        });
 
-        document.querySelectorAll('.font-bold.text-gray-800.text-xl').forEach(counter => {
-            if (counter.textContent.includes('+')) {
+            counters.forEach(counter => {
                 counterObserver.observe(counter);
+            });
+
+            // Counter animation function
+            function animateCounter(element, target, duration) {
+                let start = 0;
+                const increment = target / (duration / 16);
+                const timer = setInterval(() => {
+                    start += increment;
+                    if (start >= target) {
+                        element.textContent = target + (element.getAttribute('data-suffix') || '');
+                        clearInterval(timer);
+                    } else {
+                        element.textContent = Math.floor(start) + (element.getAttribute('data-suffix') ||
+                            '');
+                    }
+                }, 16);
             }
         });
     </script>
@@ -847,6 +853,11 @@
             transform: scale(1.1);
         }
 
+        /* FAQ Animation */
+        .faq-item .rotate-180 {
+            transform: rotate(180deg);
+        }
+
         /* Custom scroll behavior */
         html {
             scroll-behavior: smooth;
@@ -904,6 +915,43 @@
                 background: linear-gradient(to right, #3b82f6, #06b6d4);
                 z-index: -1;
             }
+        }
+
+        /* Particles.js container */
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Enhanced button hover effects */
+        .btn-hover-effect {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-hover-effect::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn-hover-effect:hover::before {
+            left: 100%;
+        }
+
+        /* Text shadow for better readability */
+        .text-shadow {
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .text-shadow-lg {
+            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
         }
     </style>
 @endsection
