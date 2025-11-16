@@ -382,24 +382,43 @@
             });
 
             async function loadPage(url) {
+                let serverText = null;
                 try {
                     // Show loading
-                    loadingIndicator.classList.remove('hidden');
-                    galleryGrid.style.opacity = '0.5';
-                    galleryGrid.style.pointerEvents = 'none';
+                    setLoadingState(true);
 
                     const response = await fetch(url, {
+                        method: 'GET',
+                        credentials: 'same-origin',
                         headers: {
                             'X-Requested-With': 'XMLHttpRequest',
                             'Accept': 'application/json'
-                        }
+                        },
                     });
 
+                    // Grab content-type for diagnostics
+                    const contentType = response.headers.get('content-type') || '';
+
+                    // If server returned non-OK, try to read text for debugging
                     if (!response.ok) {
-                        throw new Error(`HTTP error! status: ${response.status}`);
+                        serverText = await response.text();
+                        console.error('Non-OK response:', response.status, serverText);
+                        throw new Error(`HTTP ${response.status}`);
+                    }
+
+                    // If not JSON, read text and surface it (likely an error page)
+                    if (!contentType.includes('application/json')) {
+                        serverText = await response.text();
+                        console.error('Expected JSON but got:', contentType, serverText);
+                        throw new Error('Server did not return JSON. Check server logs.');
                     }
 
                     const data = await response.json();
+
+                    if (!data || !data.html) {
+                        console.error('Malformed JSON response:', data);
+                        throw new Error('Malformed JSON response from server.');
+                    }
 
                     // Update gallery grid dengan fade effect
                     galleryGrid.style.opacity = '0';
@@ -424,24 +443,23 @@
                     }
 
                     // Re-initialize components
-                    if (typeof AOS !== 'undefined') {
-                        AOS.refresh();
-                    }
+                    if (typeof AOS !== 'undefined') AOS.refresh();
                     initImageModal();
                     initGalleryFilters();
-                    initAjaxPagination(); // Re-initialize untuk pagination baru
+                    // don't re-register global delegation handlers here (they are delegated)
 
                 } catch (error) {
-                    console.error('Error loading page:', error);
-                    showError('Gagal memuat halaman. Silakan coba lagi.');
+                    console.error('Error loading page (AJAX):', error);
+                    if (serverText) console.error('Server response body:', serverText);
 
-                    // Fallback ke reload page biasa
-                    window.location.href = url;
+                    // Show friendly error to user
+                    showError('Gagal memuat halaman. Silakan cek console / server logs.');
+
+                    // Only fallback to full reload for non-AJAX-savable errors
+                    // window.location.href = url; // uncomment only after debugging
                 } finally {
                     // Hide loading
-                    loadingIndicator.classList.add('hidden');
-                    galleryGrid.style.opacity = '1';
-                    galleryGrid.style.pointerEvents = 'auto';
+                    setLoadingState(false);
                 }
             }
 
