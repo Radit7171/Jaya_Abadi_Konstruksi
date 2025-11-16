@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\GalleryController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Artisan;
 
@@ -16,3 +17,4 @@ Route::get('/services', function () {
     return view('services.services');
 })->name('services');
 
+Route::get('/gallery', [GalleryController::class, 'gallery'])->name('gallery');
