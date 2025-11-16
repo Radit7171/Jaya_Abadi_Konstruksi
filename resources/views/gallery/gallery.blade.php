@@ -383,49 +383,43 @@
 
             async function loadPage(url) {
                 let serverText = null;
+
                 try {
                     setLoadingState(true);
 
-                    // ==== FIX MIXED CONTENT ====
-                    // Paksa agar URL selalu relative (tanpa http/https domain)
+                    // Forces HTTPS-safe relative URL
                     let fixedUrl = url.replace(/^https?:\/\/[^/]+/, '');
                     if (!fixedUrl.startsWith('/')) fixedUrl = '/' + fixedUrl;
-                    // ============================
-                    const response = await fetch(fixedUrl, {
 
+                    const response = await fetch(fixedUrl, {
                         method: 'GET',
                         credentials: 'same-origin',
                         headers: {
                             'X-Requested-With': 'XMLHttpRequest',
                             'Accept': 'application/json'
-                        },
+                        }
                     });
 
-                    // Grab content-type for diagnostics
-                    const contentType = response.headers.get('content-type') || '';
-
-                    // If server returned non-OK, try to read text for debugging
+                    // Basic response check
                     if (!response.ok) {
                         serverText = await response.text();
-                        console.error('Non-OK response:', response.status, serverText);
                         throw new Error(`HTTP ${response.status}`);
                     }
 
-                    // If not JSON, read text and surface it (likely an error page)
-                    if (!contentType.includes('application/json')) {
+                    // Safe JSON parse (Railway sometimes sends weird headers)
+                    let data;
+                    try {
+                        data = await response.json();
+                    } catch (e) {
                         serverText = await response.text();
-                        console.error('Expected JSON but got:', contentType, serverText);
-                        throw new Error('Server did not return JSON. Check server logs.');
+                        throw new Error("Invalid JSON response");
                     }
-
-                    const data = await response.json();
 
                     if (!data || !data.html) {
-                        console.error('Malformed JSON response:', data);
-                        throw new Error('Malformed JSON response from server.');
+                        throw new Error("Malformed JSON");
                     }
 
-                    // Update gallery grid dengan fade effect
+                    // Update gallery items
                     galleryGrid.style.opacity = '0';
                     setTimeout(() => {
                         galleryGrid.innerHTML = data.html;
@@ -435,42 +429,35 @@
                     // Update pagination
                     paginationContainer.innerHTML = data.pagination;
 
-                    // Update URL tanpa reload page
-                    window.history.pushState({}, '', url);
+                    // Update URL safely
+                    window.history.pushState({}, '', fixedUrl);
 
-                    // Scroll ke atas gallery section
-                    const gallerySection = document.getElementById('filter');
-                    if (gallerySection) {
-                        gallerySection.scrollIntoView({
+                    // Scroll to section
+                    const gallerySection = document.querySelector('#filter, #gallery, .gallery-section');
+                    setTimeout(() => {
+                        gallerySection?.scrollIntoView({
                             behavior: 'smooth',
                             block: 'start'
                         });
-                    }
+                    }, 150);
 
-                    // Re-initialize components
+                    // Re-init
                     if (typeof AOS !== 'undefined') AOS.refresh();
                     initImageModal();
                     initGalleryFilters();
-                    // don't re-register global delegation handlers here (they are delegated)
 
                 } catch (error) {
-                    console.error('Error loading page (AJAX):', error);
-                    if (serverText) console.error('Server response body:', serverText);
-
-                    // Show friendly error to user
+                    console.error("Error:", error);
+                    if (serverText) console.error("RAW:", serverText);
                     showError('Gagal memuat halaman. Silakan cek console / server logs.');
-
-                    // Only fallback to full reload for non-AJAX-savable errors
-                    // window.location.href = url; // uncomment only after debugging
                 } finally {
-                    // Hide loading
                     setLoadingState(false);
                 }
             }
 
             // Handle browser back/forward buttons
-            window.addEventListener('popstate', function() {
-                loadPage(window.location.href);
+            window.addEventListener('popstate', () => {
+                loadPage(window.location.pathname + window.location.search);
             });
         }
 
