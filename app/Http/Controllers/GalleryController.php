@@ -42,14 +42,17 @@ class GalleryController extends Controller
             $perPage,
             $currentPage,
             [
-                'path' => LengthAwarePaginator::resolveCurrentPath(),
+                'path' => url()->current(),
                 'pageName' => 'page',
             ]
         );
 
+
+
         // Handle AJAX requests
         if ($request->ajax()) {
             try {
+                $paginatedImages->withPath(url()->current());
                 $html = view('gallery.partials.gallery_items', compact('paginatedImages'))->render();
                 $pagination = view('gallery.partials.pagination', compact('paginatedImages'))->render();
 
