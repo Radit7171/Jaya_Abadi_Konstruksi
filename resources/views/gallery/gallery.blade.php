@@ -384,10 +384,15 @@
             async function loadPage(url) {
                 let serverText = null;
                 try {
-                    // Show loading
                     setLoadingState(true);
 
-                    const response = await fetch(url, {
+                    // ==== FIX MIXED CONTENT ====
+                    // Paksa agar URL selalu relative (tanpa http/https domain)
+                    let fixedUrl = url.replace(/^https?:\/\/[^/]+/, '');
+                    if (!fixedUrl.startsWith('/')) fixedUrl = '/' + fixedUrl;
+                    // ============================
+                    const response = await fetch(fixedUrl, {
+
                         method: 'GET',
                         credentials: 'same-origin',
                         headers: {
@@ -605,7 +610,8 @@
             existingErrors.forEach(error => error.remove());
 
             const errorDiv = document.createElement('div');
-            errorDiv.className = 'error-message fixed top-4 right-4 bg-red-500 text-white px-6 py-3 rounded-xl shadow-lg z-50 transform translate-x-full transition-transform duration-300';
+            errorDiv.className =
+                'error-message fixed top-4 right-4 bg-red-500 text-white px-6 py-3 rounded-xl shadow-lg z-50 transform translate-x-full transition-transform duration-300';
             errorDiv.innerHTML = `
                 <div class="flex items-center">
                     <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -650,23 +656,51 @@
     <style>
         /* Enhanced custom animations */
         @keyframes slow-zoom {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
         }
 
         @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
         }
 
         @keyframes float-delayed {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-15px); }
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
         }
 
         @keyframes pulse-slow {
-            0%, 100% { opacity: 0.3; }
-            50% { opacity: 0.6; }
+
+            0%,
+            100% {
+                opacity: 0.3;
+            }
+
+            50% {
+                opacity: 0.6;
+            }
         }
 
         .animate-slow-zoom {
@@ -713,8 +747,13 @@
 
         /* Loading animation */
         @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
         }
 
         .animate-spin {
@@ -722,18 +761,46 @@
         }
 
         /* Z-index layering untuk hero section */
-        .relative { position: relative; }
-        .absolute { position: absolute; }
+        .relative {
+            position: relative;
+        }
+
+        .absolute {
+            position: absolute;
+        }
 
         /* Pastikan konten di atas background */
-        .z-0 { z-index: 0; }
-        .z-1 { z-index: 1; }
-        .z-2 { z-index: 2; }
-        .z-3 { z-index: 3; }
-        .z-4 { z-index: 4; }
-        .z-10 { z-index: 10; }
-        .z-20 { z-index: 20; }
-        .z-50 { z-index: 50; }
+        .z-0 {
+            z-index: 0;
+        }
+
+        .z-1 {
+            z-index: 1;
+        }
+
+        .z-2 {
+            z-index: 2;
+        }
+
+        .z-3 {
+            z-index: 3;
+        }
+
+        .z-4 {
+            z-index: 4;
+        }
+
+        .z-10 {
+            z-index: 10;
+        }
+
+        .z-20 {
+            z-index: 20;
+        }
+
+        .z-50 {
+            z-index: 50;
+        }
 
         /* Smooth transitions untuk AJAX content */
         #gallery-grid {
