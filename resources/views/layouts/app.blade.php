@@ -499,7 +499,7 @@
 
                 <!-- Gallery Menu -->
                 <li>
-                    <a href="#gallery"
+                    <a href="{{ route('gallery') }}"
                         class="nav-link {{ request()->routeIs('gallery') ? 'active text-blue-600' : 'hover:text-blue-600' }}">
                         <i class="bi bi-images mr-2"></i>Gallery
                     </a>
@@ -565,7 +565,7 @@
 
                         <!-- Services Section -->
                         <li>
-                            <a href="#services"
+                            <a href="{{ route('services') }}"
                                 class="mobile-menu-item flex items-center px-4 py-4 rounded-xl hover:bg-blue-50 transition-all duration-300 group text-gray-800 font-semibold text-lg">
                                 <i
                                     class="bi bi-tools mr-4 text-purple-600 text-xl group-hover:scale-110 transition-transform"></i>
@@ -576,7 +576,7 @@
 
                         <!-- Gallery Section -->
                         <li>
-                            <a href="#gallery"
+                            <a href="{{ route('gallery') }}"
                                 class="mobile-menu-item flex items-center px-4 py-4 rounded-xl hover:bg-blue-50 transition-all duration-300 group text-gray-800 font-semibold text-lg">
                                 <i
                                     class="bi bi-images mr-4 text-cyan-600 text-xl group-hover:scale-110 transition-transform"></i>
@@ -692,7 +692,7 @@
                                 class="footer-link text-blue-100 hover:text-white text-lg font-medium flex items-center">
                                 <i class="bi bi-chevron-right mr-2 text-blue-300"></i>Services
                             </a></li>
-                        <li><a href="#gallery"
+                        <li><a href="{{ route('gallery') }}"
                                 class="footer-link text-blue-100 hover:text-white text-lg font-medium flex items-center">
                                 <i class="bi bi-chevron-right mr-2 text-blue-300"></i>Gallery
                             </a></li>
