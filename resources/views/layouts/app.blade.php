@@ -506,7 +506,8 @@
                 </li>
 
                 <li>
-                    <a href="{{ route('contackus') }}" class="nav-link hover:text-blue-600 transition-all duration-300">
+                    <a href="{{ route('contackus') }}"
+                        class="nav-link hover:text-blue-600 transition-all duration-300">
                         <i class="bi bi-telephone mr-2"></i>Contact Us
                     </a>
                 </li>
@@ -786,6 +787,9 @@
         </div>
     </footer>
 
+    <!-- GSAP ScrollTo Plugin -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
+
     <!-- Script AOS -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
@@ -973,15 +977,36 @@
                 });
             });
 
-            // Back to top functionality
-            backToTop.addEventListener('click', function() {
-                gsap.to(window, {
-                    duration: 1,
-                    scrollTo: {
-                        y: 0
-                    },
-                    ease: "power2.inOut"
-                });
+            // Back to top functionality - SUPER FAST
+            backToTop.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+
+                // Kill semua animasi GSAP
+                gsap.killTweensOf('html, body');
+
+                // Scroll langsung dengan requestAnimationFrame (tercepat)
+                const startPos = window.pageYOffset;
+                const duration = 600; // ms
+                const startTime = performance.now();
+
+                function easeOutCubic(t) {
+                    return 1 - Math.pow(1 - t, 3);
+                }
+
+                function animateScroll(currentTime) {
+                    const elapsed = currentTime - startTime;
+                    const progress = Math.min(elapsed / duration, 1);
+                    const ease = easeOutCubic(progress);
+
+                    window.scrollTo(0, startPos * (1 - ease));
+
+                    if (progress < 1) {
+                        requestAnimationFrame(animateScroll);
+                    }
+                }
+
+                requestAnimationFrame(animateScroll);
             });
 
             // Enhanced form interactions
