@@ -506,7 +506,7 @@
                 </li>
 
                 <li>
-                    <a href="#contact" class="nav-link hover:text-blue-600 transition-all duration-300">
+                    <a href="{{ route('contackus') }}" class="nav-link hover:text-blue-600 transition-all duration-300">
                         <i class="bi bi-telephone mr-2"></i>Contact Us
                     </a>
                 </li>
@@ -586,7 +586,7 @@
                         </li>
 
                         <li>
-                            <a href="#contact"
+                            <a href="{{ route('contackus') }}"
                                 class="mobile-menu-item flex items-center px-4 py-4 rounded-xl hover:bg-blue-50 transition-all duration-300 group text-gray-800 font-semibold text-lg">
                                 <i
                                     class="bi bi-telephone mr-4 text-indigo-600 text-xl group-hover:scale-110 transition-transform"></i>
@@ -696,7 +696,7 @@
                                 class="footer-link text-blue-100 hover:text-white text-lg font-medium flex items-center">
                                 <i class="bi bi-chevron-right mr-2 text-blue-300"></i>Gallery
                             </a></li>
-                        <li><a href="#contact"
+                        <li><a href="{{ route('contackus') }}"
                                 class="footer-link text-blue-100 hover:text-white text-lg font-medium flex items-center">
                                 <i class="bi bi-chevron-right mr-2 text-blue-300"></i>Contact Us
                             </a></li>
