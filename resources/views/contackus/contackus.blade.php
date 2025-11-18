@@ -106,7 +106,7 @@
                 </div>
                 <h3 class="text-lg sm:text-xl font-bold text-gray-800 mb-3 sm:mb-4">Email</h3>
                 <p class="text-gray-600 text-sm sm:text-base mb-2">Kirim email kepada kami</p>
-                <a href="mailto:info@jayaabadikonstruksi.com"
+                <a href="mailto:lasjayaabadi123@gmail.com"
                     class="text-cyan-600 font-semibold text-base sm:text-lg hover:text-cyan-700 transition-colors break-words">
                     lasjayaabadi123@gmail.com
                 </a>
@@ -139,8 +139,7 @@
                         </div>
                         <div>
                             <h4 class="font-bold text-gray-800 text-lg mb-1">Jam Operasional</h4>
-                            <p class="text-gray-600">Senin - Jumat: 08:00 - 17:00 WIB</p>
-                            <p class="text-gray-600">Sabtu: 08:00 - 12:00 WIB</p>
+                            <p class="text-gray-600">08:00 - 17:00 WIB</p>
                         </div>
                     </div>
 
