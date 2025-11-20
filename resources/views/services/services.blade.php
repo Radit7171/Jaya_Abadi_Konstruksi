@@ -3,9 +3,8 @@
 @section('title', 'Layanan Kami | Jaya Abadi Konstruksi')
 
 @section('content')
-    <!-- Enhanced Hero Section with Particles -->
-    <section
-        class="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-900 via-blue-900 to-cyan-900">
+    <!-- Slimmer Hero Section -->
+    <section class="relative min-h-[80vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-900 via-blue-900 to-cyan-900">
         <!-- Animated Background Particles -->
         <div id="particles-js" class="absolute inset-0 z-0"></div>
         <div class="absolute inset-0 bg-black/40 z-0"></div>
@@ -15,59 +14,59 @@
                 class="w-full h-full object-cover transform scale-110 animate-slow-zoom">
         </div>
 
-        <!-- Floating Elements -->
-        <div class="absolute top-20 left-10 w-6 h-6 bg-cyan-400 rounded-full opacity-70 animate-float"></div>
-        <div class="absolute bottom-32 right-16 w-10 h-10 bg-blue-500 rounded-full opacity-50 animate-float-delayed"></div>
-        <div class="absolute top-1/3 right-1/4 w-8 h-8 bg-white rounded-full opacity-30 animate-pulse-slow"></div>
+        <!-- Floating Elements - Smaller -->
+        <div class="absolute top-16 left-8 w-4 h-4 bg-cyan-400 rounded-full opacity-70 animate-float"></div>
+        <div class="absolute bottom-24 right-12 w-6 h-6 bg-blue-500 rounded-full opacity-50 animate-float-delayed"></div>
+        <div class="absolute top-1/3 right-1/4 w-5 h-5 bg-white rounded-full opacity-30 animate-pulse-slow"></div>
 
-        <!-- Content Hero -->
-        <div class="relative z-20 max-w-7xl mx-auto px-6 text-center text-white">
-            <div data-aos="fade-up" data-aos-duration="1200" data-aos-once="true">
-                <div class="inline-block mb-4 px-4 py-2 bg-white/10 backdrop-blur-md rounded-full border border-white/20">
-                    <span class="text-cyan-300 font-medium">Layanan Profesional</span>
+        <!-- Content Hero - Slimmer -->
+        <div class="relative z-20 max-w-6xl mx-auto px-4 text-center text-white">
+            <div data-aos="fade-up" data-aos-duration="800" data-aos-once="true">
+                <div class="inline-block mb-3 px-3 py-1 bg-white/10 backdrop-blur-md rounded-full border border-white/20">
+                    <span class="text-cyan-300 font-medium text-sm">Layanan Profesional</span>
                 </div>
-                <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight">
                     <span
                         class="bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-500 bg-clip-text text-transparent animate-gradient-x">
                         Solusi Konstruksi
                     </span>
                 </h1>
-                <p class="text-xl md:text-2xl text-gray-200 mb-8 max-w-3xl mx-auto leading-relaxed font-light">
+                <p class="text-lg md:text-xl text-gray-200 mb-6 max-w-2xl mx-auto leading-relaxed font-light">
                     Menyediakan <span class="text-cyan-300 font-semibold">Layanan Terbaik</span> untuk Kebutuhan Konstruksi
                     Besi dengan Kualitas dan Inovasi
                 </p>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center" data-aos="fade-up"
-                    data-aos-delay="400" data-aos-once="true">
+                <div class="flex flex-col sm:flex-row gap-3 justify-center items-center" data-aos="fade-up"
+                    data-aos-delay="300" data-aos-once="true">
                     <a href="#services"
-                        class="group bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white px-8 py-4 rounded-2xl font-semibold shadow-2xl transform hover:-translate-y-1 transition-all duration-300 flex items-center shadow-blue-500/30 hover:shadow-blue-500/50">
+                        class="group bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white px-6 py-3 rounded-xl font-semibold shadow-lg transform hover:-translate-y-1 transition-all duration-300 flex items-center text-sm shadow-blue-500/20 hover:shadow-blue-500/30">
                         <span>Jelajahi Layanan</span>
-                        <i class="bi bi-arrow-down ml-2 group-hover:translate-y-1 transition-transform duration-300"></i>
+                        <i class="bi bi-arrow-down ml-1 group-hover:translate-y-1 transition-transform duration-300"></i>
                     </a>
                     <a href="#contact"
-                        class="group border-2 border-white/40 hover:border-white text-white px-8 py-4 rounded-2xl font-semibold backdrop-blur-sm hover:bg-white/10 transition-all duration-300 flex items-center bg-white/5">
+                        class="group border border-white/40 hover:border-white text-white px-6 py-3 rounded-xl font-semibold backdrop-blur-sm hover:bg-white/10 transition-all duration-300 flex items-center text-sm bg-white/5">
                         <span>Konsultasi Gratis</span>
-                        <i class="bi bi-chat-quote ml-2 group-hover:scale-110 transition-transform duration-300"></i>
+                        <i class="bi bi-chat-quote ml-1 group-hover:scale-105 transition-transform duration-300"></i>
                     </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Services Overview -->
-    <section class="py-24 bg-gradient-to-b from-white to-gray-50/30" id="overview">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-20" data-aos="fade-up" data-aos-duration="1000">
-                <div class="inline-flex items-center px-4 py-2 bg-blue-100 rounded-full text-blue-700 font-medium mb-4">
-                    <i class="bi bi-tools mr-2"></i>
+    <!-- Slimmer Services Overview -->
+    <section class="py-16 bg-gradient-to-b from-white to-gray-50/30" id="overview">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-16" data-aos="fade-up" data-aos-duration="800">
+                <div class="inline-flex items-center px-3 py-1 bg-blue-100 rounded-full text-blue-700 font-medium mb-3 text-sm">
+                    <i class="bi bi-tools mr-1"></i>
                     LAYANAN KAMI
                 </div>
-                <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">Solusi Konstruksi Terintegrasi</h2>
-                <p class="text-gray-600 max-w-2xl mx-auto text-lg">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-3">Solusi Konstruksi Terintegrasi</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto text-sm">
                     Menyediakan beragam layanan konstruksi besi dengan kualitas terbaik dan teknologi terkini
                 </p>
             </div>
 
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 @foreach ([
             [
                 'icon' => 'bi-building',
@@ -112,28 +111,28 @@
                 'color' => 'red',
             ],
         ] as $index => $service)
-                    <div class="bg-white rounded-3xl p-8 shadow-xl border border-gray-100 group hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 service-card"
-                        data-aos="fade-up" data-aos-duration="800" data-aos-delay="{{ $index * 100 }}">
+                    <div class="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 group hover:shadow-xl transition-all duration-300 hover:-translate-y-1 service-card"
+                        data-aos="fade-up" data-aos-duration="600" data-aos-delay="{{ $index * 100 }}">
                         <div
-                            class="bg-gradient-to-br from-{{ $service['color'] }}-500 to-{{ $service['color'] }}-600 w-20 h-20 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500 service-icon">
-                            <i class="{{ $service['icon'] }} text-3xl text-white"></i>
+                            class="bg-gradient-to-br from-{{ $service['color'] }}-500 to-{{ $service['color'] }}-600 w-16 h-16 rounded-xl flex items-center justify-center mb-4 group-hover:scale-105 transition-transform duration-300 service-icon">
+                            <i class="{{ $service['icon'] }} text-xl text-white"></i>
                         </div>
-                        <h3 class="text-2xl font-bold text-gray-800 mb-4">{{ $service['title'] }}</h3>
-                        <p class="text-gray-600 leading-relaxed mb-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">{{ $service['title'] }}</h3>
+                        <p class="text-gray-600 leading-relaxed mb-4 text-sm">
                             {{ $service['description'] }}
                         </p>
-                        <ul class="space-y-3 mb-8">
+                        <ul class="space-y-2 mb-6">
                             @foreach ($service['features'] as $feature)
-                                <li class="flex items-center text-gray-600">
-                                    <i class="bi bi-check-circle-fill mr-3 text-green-500"></i>
+                                <li class="flex items-center text-gray-600 text-xs">
+                                    <i class="bi bi-check-circle-fill mr-2 text-green-500 text-sm"></i>
                                     {{ $feature }}
                                 </li>
                             @endforeach
                         </ul>
                         <a href="#contact"
-                            class="inline-flex items-center text-{{ $service['color'] }}-600 font-semibold group">
+                            class="inline-flex items-center text-{{ $service['color'] }}-600 font-medium group text-sm">
                             <span>Konsultasi Proyek</span>
-                            <i class="bi bi-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+                            <i class="bi bi-arrow-right ml-1 group-hover:translate-x-1 transition-transform"></i>
                         </a>
                     </div>
                 @endforeach
@@ -141,339 +140,339 @@
         </div>
     </section>
 
-    <!-- Interactive Service Showcase -->
-    <section class="py-20 bg-gradient-to-br from-gray-50 to-blue-50/30 relative overflow-hidden" id="showcase">
-    <div class="max-w-7xl mx-auto px-6">
-        <div class="text-center mb-16" data-aos="fade-up" data-aos-duration="1000">
-            <div class="inline-flex items-center px-4 py-2 bg-blue-100 rounded-full text-blue-700 font-medium mb-4">
-                <i class="bi bi-stars mr-2"></i>
-                INOVASI TEKNOLOGI
-            </div>
-            <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">Teknologi Konstruksi Modern</h2>
-            <p class="text-gray-600 max-w-2xl mx-auto text-lg">
-                Mengintegrasikan teknologi terkini untuk hasil konstruksi yang presisi dan efisien
-            </p>
-        </div>
-
-        <div class="grid lg:grid-cols-2 gap-12 items-center">
-            <div data-aos="fade-right" data-aos-duration="1000">
-                <div class="space-y-8">
-                    @foreach ([['icon' => 'bi-cpu', 'title' => 'Desain 3D & BIM', 'desc' => 'Menggunakan Building Information Modeling untuk visualisasi dan koordinasi proyek yang akurat'], ['icon' => 'bi-robot', 'title' => 'Fabrikasi Robotik', 'desc' => 'Presisi tinggi dengan teknologi robotik untuk hasil yang konsisten dan berkualitas'], ['icon' => 'bi-graph-up', 'title' => 'Analisis Struktur Digital', 'desc' => 'Simulasi dan analisis struktur dengan software terkini untuk keamanan optimal'], ['icon' => 'bi-shield-check', 'title' => 'Quality Control Digital', 'desc' => 'Sistem monitoring digital untuk memastikan kualitas di setiap tahap pengerjaan']] as $tech)
-                        <div class="flex items-start group" data-aos="fade-up" data-aos-duration="800">
-                            <div
-                                class="bg-blue-100 w-14 h-14 rounded-2xl flex items-center justify-center mr-5 flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
-                                <i class="{{ $tech['icon'] }} text-blue-600 text-xl"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-gray-800 text-xl mb-2">{{ $tech['title'] }}</h4>
-                                <p class="text-gray-600">{{ $tech['desc'] }}</p>
-                            </div>
-                        </div>
-                    @endforeach
+    <!-- Slimmer Interactive Service Showcase -->
+    <section class="py-16 bg-gradient-to-br from-gray-50 to-blue-50/30 relative overflow-hidden" id="showcase">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-16" data-aos="fade-up" data-aos-duration="800">
+                <div class="inline-flex items-center px-3 py-1 bg-blue-100 rounded-full text-blue-700 font-medium mb-3 text-sm">
+                    <i class="bi bi-stars mr-1"></i>
+                    INOVASI TEKNOLOGI
                 </div>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-3">Teknologi Konstruksi Modern</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto text-sm">
+                    Mengintegrasikan teknologi terkini untuk hasil konstruksi yang presisi dan efisien
+                </p>
             </div>
 
-            <div class="relative" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
-                <div class="bg-gradient-to-br from-blue-500 to-blue-600 rounded-3xl p-1 shadow-2xl">
-                    <div class="bg-white rounded-2xl p-8 h-full">
-                        <!-- Foto showcase -->
-                        <div class="aspect-video bg-gray-100 rounded-xl overflow-hidden">
-                            <img
-                                src="{{ asset('images/construction-tech-showcase.jpg') }}"
-                                alt="Teknologi Konstruksi Modern"
-                                class="w-full h-full object-cover"
-                                onerror="this.src='https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80'"
-                            >
-                        </div>
+            <div class="grid lg:grid-cols-2 gap-10 items-center">
+                <div data-aos="fade-right" data-aos-duration="800">
+                    <div class="space-y-6">
+                        @foreach ([['icon' => 'bi-cpu', 'title' => 'Desain 3D & BIM', 'desc' => 'Menggunakan Building Information Modeling untuk visualisasi dan koordinasi proyek yang akurat'], ['icon' => 'bi-robot', 'title' => 'Fabrikasi Robotik', 'desc' => 'Presisi tinggi dengan teknologi robotik untuk hasil yang konsisten dan berkualitas'], ['icon' => 'bi-graph-up', 'title' => 'Analisis Struktur Digital', 'desc' => 'Simulasi dan analisis struktur dengan software terkini untuk keamanan optimal'], ['icon' => 'bi-shield-check', 'title' => 'Quality Control Digital', 'desc' => 'Sistem monitoring digital untuk memastikan kualitas di setiap tahap pengerjaan']] as $tech)
+                            <div class="flex items-start group" data-aos="fade-up" data-aos-duration="600">
+                                <div
+                                    class="bg-blue-100 w-12 h-12 rounded-xl flex items-center justify-center mr-4 flex-shrink-0 group-hover:scale-105 transition-transform duration-300">
+                                    <i class="{{ $tech['icon'] }} text-blue-600 text-lg"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gray-800 text-lg mb-1">{{ $tech['title'] }}</h4>
+                                    <p class="text-gray-600 text-sm">{{ $tech['desc'] }}</p>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
 
-                        <!-- Keterangan foto -->
-                        <div class="mt-6">
-                            <h3 class="text-xl font-bold text-gray-800 mb-2">Teknologi Konstruksi Modern</h3>
-                            <p class="text-gray-600">Implementasi teknologi canggih dalam proses konstruksi untuk efisiensi dan presisi yang lebih baik</p>
+                <div class="relative" data-aos="fade-left" data-aos-duration="800" data-aos-delay="200">
+                    <div class="bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl p-1 shadow-xl">
+                        <div class="bg-white rounded-xl p-6 h-full">
+                            <!-- Foto showcase -->
+                            <div class="aspect-video bg-gray-100 rounded-lg overflow-hidden">
+                                <img
+                                    src="{{ asset('images/construction-tech-showcase.jpg') }}"
+                                    alt="Teknologi Konstruksi Modern"
+                                    class="w-full h-full object-cover"
+                                    onerror="this.src='https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80'"
+                                >
+                            </div>
+
+                            <!-- Keterangan foto -->
+                            <div class="mt-4">
+                                <h3 class="text-lg font-bold text-gray-800 mb-1">Teknologi Konstruksi Modern</h3>
+                                <p class="text-gray-600 text-sm">Implementasi teknologi canggih dalam proses konstruksi untuk efisiensi dan presisi yang lebih baik</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-    <!-- Detailed Services Section -->
-    <section class="py-24 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden" id="services">
-        <!-- Background Elements -->
+    <!-- Slimmer Detailed Services Section -->
+    <section class="py-16 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden" id="services">
+        <!-- Background Elements - Smaller -->
         <div
-            class="absolute top-0 left-0 w-72 h-72 bg-blue-100 rounded-full -translate-x-1/2 -translate-y-1/2 opacity-40 blur-3xl">
+            class="absolute top-0 left-0 w-60 h-60 bg-blue-100 rounded-full -translate-x-1/2 -translate-y-1/2 opacity-30 blur-2xl">
         </div>
         <div
-            class="absolute bottom-0 right-0 w-96 h-96 bg-cyan-100 rounded-full translate-x-1/2 translate-y-1/2 opacity-30 blur-3xl">
+            class="absolute bottom-0 right-0 w-80 h-80 bg-cyan-100 rounded-full translate-x-1/2 translate-y-1/2 opacity-20 blur-2xl">
         </div>
 
-        <div class="max-w-7xl mx-auto px-6 relative z-10">
-            <div class="text-center mb-20" data-aos="fade-up" data-aos-duration="1000">
-                <div class="inline-flex items-center px-4 py-2 bg-blue-100 rounded-full text-blue-700 font-medium mb-4">
-                    <i class="bi bi-gear mr-2"></i>
+        <div class="max-w-6xl mx-auto px-4 relative z-10">
+            <div class="text-center mb-16" data-aos="fade-up" data-aos-duration="800">
+                <div class="inline-flex items-center px-3 py-1 bg-blue-100 rounded-full text-blue-700 font-medium mb-3 text-sm">
+                    <i class="bi bi-gear mr-1"></i>
                     DETAIL LAYANAN
                 </div>
-                <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">Spesialisasi Konstruksi Besi</h2>
-                <p class="text-gray-600 max-w-2xl mx-auto text-lg">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-3">Spesialisasi Konstruksi Besi</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto text-sm">
                     Setiap layanan dikerjakan dengan standar tertinggi dan teknologi terkini
                 </p>
             </div>
 
-            <!-- Service 1 Detail -->
-            <div class="grid lg:grid-cols-2 gap-16 items-center mb-32">
-                <div data-aos="fade-right" data-aos-duration="1000">
+            <!-- Service 1 Detail - Slimmer -->
+            <div class="grid lg:grid-cols-2 gap-12 items-center mb-20">
+                <div data-aos="fade-right" data-aos-duration="800">
                     <div
-                        class="inline-flex items-center px-4 py-2 bg-blue-100 rounded-full text-blue-700 font-medium mb-6">
-                        <i class="bi bi-building mr-2"></i>
+                        class="inline-flex items-center px-3 py-1 bg-blue-100 rounded-full text-blue-700 font-medium mb-4 text-sm">
+                        <i class="bi bi-building mr-1"></i>
                         KONSTRUKSI STRUKTUR BAJA
                     </div>
-                    <h3 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6">Bangunan Kokoh & Efisien</h3>
-                    <p class="text-gray-600 text-lg leading-relaxed mb-6">
+                    <h3 class="text-2xl md:text-3xl font-bold text-gray-800 mb-4">Bangunan Kokoh & Efisien</h3>
+                    <p class="text-gray-600 leading-relaxed mb-4 text-sm">
                         Kami mengkhususkan diri dalam desain dan konstruksi struktur baja untuk berbagai kebutuhan,
                         mulai dari bangunan komersial hingga fasilitas industri. Dengan material berkualitas SNI
                         dan perhitungan struktur yang presisi.
                     </p>
-                    <div class="space-y-4 mb-8">
+                    <div class="space-y-3 mb-6">
                         <div class="flex items-center">
-                            <div class="bg-blue-100 w-10 h-10 rounded-full flex items-center justify-center mr-4">
-                                <i class="bi bi-rulers text-blue-600"></i>
+                            <div class="bg-blue-100 w-8 h-8 rounded-full flex items-center justify-center mr-3">
+                                <i class="bi bi-rulers text-blue-600 text-sm"></i>
                             </div>
                             <div>
-                                <h4 class="font-bold text-gray-800">Perhitungan Struktur Presisi</h4>
-                                <p class="text-gray-600 text-sm">Analisis beban dan perhitungan struktur sesuai standar</p>
+                                <h4 class="font-bold text-gray-800 text-sm">Perhitungan Struktur Presisi</h4>
+                                <p class="text-gray-600 text-xs">Analisis beban dan perhitungan struktur sesuai standar</p>
                             </div>
                         </div>
                         <div class="flex items-center">
-                            <div class="bg-blue-100 w-10 h-10 rounded-full flex items-center justify-center mr-4">
-                                <i class="bi bi-shield-check text-blue-600"></i>
+                            <div class="bg-blue-100 w-8 h-8 rounded-full flex items-center justify-center mr-3">
+                                <i class="bi bi-shield-check text-blue-600 text-sm"></i>
                             </div>
                             <div>
-                                <h4 class="font-bold text-gray-800">Material SNI Certified</h4>
-                                <p class="text-gray-600 text-sm">Menggunakan material berkualitas dengan sertifikasi resmi
+                                <h4 class="font-bold text-gray-800 text-sm">Material SNI Certified</h4>
+                                <p class="text-gray-600 text-xs">Menggunakan material berkualitas dengan sertifikasi resmi
                                 </p>
                             </div>
                         </div>
                         <div class="flex items-center">
-                            <div class="bg-blue-100 w-10 h-10 rounded-full flex items-center justify-center mr-4">
-                                <i class="bi bi-clock text-blue-600"></i>
+                            <div class="bg-blue-100 w-8 h-8 rounded-full flex items-center justify-center mr-3">
+                                <i class="bi bi-clock text-blue-600 text-sm"></i>
                             </div>
                             <div>
-                                <h4 class="font-bold text-gray-800">Pengerjaan Efisien</h4>
-                                <p class="text-gray-600 text-sm">Waktu pengerjaan optimal tanpa mengorbankan kualitas</p>
+                                <h4 class="font-bold text-gray-800 text-sm">Pengerjaan Efisien</h4>
+                                <p class="text-gray-600 text-xs">Waktu pengerjaan optimal tanpa mengorbankan kualitas</p>
                             </div>
                         </div>
                     </div>
                     <a href="#contact"
-                        class="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white px-6 py-3 rounded-xl font-semibold shadow-lg transform hover:-translate-y-1 transition-all duration-300 inline-flex items-center">
+                        class="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white px-5 py-2.5 rounded-xl font-semibold shadow-md transform hover:-translate-y-1 transition-all duration-300 inline-flex items-center text-sm">
                         <span>Konsultasi Proyek</span>
-                        <i class="bi bi-arrow-right ml-2"></i>
+                        <i class="bi bi-arrow-right ml-1"></i>
                     </a>
                 </div>
-                <div class="relative" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
-                    <div class="bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl p-2 overflow-hidden shadow-2xl">
+                <div class="relative" data-aos="fade-left" data-aos-duration="800" data-aos-delay="200">
+                    <div class="bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl p-1 overflow-hidden shadow-lg">
                         <img src="{{ asset('images/services_gallery/servis1.jpg') }}" alt="Konstruksi Struktur Baja"
-                            class="w-full h-96 object-cover rounded-xl">
+                            class="w-full h-80 object-cover rounded-lg">
                     </div>
-                    <div class="absolute -bottom-6 -left-6 bg-white rounded-2xl p-6 shadow-xl border border-gray-100">
+                    <div class="absolute -bottom-4 -left-4 bg-white rounded-xl p-4 shadow-lg border border-gray-100">
                         <div class="text-center">
-                            <div class="text-3xl font-bold text-blue-600">50+</div>
-                            <div class="text-gray-600 text-sm">Proyek Terselesaikan</div>
+                            <div class="text-xl font-bold text-blue-600">50+</div>
+                            <div class="text-gray-600 text-xs">Proyek Terselesaikan</div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Service 2 Detail -->
-            <div class="grid lg:grid-cols-2 gap-16 items-center mb-32">
-                <div class="order-2 lg:order-1" data-aos="fade-right" data-aos-duration="1000">
-                    <div class="bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-2xl p-2 overflow-hidden shadow-2xl">
+            <!-- Service 2 Detail - Slimmer -->
+            <div class="grid lg:grid-cols-2 gap-12 items-center mb-20">
+                <div class="order-2 lg:order-1" data-aos="fade-right" data-aos-duration="800">
+                    <div class="bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-xl p-1 overflow-hidden shadow-lg">
                         <img src="{{ asset('images/services_gallery/servis2.jpg') }}" alt="Fabrikasi Custom"
-                            class="w-full h-96 object-cover rounded-xl">
+                            class="w-full h-80 object-cover rounded-lg">
                     </div>
-                    <div class="absolute -bottom-6 -right-6 bg-white rounded-2xl p-6 shadow-xl border border-gray-100">
+                    <div class="absolute -bottom-4 -right-4 bg-white rounded-xl p-4 shadow-lg border border-gray-100">
                         <div class="text-center">
-                            <div class="text-3xl font-bold text-cyan-600">100%</div>
-                            <div class="text-gray-600 text-sm">Custom Sesuai Kebutuhan</div>
+                            <div class="text-xl font-bold text-cyan-600">100%</div>
+                            <div class="text-gray-600 text-xs">Custom Sesuai Kebutuhan</div>
                         </div>
                     </div>
                 </div>
-                <div class="order-1 lg:order-2" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
+                <div class="order-1 lg:order-2" data-aos="fade-left" data-aos-duration="800" data-aos-delay="200">
                     <div
-                        class="inline-flex items-center px-4 py-2 bg-cyan-100 rounded-full text-cyan-700 font-medium mb-6">
-                        <i class="bi bi-hammer mr-2"></i>
+                        class="inline-flex items-center px-3 py-1 bg-cyan-100 rounded-full text-cyan-700 font-medium mb-4 text-sm">
+                        <i class="bi bi-hammer mr-1"></i>
                         FABRIKASI CUSTOM
                     </div>
-                    <h3 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6">Solusi Sesuai Kebutuhan</h3>
-                    <p class="text-gray-600 text-lg leading-relaxed mb-6">
+                    <h3 class="text-2xl md:text-3xl font-bold text-gray-800 mb-4">Solusi Sesuai Kebutuhan</h3>
+                    <p class="text-gray-600 leading-relaxed mb-4 text-sm">
                         Setiap proyek memiliki karakteristik unik. Kami menyediakan layanan fabrikasi custom
                         dengan pendekatan personal untuk memastikan hasil yang sesuai dengan visi dan kebutuhan klien.
                     </p>
-                    <div class="space-y-4 mb-8">
+                    <div class="space-y-3 mb-6">
                         <div class="flex items-center">
-                            <div class="bg-cyan-100 w-10 h-10 rounded-full flex items-center justify-center mr-4">
-                                <i class="bi bi-palette2 text-cyan-600"></i>
+                            <div class="bg-cyan-100 w-8 h-8 rounded-full flex items-center justify-center mr-3">
+                                <i class="bi bi-palette2 text-cyan-600 text-sm"></i>
                             </div>
                             <div>
-                                <h4 class="font-bold text-gray-800">Desain Personal</h4>
-                                <p class="text-gray-600 text-sm">Konsep desain sesuai kebutuhan dan preferensi</p>
+                                <h4 class="font-bold text-gray-800 text-sm">Desain Personal</h4>
+                                <p class="text-gray-600 text-xs">Konsep desain sesuai kebutuhan dan preferensi</p>
                             </div>
                         </div>
                         <div class="flex items-center">
-                            <div class="bg-cyan-100 w-10 h-10 rounded-full flex items-center justify-center mr-4">
-                                <i class="bi bi-tools text-cyan-600"></i>
+                            <div class="bg-cyan-100 w-8 h-8 rounded-full flex items-center justify-center mr-3">
+                                <i class="bi bi-tools text-cyan-600 text-sm"></i>
                             </div>
                             <div>
-                                <h4 class="font-bold text-gray-800">Fabrikasi Presisi</h4>
-                                <p class="text-gray-600 text-sm">Pengerjaan dengan mesin CNC untuk hasil yang akurat</p>
+                                <h4 class="font-bold text-gray-800 text-sm">Fabrikasi Presisi</h4>
+                                <p class="text-gray-600 text-xs">Pengerjaan dengan mesin CNC untuk hasil yang akurat</p>
                             </div>
                         </div>
                         <div class="flex items-center">
-                            <div class="bg-cyan-100 w-10 h-10 rounded-full flex items-center justify-center mr-4">
-                                <i class="bi bi-eye text-cyan-600"></i>
+                            <div class="bg-cyan-100 w-8 h-8 rounded-full flex items-center justify-center mr-3">
+                                <i class="bi bi-eye text-cyan-600 text-sm"></i>
                             </div>
                             <div>
-                                <h4 class="font-bold text-gray-800">Quality Control Ketat</h4>
-                                <p class="text-gray-600 text-sm">Pemeriksaan kualitas di setiap tahap produksi</p>
+                                <h4 class="font-bold text-gray-800 text-sm">Quality Control Ketat</h4>
+                                <p class="text-gray-600 text-xs">Pemeriksaan kualitas di setiap tahap produksi</p>
                             </div>
                         </div>
                     </div>
                     <a href="#contact"
-                        class="bg-gradient-to-r from-cyan-500 to-cyan-600 hover:from-cyan-600 hover:to-cyan-700 text-white px-6 py-3 rounded-xl font-semibold shadow-lg transform hover:-translate-y-1 transition-all duration-300 inline-flex items-center">
+                        class="bg-gradient-to-r from-cyan-500 to-cyan-600 hover:from-cyan-600 hover:to-cyan-700 text-white px-5 py-2.5 rounded-xl font-semibold shadow-md transform hover:-translate-y-1 transition-all duration-300 inline-flex items-center text-sm">
                         <span>Diskusi Kebutuhan</span>
-                        <i class="bi bi-arrow-right ml-2"></i>
+                        <i class="bi bi-arrow-right ml-1"></i>
                     </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Process Section -->
-    <section class="py-24 bg-gradient-to-br from-gray-50 to-blue-50/30 relative overflow-hidden" id="process">
+    <!-- Slimmer Process Section -->
+    <section class="py-16 bg-gradient-to-br from-gray-50 to-blue-50/30 relative overflow-hidden" id="process">
         <!-- Background Pattern -->
-        <div class="absolute inset-0 opacity-5">
+        <div class="absolute inset-0 opacity-3">
             <div
                 class="absolute top-0 left-0 w-full h-full bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48Y2lyY2xlIGN4PSIzMCIgY3k9IjMwIiByPSIyIiBmaWxsPSIjMzM4MmY2Ii8+PC9zdmc+')]">
             </div>
         </div>
 
-        <div class="max-w-7xl mx-auto px-6 relative z-10">
-            <div class="text-center mb-20" data-aos="fade-up" data-aos-duration="1000">
-                <div class="inline-flex items-center px-4 py-2 bg-blue-100 rounded-full text-blue-700 font-medium mb-4">
-                    <i class="bi bi-diagram-3 mr-2"></i>
+        <div class="max-w-6xl mx-auto px-4 relative z-10">
+            <div class="text-center mb-16" data-aos="fade-up" data-aos-duration="800">
+                <div class="inline-flex items-center px-3 py-1 bg-blue-100 rounded-full text-blue-700 font-medium mb-3 text-sm">
+                    <i class="bi bi-diagram-3 mr-1"></i>
                     PROSES KERJA
                 </div>
-                <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">Cara Kami Bekerja</h2>
-                <p class="text-gray-600 max-w-2xl mx-auto text-lg">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-3">Cara Kami Bekerja</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto text-sm">
                     Proses terstruktur yang memastikan kualitas dan kepuasan dalam setiap proyek
                 </p>
             </div>
 
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                 @foreach ([['num' => '1', 'title' => 'Konsultasi & Analisis', 'desc' => 'Diskusi kebutuhan, survey lokasi, dan analisis teknis untuk menentukan solusi terbaik', 'color' => 'blue'], ['num' => '2', 'title' => 'Desain & Perencanaan', 'desc' => 'Pembuatan desain detail, perhitungan struktur, dan perencanaan pengerjaan', 'color' => 'cyan'], ['num' => '3', 'title' => 'Produksi & Fabrikasi', 'desc' => 'Proses fabrikasi dengan teknologi terkini dan quality control ketat', 'color' => 'green'], ['num' => '4', 'title' => 'Instalasi & Serah Terima', 'desc' => 'Instalasi profesional, testing, dan serah terima proyek dengan dokumentasi lengkap', 'color' => 'purple']] as $step)
-                    <div class="text-center group process-step" data-aos="fade-up" data-aos-duration="800"
+                    <div class="text-center group process-step" data-aos="fade-up" data-aos-duration="600"
                         data-aos-delay="{{ $loop->index * 100 }}">
-                        <div class="relative mb-8">
+                        <div class="relative mb-6">
                             <div
-                                class="bg-gradient-to-br from-{{ $step['color'] }}-500 to-{{ $step['color'] }}-600 w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:scale-110 transition-transform duration-500">
-                                <span class="text-white text-2xl font-bold">{{ $step['num'] }}</span>
+                                class="bg-gradient-to-br from-{{ $step['color'] }}-500 to-{{ $step['color'] }}-600 w-16 h-16 rounded-xl flex items-center justify-center mx-auto mb-3 shadow-md group-hover:scale-105 transition-transform duration-300">
+                                <span class="text-white text-xl font-bold">{{ $step['num'] }}</span>
                             </div>
                             @if (!$loop->last)
                                 <div
-                                    class="hidden lg:block absolute top-10 left-1/2 w-full h-1 bg-{{ $step['color'] }}-200 -z-10">
+                                    class="hidden lg:block absolute top-8 left-1/2 w-full h-0.5 bg-{{ $step['color'] }}-200 -z-10">
                                 </div>
                             @endif
                         </div>
-                        <h3 class="text-xl font-bold text-gray-800 mb-4">{{ $step['title'] }}</h3>
-                        <p class="text-gray-600 text-sm leading-relaxed">
+                        <h3 class="text-lg font-bold text-gray-800 mb-3">{{ $step['title'] }}</h3>
+                        <p class="text-gray-600 leading-relaxed text-xs">
                             {{ $step['desc'] }}
                         </p>
                     </div>
                 @endforeach
             </div>
 
-            <!-- Process CTA -->
-            <div class="text-center mt-16" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
+            <!-- Process CTA - Slimmer -->
+            <div class="text-center mt-12" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
                 <a href="#contact"
-                    class="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white px-8 py-4 rounded-2xl font-semibold shadow-2xl transform hover:-translate-y-1 transition-all duration-300 inline-flex items-center">
-                    <i class="bi bi-calendar-check mr-3"></i>
+                    class="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white px-6 py-3 rounded-xl font-semibold shadow-lg transform hover:-translate-y-1 transition-all duration-300 inline-flex items-center text-sm">
+                    <i class="bi bi-calendar-check mr-2"></i>
                     <span>Jadwalkan Konsultasi</span>
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- Why Choose Us Section -->
-    <section class="py-24 bg-gradient-to-b from-white to-gray-50/50" id="why-us">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="grid lg:grid-cols-2 gap-16 items-center">
-                <div data-aos="fade-right" data-aos-duration="1000">
+    <!-- Slimmer Why Choose Us Section -->
+    <section class="py-16 bg-gradient-to-b from-white to-gray-50/50" id="why-us">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div data-aos="fade-right" data-aos-duration="800">
                     <div
-                        class="inline-flex items-center px-4 py-2 bg-blue-100 rounded-full text-blue-700 font-medium mb-6">
-                        <i class="bi bi-award mr-2"></i>
+                        class="inline-flex items-center px-3 py-1 bg-blue-100 rounded-full text-blue-700 font-medium mb-4 text-sm">
+                        <i class="bi bi-award mr-1"></i>
                         MENGAPA MEMILIH KAMI
                     </div>
-                    <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-6">Keunggulan Layanan Kami</h2>
-                    <p class="text-gray-600 text-lg leading-relaxed mb-8">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Keunggulan Layanan Kami</h2>
+                    <p class="text-gray-600 leading-relaxed mb-6 text-sm">
                         Dengan pengalaman lebih dari 10 tahun, kami telah membangun reputasi sebagai
                         mitra terpercaya dalam industri konstruksi besi.
                     </p>
 
-                    <div class="space-y-6">
+                    <div class="space-y-4">
                         @foreach ([['icon' => 'bi-shield-check', 'title' => 'Bersertifikat & Berpengalaman', 'desc' => 'Tim profesional dengan sertifikasi dan pengalaman dalam berbagai proyek', 'color' => 'blue'], ['icon' => 'bi-tools', 'title' => 'Teknologi Terkini', 'desc' => 'Menggunakan peralatan modern dan teknologi terkini untuk hasil presisi', 'color' => 'cyan'], ['icon' => 'bi-clock', 'title' => 'Tepat Waktu', 'desc' => 'Komitmen pada deadline dengan sistem manajemen proyek yang terstruktur', 'color' => 'green'], ['icon' => 'bi-headset', 'title' => 'Layanan 24/7', 'desc' => 'Dukungan teknis dan layanan purna jual yang responsif', 'color' => 'purple']] as $feature)
                             <div class="flex items-start group">
                                 <div
-                                    class="bg-{{ $feature['color'] }}-100 w-12 h-12 rounded-2xl flex items-center justify-center mr-5 flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
-                                    <i class="{{ $feature['icon'] }} text-{{ $feature['color'] }}-600 text-xl"></i>
+                                    class="bg-{{ $feature['color'] }}-100 w-10 h-10 rounded-xl flex items-center justify-center mr-4 flex-shrink-0 group-hover:scale-105 transition-transform duration-300">
+                                    <i class="{{ $feature['icon'] }} text-{{ $feature['color'] }}-600 text-lg"></i>
                                 </div>
                                 <div>
-                                    <h4 class="font-bold text-gray-800 text-lg mb-2">{{ $feature['title'] }}</h4>
-                                    <p class="text-gray-600">{{ $feature['desc'] }}</p>
+                                    <h4 class="font-bold text-gray-800 text-sm mb-1">{{ $feature['title'] }}</h4>
+                                    <p class="text-gray-600 text-xs">{{ $feature['desc'] }}</p>
                                 </div>
                             </div>
                         @endforeach
                     </div>
                 </div>
 
-                <div class="relative" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
-                    <div class="grid grid-cols-2 gap-6">
+                <div class="relative" data-aos="fade-left" data-aos-duration="800" data-aos-delay="200">
+                    <div class="grid grid-cols-2 gap-4">
                         @foreach ([['icon' => 'bi-building', 'value' => '50+', 'label' => 'Proyek Selesai', 'color' => 'blue'], ['icon' => 'bi-check-circle', 'value' => '100%', 'label' => 'Klien Puas', 'color' => 'green'], ['icon' => 'bi-people', 'value' => '15+', 'label' => 'Tim Ahli', 'color' => 'cyan'], ['icon' => 'bi-award', 'value' => '10+', 'label' => 'Tahun Pengalaman', 'color' => 'purple']] as $stat)
                             <div
-                                class="bg-white rounded-2xl p-6 text-center shadow-xl border border-gray-100 group hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
+                                class="bg-white rounded-xl p-4 text-center shadow-lg border border-gray-100 group hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
                                 <div
-                                    class="bg-gradient-to-br from-{{ $stat['color'] }}-500 to-{{ $stat['color'] }}-600 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
-                                    <i class="{{ $stat['icon'] }} text-2xl text-white"></i>
+                                    class="bg-gradient-to-br from-{{ $stat['color'] }}-500 to-{{ $stat['color'] }}-600 w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-3 shadow-md">
+                                    <i class="{{ $stat['icon'] }} text-lg text-white"></i>
                                 </div>
-                                <h4 class="font-bold text-gray-800 text-xl mb-1">{{ $stat['value'] }}</h4>
-                                <p class="text-gray-600">{{ $stat['label'] }}</p>
+                                <h4 class="font-bold text-gray-800 text-lg mb-1">{{ $stat['value'] }}</h4>
+                                <p class="text-gray-600 text-xs">{{ $stat['label'] }}</p>
                             </div>
                         @endforeach
                     </div>
 
-                    <!-- Background Decoration -->
+                    <!-- Background Decoration - Smaller -->
                     <div
-                        class="absolute -z-10 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-blue-100 rounded-full blur-3xl opacity-30">
+                        class="absolute -z-10 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-blue-100 rounded-full blur-2xl opacity-20">
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- FAQ Section -->
-    <section class="py-24 bg-gradient-to-b from-gray-50 to-white" id="faq">
-        <div class="max-w-4xl mx-auto px-6">
-            <div class="text-center mb-16" data-aos="fade-up" data-aos-duration="1000">
-                <div class="inline-flex items-center px-4 py-2 bg-blue-100 rounded-full text-blue-700 font-medium mb-4">
-                    <i class="bi bi-question-circle mr-2"></i>
+    <!-- Slimmer FAQ Section -->
+    <section class="py-16 bg-gradient-to-b from-gray-50 to-white" id="faq">
+        <div class="max-w-3xl mx-auto px-4">
+            <div class="text-center mb-12" data-aos="fade-up" data-aos-duration="800">
+                <div class="inline-flex items-center px-3 py-1 bg-blue-100 rounded-full text-blue-700 font-medium mb-3 text-sm">
+                    <i class="bi bi-question-circle mr-1"></i>
                     PERTANYAAN UMUM
                 </div>
-                <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">Pertanyaan yang Sering Diajukan</h2>
-                <p class="text-gray-600 max-w-2xl mx-auto text-lg">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-3">Pertanyaan yang Sering Diajukan</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto text-sm">
                     Temukan jawaban untuk pertanyaan umum seputar layanan konstruksi besi kami
                 </p>
             </div>
 
-            <div class="space-y-4" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+            <div class="space-y-3" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
                 @foreach ([
             [
                 'question' => 'Berapa lama waktu pengerjaan proyek konstruksi besi?',
@@ -496,12 +495,12 @@
                 'answer' => 'Proses dimulai dengan konsultasi gratis, survey lokasi, kemudian kami buat desain dan penawaran detail. Semua proses tanpa biaya hingga Anda menyetujui penawaran.',
             ],
         ] as $faq)
-                    <div class="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 faq-item">
+                    <div class="bg-white rounded-xl p-4 shadow-md border border-gray-100 faq-item">
                         <div class="flex justify-between items-center cursor-pointer">
-                            <h3 class="text-lg font-semibold text-gray-800">{{ $faq['question'] }}</h3>
-                            <i class="bi bi-chevron-down text-blue-600 text-xl transition-transform duration-300"></i>
+                            <h3 class="text-sm font-semibold text-gray-800">{{ $faq['question'] }}</h3>
+                            <i class="bi bi-chevron-down text-blue-600 text-lg transition-transform duration-300"></i>
                         </div>
-                        <div class="mt-4 text-gray-600 hidden">
+                        <div class="mt-3 text-gray-600 text-sm hidden">
                             {{ $faq['answer'] }}
                         </div>
                     </div>
@@ -510,36 +509,36 @@
         </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="py-20 bg-gradient-to-r from-blue-600 via-blue-700 to-cyan-600 text-white relative overflow-hidden"
+    <!-- Slimmer CTA Section -->
+    <section class="py-16 bg-gradient-to-r from-blue-600 via-blue-700 to-cyan-600 text-white relative overflow-hidden"
         id="contact">
-        <!-- Background Elements -->
-        <div class="absolute top-0 left-0 w-72 h-72 bg-white/5 rounded-full -translate-x-1/2 -translate-y-1/2"></div>
-        <div class="absolute bottom-0 right-0 w-96 h-96 bg-cyan-500/10 rounded-full translate-x-1/2 translate-y-1/2"></div>
+        <!-- Background Elements - Smaller -->
+        <div class="absolute top-0 left-0 w-60 h-60 bg-white/5 rounded-full -translate-x-1/2 -translate-y-1/2"></div>
+        <div class="absolute bottom-0 right-0 w-80 h-80 bg-cyan-500/10 rounded-full translate-x-1/2 translate-y-1/2"></div>
 
-        <div class="max-w-4xl mx-auto px-6 text-center relative z-10" data-aos="fade-up" data-aos-duration="1000">
-            <h2 class="text-4xl md:text-5xl font-bold mb-6">Siap Memulai Proyek Anda?</h2>
-            <p class="text-blue-100 text-xl mb-10 max-w-2xl mx-auto leading-relaxed">
+        <div class="max-w-3xl mx-auto px-4 text-center relative z-10" data-aos="fade-up" data-aos-duration="800">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">Siap Memulai Proyek Anda?</h2>
+            <p class="text-blue-100 text-lg mb-8 max-w-2xl mx-auto leading-relaxed">
                 Konsultasikan kebutuhan konstruksi besi Anda dengan tim ahli kami dan dapatkan solusi terbaik
             </p>
-            <div class="flex flex-col sm:flex-row gap-5 justify-center">
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
                 <a href="{{ route('home') }}#quote"
-                    class="bg-white text-blue-600 hover:bg-gray-100 px-8 py-4 rounded-2xl font-semibold shadow-2xl transform hover:-translate-y-1 transition-all duration-300 flex items-center justify-center group"
-                    data-aos="zoom-in" data-aos-duration="800" data-aos-delay="100">
-                    <i class="bi bi-chat-quote mr-3 text-lg"></i>
+                    class="bg-white text-blue-600 hover:bg-gray-100 px-6 py-3 rounded-xl font-semibold shadow-lg transform hover:-translate-y-1 transition-all duration-300 flex items-center justify-center group text-sm"
+                    data-aos="zoom-in" data-aos-duration="600" data-aos-delay="100">
+                    <i class="bi bi-chat-quote mr-2"></i>
                     Konsultasi Gratis
-                    <i class="bi bi-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+                    <i class="bi bi-arrow-right ml-1 group-hover:translate-x-1 transition-transform"></i>
                 </a>
                 <a href="https://wa.me/6287817695973"
-                    class="border-2 border-white text-white hover:bg-white/10 px-8 py-4 rounded-2xl font-semibold backdrop-blur-sm transition-all duration-300 flex items-center justify-center group bg-white/5"
-                    data-aos="zoom-in" data-aos-duration="800" data-aos-delay="200">
-                    <i class="bi bi-whatsapp mr-3 text-lg"></i>
+                    class="border border-white text-white hover:bg-white/10 px-6 py-3 rounded-xl font-semibold backdrop-blur-sm transition-all duration-300 flex items-center justify-center group text-sm bg-white/5"
+                    data-aos="zoom-in" data-aos-duration="600" data-aos-delay="200">
+                    <i class="bi bi-whatsapp mr-2"></i>
                     WhatsApp Kami
                     <i
-                        class="bi bi-arrow-up-right ml-2 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"></i>
+                        class="bi bi-arrow-up-right ml-1 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"></i>
                 </a>
             </div>
-            <p class="text-blue-200 mt-6 text-sm">
+            <p class="text-blue-200 mt-4 text-xs">
                 Respons cepat dalam 1 jam kerja
             </p>
         </div>
@@ -551,28 +550,28 @@
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 
     <script>
-        // Enhanced AOS initialization
+        // Slimmer AOS initialization
         document.addEventListener('DOMContentLoaded', function() {
-            // Initialize AOS dengan pengaturan untuk animasi masuk dan keluar
+            // Initialize AOS dengan pengaturan yang lebih cepat
             AOS.init({
-                duration: 1000,
+                duration: 600,
                 easing: 'ease-out-cubic',
                 once: false,
                 mirror: true,
-                offset: 120,
+                offset: 80,
                 anchorPlacement: 'top-bottom',
                 disable: window.innerWidth < 768
             });
 
-            // Initialize Particles.js
+            // Initialize Particles.js - Fewer particles for performance
             if (document.getElementById('particles-js')) {
                 particlesJS('particles-js', {
                     particles: {
                         number: {
-                            value: 80,
+                            value: 60,
                             density: {
                                 enable: true,
-                                value_area: 800
+                                value_area: 600
                             }
                         },
                         color: {
@@ -586,7 +585,7 @@
                             }
                         },
                         opacity: {
-                            value: 0.3,
+                            value: 0.2,
                             random: true,
                             anim: {
                                 enable: true,
@@ -596,7 +595,7 @@
                             }
                         },
                         size: {
-                            value: 3,
+                            value: 2,
                             random: true,
                             anim: {
                                 enable: true,
@@ -607,14 +606,14 @@
                         },
                         line_linked: {
                             enable: true,
-                            distance: 150,
+                            distance: 120,
                             color: "#ffffff",
-                            opacity: 0.2,
+                            opacity: 0.1,
                             width: 1
                         },
                         move: {
                             enable: true,
-                            speed: 1,
+                            speed: 0.8,
                             direction: "none",
                             random: true,
                             straight: false,
@@ -637,13 +636,13 @@
                         },
                         modes: {
                             grab: {
-                                distance: 140,
+                                distance: 120,
                                 line_linked: {
-                                    opacity: 0.5
+                                    opacity: 0.3
                                 }
                             },
                             push: {
-                                particles_nb: 4
+                                particles_nb: 3
                             }
                         }
                     },
@@ -657,7 +656,7 @@
                     e.preventDefault();
                     const target = document.querySelector(this.getAttribute('href'));
                     if (target) {
-                        const headerOffset = 100;
+                        const headerOffset = 80;
                         const elementPosition = target.getBoundingClientRect().top;
                         const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
@@ -669,12 +668,12 @@
                 });
             });
 
-            // Parallax effect for hero section
+            // Parallax effect for hero section - Lighter
             window.addEventListener('scroll', function() {
                 const scrolled = window.pageYOffset;
-                const hero = document.querySelector('.relative.min-h-\\[90vh\\]');
+                const hero = document.querySelector('.relative.min-h-\\[80vh\\]');
                 if (hero) {
-                    hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+                    hero.style.transform = `translateY(${scrolled * 0.3}px)`;
                 }
             });
 
@@ -683,7 +682,7 @@
 
             serviceCards.forEach(card => {
                 card.addEventListener('mouseenter', function() {
-                    this.style.transform = 'translateY(-8px)';
+                    this.style.transform = 'translateY(-4px)';
                 });
 
                 card.addEventListener('mouseleave', function() {
@@ -721,7 +720,7 @@
             });
 
             window.addEventListener('resize', function() {
-                setTimeout(() => AOS.refresh(), 500);
+                setTimeout(() => AOS.refresh(), 300);
             });
 
             // Add intersection observer for counters
@@ -731,12 +730,12 @@
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         const target = parseInt(entry.target.getAttribute('data-counter'));
-                        animateCounter(entry.target, target, 2000);
+                        animateCounter(entry.target, target, 1500);
                         counterObserver.unobserve(entry.target);
                     }
                 });
             }, {
-                threshold: 0.5
+                threshold: 0.3
             });
 
             counters.forEach(counter => {
@@ -762,14 +761,14 @@
     </script>
 
     <style>
-        /* Enhanced custom animations untuk services page */
+        /* Slimmer custom animations untuk services page */
         @keyframes slow-zoom {
             0% {
                 transform: scale(1);
             }
 
             50% {
-                transform: scale(1.05);
+                transform: scale(1.03);
             }
 
             100% {
@@ -785,7 +784,7 @@
             }
 
             50% {
-                transform: translateY(-20px);
+                transform: translateY(-10px);
             }
         }
 
@@ -797,7 +796,7 @@
             }
 
             50% {
-                transform: translateY(-15px);
+                transform: translateY(-8px);
             }
         }
 
@@ -809,7 +808,7 @@
             }
 
             50% {
-                opacity: 0.6;
+                opacity: 0.5;
             }
         }
 
@@ -828,29 +827,29 @@
         }
 
         .animate-slow-zoom {
-            animation: slow-zoom 30s ease-in-out infinite;
+            animation: slow-zoom 20s ease-in-out infinite;
         }
 
         .animate-float {
-            animation: float 6s ease-in-out infinite;
+            animation: float 4s ease-in-out infinite;
         }
 
         .animate-float-delayed {
-            animation: float-delayed 8s ease-in-out infinite;
+            animation: float-delayed 6s ease-in-out infinite;
         }
 
         .animate-pulse-slow {
-            animation: pulse-slow 4s ease-in-out infinite;
+            animation: pulse-slow 3s ease-in-out infinite;
         }
 
         .animate-gradient-x {
             background-size: 200% auto;
-            animation: gradient-x 3s ease infinite;
+            animation: gradient-x 2s ease infinite;
         }
 
         /* Enhanced hover effects untuk service cards */
         .service-card:hover .service-icon {
-            transform: scale(1.1);
+            transform: scale(1.05);
         }
 
         /* FAQ Animation */
@@ -861,7 +860,7 @@
         /* Custom scroll behavior */
         html {
             scroll-behavior: smooth;
-            scroll-padding-top: 100px;
+            scroll-padding-top: 80px;
         }
 
         /* Enhanced AOS animasi smooth */
@@ -876,18 +875,18 @@
         /* Glass morphism effect */
         .glass {
             background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
         }
 
         /* Custom selection */
         ::selection {
-            background: rgba(59, 130, 246, 0.3);
+            background: rgba(59, 130, 246, 0.2);
         }
 
         /* Scrollbar styling */
         ::-webkit-scrollbar {
-            width: 8px;
+            width: 6px;
         }
 
         ::-webkit-scrollbar-track {
@@ -896,7 +895,7 @@
 
         ::-webkit-scrollbar-thumb {
             background: #cbd5e1;
-            border-radius: 4px;
+            border-radius: 3px;
         }
 
         ::-webkit-scrollbar-thumb:hover {
@@ -908,10 +907,10 @@
             .process-step:not(:last-child)::after {
                 content: '';
                 position: absolute;
-                top: 40px;
+                top: 32px;
                 left: 50%;
                 width: 100%;
-                height: 2px;
+                height: 1px;
                 background: linear-gradient(to right, #3b82f6, #06b6d4);
                 z-index: -1;
             }
@@ -938,7 +937,7 @@
             width: 100%;
             height: 100%;
             background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: left 0.5s;
+            transition: left 0.4s;
         }
 
         .btn-hover-effect:hover::before {
@@ -947,11 +946,11 @@
 
         /* Text shadow for better readability */
         .text-shadow {
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
         }
 
         .text-shadow-lg {
-            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
         }
     </style>
 @endsection

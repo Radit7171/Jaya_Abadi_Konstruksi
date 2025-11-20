@@ -3,9 +3,8 @@
 @section('title', 'Gallery | Jaya Abadi Konstruksi')
 
 @section('content')
-    <!-- Enhanced Hero Section with Particles & Parallax -->
-    <section
-        class="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-900 via-blue-900 to-cyan-900">
+    <!-- Slimmer Hero Section -->
+    <section class="relative min-h-[70vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-900 via-blue-900 to-cyan-900">
         <!-- Fallback Background -->
         <div class="absolute inset-0 bg-gray-900 z-0"></div>
 
@@ -23,108 +22,97 @@
                 onerror="this.style.display='none'">
         </div>
 
-        <!-- Floating Elements -->
-        <div class="absolute top-20 left-10 w-6 h-6 bg-cyan-400 rounded-full opacity-70 animate-float z-4"></div>
-        <div class="absolute bottom-32 right-16 w-10 h-10 bg-blue-500 rounded-full opacity-50 animate-float-delayed z-4">
+        <!-- Floating Elements - Smaller -->
+        <div class="absolute top-16 left-8 w-4 h-4 bg-cyan-400 rounded-full opacity-70 animate-float z-4"></div>
+        <div class="absolute bottom-24 right-12 w-6 h-6 bg-blue-500 rounded-full opacity-50 animate-float-delayed z-4">
         </div>
-        <div class="absolute top-1/3 right-1/4 w-8 h-8 bg-white rounded-full opacity-30 animate-pulse-slow z-4"></div>
+        <div class="absolute top-1/3 right-1/4 w-5 h-5 bg-white rounded-full opacity-30 animate-pulse-slow z-4"></div>
 
-        <!-- Content Hero -->
-        <div class="relative z-20 max-w-7xl mx-auto px-6 text-center text-white">
-            <div data-aos="fade-up" data-aos-duration="1200" data-aos-once="true">
-                <div class="inline-block mb-4 px-4 py-2 bg-white/10 backdrop-blur-md rounded-full border border-white/20">
-                    <span class="text-cyan-300 font-medium">Portofolio Karya</span>
+        <!-- Content Hero - Slimmer -->
+        <div class="relative z-20 max-w-6xl mx-auto px-4 text-center text-white">
+            <div data-aos="fade-up" data-aos-duration="800" data-aos-once="true">
+                <div class="inline-block mb-3 px-3 py-1 bg-white/10 backdrop-blur-md rounded-full border border-white/20">
+                    <span class="text-cyan-300 font-medium text-sm">Portofolio Karya</span>
                 </div>
-                <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight">
                     <span class="bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-500 bg-clip-text text-transparent">
                         Gallery Karya
                     </span>
                 </h1>
-                <p class="text-lg md:text-xl lg:text-2xl text-gray-200 mb-8 max-w-3xl mx-auto leading-relaxed font-light">
+                <p class="text-lg md:text-xl text-gray-200 mb-6 max-w-2xl mx-auto leading-relaxed font-light">
                     Jelajahi <span class="text-cyan-300 font-semibold">Koleksi Proyek Terbaik</span> Kami dalam Konstruksi
                     Besi dengan Berbagai Inovasi dan Kualitas
                 </p>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center" data-aos="fade-up"
-                    data-aos-delay="400" data-aos-once="true">
+                <div class="flex flex-col sm:flex-row gap-3 justify-center items-center" data-aos="fade-up"
+                    data-aos-delay="300" data-aos-once="true">
                     <a href="#gallery-grid"
-                        class="group bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white px-6 py-3 md:px-8 md:py-4 rounded-xl md:rounded-2xl font-semibold shadow-lg transform hover:-translate-y-1 transition-all duration-300 flex items-center shadow-blue-500/30 hover:shadow-blue-500/50">
+                        class="group bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white px-6 py-3 rounded-xl font-semibold shadow-lg transform hover:-translate-y-1 transition-all duration-300 flex items-center text-sm shadow-blue-500/20 hover:shadow-blue-500/30">
                         <span>Lihat Gallery</span>
-                        <svg class="w-5 h-5 ml-2 group-hover:translate-y-1 transition-transform duration-300" fill="none"
-                            stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-                        </svg>
+                        <i class="bi bi-arrow-down ml-1 group-hover:translate-y-1 transition-transform duration-300"></i>
                     </a>
                     <a href="#contact"
-                        class="group border-2 border-white/40 hover:border-white text-white px-6 py-3 md:px-8 md:py-4 rounded-xl md:rounded-2xl font-semibold backdrop-blur-sm hover:bg-white/10 transition-all duration-300 flex items-center bg-white/5">
+                        class="group border border-white/40 hover:border-white text-white px-6 py-3 rounded-xl font-semibold backdrop-blur-sm hover:bg-white/10 transition-all duration-300 flex items-center text-sm bg-white/5">
                         <span>Konsultasi Proyek</span>
-                        <svg class="w-5 h-5 ml-2 group-hover:scale-110 transition-transform duration-300" fill="none"
-                            stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z">
-                            </path>
-                        </svg>
+                        <i class="bi bi-chat ml-1 group-hover:scale-105 transition-transform duration-300"></i>
                     </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Gallery Filter Section -->
-    <section class="py-16 bg-gradient-to-b from-white to-gray-50/30" id="filter">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6">
-            <div class="text-center mb-12" data-aos="fade-up" data-aos-duration="1000">
-                <div class="inline-flex items-center px-4 py-2 bg-blue-100 rounded-full text-blue-700 font-medium mb-4">
-                    <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M3 3h8v8H3V3zm0 10h8v8H3v-8zM13 3h8v8h-8V3zm0 10h8v8h-8v-8z" />
-                    </svg>
+    <!-- Slimmer Gallery Filter Section -->
+    <section class="py-12 bg-gradient-to-b from-white to-gray-50/30" id="filter">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-10" data-aos="fade-up" data-aos-duration="800">
+                <div class="inline-flex items-center px-3 py-1 bg-blue-100 rounded-full text-blue-700 font-medium mb-3 text-sm">
+                    <i class="bi bi-grid-3x3 mr-1"></i>
                     KATEGORI PROYEK
                 </div>
-                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 mb-4">Eksplorasi Karya Kami</h2>
-                <p class="text-gray-600 max-w-2xl mx-auto text-base md:text-lg">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-3">Eksplorasi Karya Kami</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto text-sm">
                     Temukan berbagai jenis proyek konstruksi besi yang telah kami selesaikan dengan standar kualitas
                     tertinggi
                 </p>
             </div>
 
-            <!-- Filter Buttons -->
-            <div class="flex flex-wrap justify-center gap-3 mb-12" data-aos="fade-up" data-aos-duration="800">
+            <!-- Filter Buttons - Slimmer -->
+            <div class="flex flex-wrap justify-center gap-2 mb-10" data-aos="fade-up" data-aos-duration="600">
                 <button
-                    class="filter-btn active px-4 py-2 md:px-6 md:py-3 rounded-xl md:rounded-2xl font-semibold transition-all duration-300 bg-gradient-to-r from-blue-600 to-cyan-500 text-white shadow-lg transform hover:-translate-y-1 text-sm md:text-base"
+                    class="filter-btn active px-4 py-2 rounded-xl font-semibold transition-all duration-300 bg-gradient-to-r from-blue-600 to-cyan-500 text-white shadow-md transform hover:-translate-y-1 text-sm"
                     data-filter="all">
                     Semua Proyek
                 </button>
                 <button
-                    class="filter-btn px-4 py-2 md:px-6 md:py-3 rounded-xl md:rounded-2xl font-semibold transition-all duration-300 bg-white text-gray-700 border border-gray-200 hover:border-blue-500 hover:text-blue-600 hover:shadow-lg transform hover:-translate-y-1 text-sm md:text-base"
+                    class="filter-btn px-4 py-2 rounded-xl font-semibold transition-all duration-300 bg-white text-gray-700 border border-gray-200 hover:border-blue-500 hover:text-blue-600 hover:shadow-md transform hover:-translate-y-1 text-sm"
                     data-filter="structure">
                     Struktur Baja
                 </button>
                 <button
-                    class="filter-btn px-4 py-2 md:px-6 md:py-3 rounded-xl md:rounded-2xl font-semibold transition-all duration-300 bg-white text-gray-700 border border-gray-200 hover:border-cyan-500 hover:text-cyan-600 hover:shadow-lg transform hover:-translate-y-1 text-sm md:text-base"
+                    class="filter-btn px-4 py-2 rounded-xl font-semibold transition-all duration-300 bg-white text-gray-700 border border-gray-200 hover:border-cyan-500 hover:text-cyan-600 hover:shadow-md transform hover:-translate-y-1 text-sm"
                     data-filter="fabrication">
                     Fabrikasi Custom
                 </button>
                 <button
-                    class="filter-btn px-4 py-2 md:px-6 md:py-3 rounded-xl md:rounded-2xl font-semibold transition-all duration-300 bg-white text-gray-700 border border-gray-200 hover:border-green-500 hover:text-green-600 hover:shadow-lg transform hover:-translate-y-1 text-sm md:text-base"
+                    class="filter-btn px-4 py-2 rounded-xl font-semibold transition-all duration-300 bg-white text-gray-700 border border-gray-200 hover:border-green-500 hover:text-green-600 hover:shadow-md transform hover:-translate-y-1 text-sm"
                     data-filter="maintenance">
                     Perbaikan
                 </button>
                 <button
-                    class="filter-btn px-4 py-2 md:px-6 md:py-3 rounded-xl md:rounded-2xl font-semibold transition-all duration-300 bg-white text-gray-700 border border-gray-200 hover:border-purple-500 hover:text-purple-600 hover:shadow-lg transform hover:-translate-y-1 text-sm md:text-base"
+                    class="filter-btn px-4 py-2 rounded-xl font-semibold transition-all duration-300 bg-white text-gray-700 border border-gray-200 hover:border-purple-500 hover:text-purple-600 hover:shadow-md transform hover:-translate-y-1 text-sm"
                     data-filter="finishing">
                     Finishing
                 </button>
             </div>
 
             <!-- Loading Indicator -->
-            <div id="loading-indicator" class="hidden flex justify-center items-center py-12">
-                <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
-                <span class="ml-3 text-gray-600">Memuat gallery...</span>
+            <div id="loading-indicator" class="hidden flex justify-center items-center py-8">
+                <div class="animate-spin rounded-full h-10 w-10 border-b-2 border-blue-600"></div>
+                <span class="ml-3 text-gray-600 text-sm">Memuat gallery...</span>
             </div>
 
             <!-- Gallery Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="gallery-grid" data-aos="fade-up"
-                data-aos-duration="1000">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" id="gallery-grid" data-aos="fade-up"
+                data-aos-duration="800">
                 @include('gallery.partials.gallery_items')
             </div>
 
@@ -135,34 +123,32 @@
         </div>
     </section>
 
-    <!-- Project Statistics -->
-    <section class="py-20 bg-gradient-to-br from-gray-50 to-blue-50/30 relative overflow-hidden">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6">
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+    <!-- Slimmer Project Statistics -->
+    <section class="py-16 bg-gradient-to-br from-gray-50 to-blue-50/30 relative overflow-hidden">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                 @php
                     $stats = [
                         [
-                            'icon' =>
-                                'M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4',
+                            'icon' => 'bi-building',
                             'value' => '50+',
                             'label' => 'Proyek Terselesaikan',
                             'color' => 'blue',
                         ],
                         [
-                            'icon' => 'M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z',
+                            'icon' => 'bi-check-circle',
                             'value' => '100%',
                             'label' => 'Kepuasan Klien',
                             'color' => 'green',
                         ],
                         [
-                            'icon' => 'M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z',
+                            'icon' => 'bi-clock',
                             'value' => '5+',
                             'label' => 'Tahun Pengalaman',
                             'color' => 'cyan',
                         ],
                         [
-                            'icon' =>
-                                'M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z',
+                            'icon' => 'bi-geo-alt',
                             'value' => '25+',
                             'label' => 'Lokasi Proyek',
                             'color' => 'purple',
@@ -171,97 +157,74 @@
                 @endphp
 
                 @foreach ($stats as $stat)
-                    <div class="bg-white rounded-2xl p-6 text-center shadow-lg border border-gray-100 group hover:shadow-xl transition-all duration-500 hover:-translate-y-1"
-                        data-aos="fade-up" data-aos-duration="800" data-aos-delay="{{ $loop->index * 100 }}">
+                    <div class="bg-white rounded-xl p-4 text-center shadow-md border border-gray-100 group hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+                        data-aos="fade-up" data-aos-duration="600" data-aos-delay="{{ $loop->index * 100 }}">
                         <div
-                            class="bg-gradient-to-br from-{{ $stat['color'] }}-500 to-{{ $stat['color'] }}-600 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:scale-110 transition-transform duration-500">
-                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="{{ $stat['icon'] }}" />
-                            </svg>
+                            class="bg-gradient-to-br from-{{ $stat['color'] }}-500 to-{{ $stat['color'] }}-600 w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-3 shadow-md group-hover:scale-105 transition-transform duration-300">
+                            <i class="bi {{ $stat['icon'] }} text-lg text-white"></i>
                         </div>
-                        <h4 class="font-bold text-gray-800 text-2xl md:text-3xl mb-2">{{ $stat['value'] }}</h4>
-                        <p class="text-gray-600 text-sm md:text-base">{{ $stat['label'] }}</p>
+                        <h4 class="font-bold text-gray-800 text-xl mb-1">{{ $stat['value'] }}</h4>
+                        <p class="text-gray-600 text-xs">{{ $stat['label'] }}</p>
                     </div>
                 @endforeach
             </div>
         </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="py-20 bg-gradient-to-r from-blue-600 via-blue-700 to-cyan-600 text-white relative overflow-hidden"
+    <!-- Slimmer CTA Section -->
+    <section class="py-16 bg-gradient-to-r from-blue-600 via-blue-700 to-cyan-600 text-white relative overflow-hidden"
         id="contact">
-        <!-- Background Elements -->
-        <div class="absolute top-0 left-0 w-72 h-72 bg-white/5 rounded-full -translate-x-1/2 -translate-y-1/2"></div>
-        <div class="absolute bottom-0 right-0 w-96 h-96 bg-cyan-500/10 rounded-full translate-x-1/2 translate-y-1/2"></div>
+        <!-- Background Elements - Smaller -->
+        <div class="absolute top-0 left-0 w-60 h-60 bg-white/5 rounded-full -translate-x-1/2 -translate-y-1/2"></div>
+        <div class="absolute bottom-0 right-0 w-80 h-80 bg-cyan-500/10 rounded-full translate-x-1/2 translate-y-1/2"></div>
 
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center relative z-10" data-aos="fade-up"
-            data-aos-duration="1000">
-            <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">Tertarik dengan Karya Kami?</h2>
-            <p class="text-blue-100 text-lg md:text-xl mb-10 max-w-2xl mx-auto leading-relaxed">
+        <div class="max-w-3xl mx-auto px-4 text-center relative z-10" data-aos="fade-up"
+            data-aos-duration="800">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">Tertarik dengan Karya Kami?</h2>
+            <p class="text-blue-100 text-lg mb-8 max-w-2xl mx-auto leading-relaxed">
                 Diskusikan kebutuhan konstruksi besi Anda dengan tim ahli kami dan dapatkan solusi terbaik untuk proyek Anda
             </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <div class="flex flex-col sm:flex-row gap-3 justify-center">
                 <a href="{{ route('home') }}#quote"
-                    class="bg-white text-blue-600 hover:bg-gray-100 px-6 py-3 md:px-8 md:py-4 rounded-xl md:rounded-2xl font-semibold shadow-lg transform hover:-translate-y-1 transition-all duration-300 flex items-center justify-center group"
-                    data-aos="zoom-in" data-aos-duration="800" data-aos-delay="100">
-                    <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-                    </svg>
+                    class="bg-white text-blue-600 hover:bg-gray-100 px-6 py-3 rounded-xl font-semibold shadow-lg transform hover:-translate-y-1 transition-all duration-300 flex items-center justify-center group text-sm"
+                    data-aos="zoom-in" data-aos-duration="600" data-aos-delay="100">
+                    <i class="bi bi-chat-quote mr-2"></i>
                     Konsultasi Gratis
-                    <svg class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none"
-                        stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                    </svg>
+                    <i class="bi bi-arrow-right ml-1 group-hover:translate-x-1 transition-transform"></i>
                 </a>
                 <a href="https://wa.me/6287817695973"
-                    class="border-2 border-white text-white hover:bg-white/10 px-6 py-3 md:px-8 md:py-4 rounded-xl md:rounded-2xl font-semibold backdrop-blur-sm transition-all duration-300 flex items-center justify-center group bg-white/5"
-                    data-aos="zoom-in" data-aos-duration="800" data-aos-delay="200">
-                    <svg class="w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 24 24">
-                        <path
-                            d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893c0-3.189-1.248-6.189-3.515-8.444" />
-                    </svg>
+                    class="border border-white text-white hover:bg-white/10 px-6 py-3 rounded-xl font-semibold backdrop-blur-sm transition-all duration-300 flex items-center justify-center group text-sm bg-white/5"
+                    data-aos="zoom-in" data-aos-duration="600" data-aos-delay="200">
+                    <i class="bi bi-whatsapp mr-2"></i>
                     WhatsApp Kami
-                    <svg class="w-5 h-5 ml-2 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"
-                        fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                    </svg>
+                    <i class="bi bi-arrow-up-right ml-1 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"></i>
                 </a>
             </div>
-            <p class="text-blue-200 mt-6 text-sm">
+            <p class="text-blue-200 mt-4 text-xs">
                 Respons cepat dalam 1 jam kerja
             </p>
         </div>
     </section>
 
-    <!-- Image Modal -->
+    <!-- Slimmer Image Modal -->
     <div id="imageModal" class="fixed inset-0 bg-black/90 z-50 hidden items-center justify-center p-4">
-        <div class="relative max-w-4xl w-full max-h-[90vh]">
+        <div class="relative max-w-3xl w-full max-h-[85vh]">
             <button id="closeModal"
-                class="absolute -top-10 right-0 text-white text-2xl hover:text-cyan-300 transition-colors duration-300 z-10">
-                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
+                class="absolute -top-8 right-0 text-white text-xl hover:text-cyan-300 transition-colors duration-300 z-10">
+                <i class="bi bi-x-circle"></i>
             </button>
-            <div class="bg-white rounded-xl overflow-hidden">
-                <img id="modalImage" src="" alt="" class="w-full h-auto max-h-[60vh] object-contain"
+            <div class="bg-white rounded-lg overflow-hidden">
+                <img id="modalImage" src="" alt="" class="w-full h-auto max-h-[50vh] object-contain"
                     loading="lazy">
                 <div class="p-4">
-                    <h3 id="modalTitle" class="text-lg font-bold text-gray-800 mb-2"></h3>
-                    <p id="modalDescription" class="text-gray-600 mb-3"></p>
+                    <h3 id="modalTitle" class="text-base font-bold text-gray-800 mb-1"></h3>
+                    <p id="modalDescription" class="text-gray-600 mb-2 text-sm"></p>
                     <div class="flex justify-between items-center">
                         <span id="modalCategory"
-                            class="inline-flex items-center px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">
-                            <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" />
-                            </svg>
+                            class="inline-flex items-center px-2 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-medium">
+                            <i class="bi bi-tag mr-1 text-xs"></i>
                         </span>
-                        <span id="modalDuration" class="text-cyan-600 font-semibold"></span>
+                        <span id="modalDuration" class="text-cyan-600 font-semibold text-sm"></span>
                     </div>
                 </div>
             </div>
@@ -274,15 +237,15 @@
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 
     <script>
-        // Enhanced initialization
+        // Slimmer initialization
         document.addEventListener('DOMContentLoaded', function() {
-            // Initialize AOS
+            // Initialize AOS dengan pengaturan yang lebih cepat
             if (typeof AOS !== 'undefined') {
                 AOS.init({
-                    duration: 800,
+                    duration: 600,
                     easing: 'ease-out-cubic',
                     once: true,
-                    offset: 100,
+                    offset: 80,
                     disable: window.innerWidth < 768
                 });
             }
@@ -294,7 +257,7 @@
             initGalleryFilters();
             initImageModal();
             initSmoothScroll();
-            initAjaxPagination(); // Tambahkan ini
+            initAjaxPagination();
 
             // Refresh AOS on load and resize
             window.addEventListener('load', function() {
@@ -304,17 +267,17 @@
             });
         });
 
-        // Particles.js Initialization dengan fallback
+        // Particles.js Initialization dengan fallback - Fewer particles
         function initParticles() {
             if (typeof particlesJS !== 'undefined' && document.getElementById('particles-js')) {
                 try {
                     particlesJS('particles-js', {
                         particles: {
                             number: {
-                                value: 40,
+                                value: 30,
                                 density: {
                                     enable: true,
-                                    value_area: 800
+                                    value_area: 600
                                 }
                             },
                             color: {
@@ -324,23 +287,23 @@
                                 type: "circle"
                             },
                             opacity: {
-                                value: 0.3,
+                                value: 0.2,
                                 random: true
                             },
                             size: {
-                                value: 3,
+                                value: 2,
                                 random: true
                             },
                             line_linked: {
                                 enable: true,
-                                distance: 150,
+                                distance: 120,
                                 color: "#ffffff",
-                                opacity: 0.2,
+                                opacity: 0.15,
                                 width: 1
                             },
                             move: {
                                 enable: true,
-                                speed: 1,
+                                speed: 0.8,
                                 direction: "none",
                                 random: true,
                                 out_mode: "out"
@@ -406,7 +369,7 @@
                         throw new Error(`HTTP ${response.status}`);
                     }
 
-                    // Safe JSON parse (Railway sometimes sends weird headers)
+                    // Safe JSON parse
                     let data;
                     try {
                         data = await response.json();
@@ -424,7 +387,7 @@
                     setTimeout(() => {
                         galleryGrid.innerHTML = data.html;
                         galleryGrid.style.opacity = '1';
-                    }, 300);
+                    }, 200);
 
                     // Update pagination
                     paginationContainer.innerHTML = data.pagination;
@@ -439,7 +402,7 @@
                             behavior: 'smooth',
                             block: 'start'
                         });
-                    }, 150);
+                    }, 100);
 
                     // Re-init
                     if (typeof AOS !== 'undefined') AOS.refresh();
@@ -476,10 +439,10 @@
                         }, 50);
                     } else {
                         item.style.opacity = '0';
-                        item.style.transform = 'translateY(20px)';
+                        item.style.transform = 'translateY(15px)';
                         setTimeout(() => {
                             item.style.display = 'none';
-                        }, 300);
+                        }, 200);
                     }
                 });
             }
@@ -490,7 +453,7 @@
                     filterButtons.forEach(btn => {
                         btn.classList.remove('active');
                         btn.classList.remove('bg-gradient-to-r', 'from-blue-600', 'to-cyan-500',
-                            'text-white', 'shadow-lg');
+                            'text-white', 'shadow-md');
                         btn.classList.add('bg-white', 'text-gray-700', 'border', 'border-gray-200');
                     });
 
@@ -498,7 +461,7 @@
                     this.classList.add('active');
                     this.classList.remove('bg-white', 'text-gray-700', 'border-gray-200');
                     this.classList.add('bg-gradient-to-r', 'from-blue-600', 'to-cyan-500', 'text-white',
-                        'shadow-lg');
+                        'shadow-md');
 
                     const filterValue = this.dataset.filter;
                     applyFilter(filterValue);
@@ -531,9 +494,7 @@
                     modalImage.alt = title;
                     modalTitle.textContent = title;
                     modalDescription.textContent = description;
-                    modalCategory.innerHTML = `<svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"/>
-                    </svg>${category}`;
+                    modalCategory.innerHTML = `<i class="bi bi-tag mr-1 text-xs"></i>${category}`;
                     modalDuration.textContent = duration;
 
                     // Show modal dengan animation
@@ -550,7 +511,7 @@
                 modal.classList.remove('flex');
                 setTimeout(() => {
                     modal.classList.add('hidden');
-                }, 300);
+                }, 200);
                 document.body.style.overflow = 'auto';
             }
 
@@ -598,12 +559,10 @@
 
             const errorDiv = document.createElement('div');
             errorDiv.className =
-                'error-message fixed top-4 right-4 bg-red-500 text-white px-6 py-3 rounded-xl shadow-lg z-50 transform translate-x-full transition-transform duration-300';
+                'error-message fixed top-4 right-4 bg-red-500 text-white px-4 py-2 rounded-lg shadow-md z-50 transform translate-x-full transition-transform duration-300';
             errorDiv.innerHTML = `
-                <div class="flex items-center">
-                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                    </svg>
+                <div class="flex items-center text-sm">
+                    <i class="bi bi-exclamation-triangle mr-2"></i>
                     <span>${message}</span>
                 </div>
             `;
@@ -614,13 +573,13 @@
                 errorDiv.style.transform = 'translateX(0)';
             }, 100);
 
-            // Auto remove after 5 seconds
+            // Auto remove after 4 seconds
             setTimeout(() => {
                 errorDiv.style.transform = 'translateX(100%)';
                 setTimeout(() => {
                     errorDiv.remove();
-                }, 300);
-            }, 5000);
+                }, 200);
+            }, 4000);
         }
 
         // Loading state management
@@ -641,95 +600,68 @@
     </script>
 
     <style>
-        /* Enhanced custom animations */
+        /* Slimmer custom animations */
         @keyframes slow-zoom {
-
-            0%,
-            100% {
+            0%, 100% {
                 transform: scale(1);
             }
-
             50% {
-                transform: scale(1.05);
+                transform: scale(1.03);
             }
         }
 
         @keyframes float {
-
-            0%,
-            100% {
+            0%, 100% {
                 transform: translateY(0);
             }
-
             50% {
-                transform: translateY(-20px);
+                transform: translateY(-10px);
             }
         }
 
         @keyframes float-delayed {
-
-            0%,
-            100% {
+            0%, 100% {
                 transform: translateY(0);
             }
-
             50% {
-                transform: translateY(-15px);
+                transform: translateY(-8px);
             }
         }
 
         @keyframes pulse-slow {
-
-            0%,
-            100% {
+            0%, 100% {
                 opacity: 0.3;
             }
-
             50% {
-                opacity: 0.6;
+                opacity: 0.5;
             }
         }
 
         .animate-slow-zoom {
-            animation: slow-zoom 30s ease-in-out infinite;
+            animation: slow-zoom 20s ease-in-out infinite;
         }
 
         .animate-float {
-            animation: float 6s ease-in-out infinite;
+            animation: float 4s ease-in-out infinite;
         }
 
         .animate-float-delayed {
-            animation: float-delayed 8s ease-in-out infinite;
+            animation: float-delayed 6s ease-in-out infinite;
         }
 
         .animate-pulse-slow {
-            animation: pulse-slow 4s ease-in-out infinite;
+            animation: pulse-slow 3s ease-in-out infinite;
         }
 
         /* Gallery item transitions */
         .gallery-item {
-            transition: all 0.3s ease;
+            transition: all 0.2s ease;
         }
 
         /* Custom scroll behavior */
         html {
             scroll-behavior: smooth;
-        }
-
-        /* Responsive improvements */
-        @media (max-width: 768px) {
-            .hero-content h1 {
-                font-size: 2.5rem !important;
-            }
-
-            .filter-buttons {
-                flex-wrap: wrap;
-            }
-
-            .filter-btn {
-                flex: 1 0 auto;
-                min-width: 140px;
-            }
+            scroll-padding-top: 80px;
         }
 
         /* Loading animation */
@@ -737,14 +669,13 @@
             0% {
                 transform: rotate(0deg);
             }
-
             100% {
                 transform: rotate(360deg);
             }
         }
 
         .animate-spin {
-            animation: spin 1s linear infinite;
+            animation: spin 0.8s linear infinite;
         }
 
         /* Z-index layering untuk hero section */
@@ -791,7 +722,7 @@
 
         /* Smooth transitions untuk AJAX content */
         #gallery-grid {
-            transition: opacity 0.3s ease;
+            transition: opacity 0.2s ease;
         }
 
         /* Pagination link states */
@@ -807,7 +738,45 @@
 
         /* Error message animation */
         .error-message {
-            transition: transform 0.3s ease;
+            transition: transform 0.2s ease;
         }
+
+        /* Responsive improvements */
+        @media (max-width: 768px) {
+            .filter-btn {
+                flex: 1 0 auto;
+                min-width: 120px;
+            }
+        }
+
+        /* Smooth transitions untuk pagination */
+.ajax-pagination-link {
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+}
+
+/* Hover effects yang lebih subtle */
+.ajax-pagination-link:hover {
+    transform: translateY(-1px);
+}
+
+/* Active state */
+.ajax-pagination-link:active {
+    transform: translateY(0);
+}
+
+/* Loading state untuk AJAX */
+.ajax-pagination-link.loading {
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+    .pagination-container {
+        gap: 0.5rem;
+    }
+}
     </style>
 @endsection
