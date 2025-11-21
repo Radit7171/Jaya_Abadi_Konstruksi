@@ -22,3 +22,7 @@ Route::get('/gallery', [GalleryController::class, 'gallery'])->name('gallery');
 Route::get('/contackus', function () {
     return view('contackus.contackus');
 })->name('contackus');
+
+Route::get('/login', function () {
+    return view('admin.login');
+})->name('login');
