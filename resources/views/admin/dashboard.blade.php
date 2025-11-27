@@ -341,7 +341,7 @@
                         <p class="text-xs font-medium truncate">Admin User</p>
                         <p class="text-xs text-slate-400 truncate">admin@jayakonstruksi.com</p>
                     </div>
-                    <a href="#" class="text-slate-400 hover:text-white text-sm">
+                    <a href="{{ route('logout') }}" class="text-slate-400 hover:text-white text-sm">
                         <i class="bi bi-box-arrow-right"></i>
                     </a>
                 </div>
@@ -396,7 +396,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="stats-card border-l-green-500">
                         <div class="flex items-center">
                             <div class="p-2 rounded bg-green-50 text-green-600 mr-3">
@@ -408,7 +408,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="stats-card border-l-purple-500">
                         <div class="flex items-center">
                             <div class="p-2 rounded bg-purple-50 text-purple-600 mr-3">
@@ -420,7 +420,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="stats-card border-l-orange-500">
                         <div class="flex items-center">
                             <div class="p-2 rounded bg-orange-50 text-orange-600 mr-3">
@@ -439,25 +439,25 @@
                     <!-- Upload Form -->
                     <div class="card p-4">
                         <h2 class="text-base font-semibold text-slate-800 mb-3">Upload New Photos</h2>
-                        
+
                         <form id="uploadForm" class="space-y-3">
                             @csrf
-                            
+
                             <div>
                                 <label for="photoTitle" class="block text-xs font-medium text-slate-700 mb-1">Photo Title</label>
-                                <input 
-                                    type="text" 
-                                    id="photoTitle" 
+                                <input
+                                    type="text"
+                                    id="photoTitle"
                                     name="title"
                                     class="w-full px-3 py-2 border border-slate-300 rounded text-sm focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
                                     placeholder="Enter photo title"
                                 >
                             </div>
-                            
+
                             <div>
                                 <label for="photoCategory" class="block text-xs font-medium text-slate-700 mb-1">Category</label>
-                                <select 
-                                    id="photoCategory" 
+                                <select
+                                    id="photoCategory"
                                     name="category"
                                     class="w-full px-3 py-2 border border-slate-300 rounded text-sm focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
                                 >
@@ -468,58 +468,58 @@
                                     <option value="process">Work in Progress</option>
                                 </select>
                             </div>
-                            
+
                             <div>
                                 <label for="photoDescription" class="block text-xs font-medium text-slate-700 mb-1">Description</label>
-                                <textarea 
-                                    id="photoDescription" 
+                                <textarea
+                                    id="photoDescription"
                                     name="description"
                                     rows="2"
                                     class="w-full px-3 py-2 border border-slate-300 rounded text-sm focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
                                     placeholder="Enter photo description"
                                 ></textarea>
                             </div>
-                            
+
                             <div>
                                 <label class="block text-xs font-medium text-slate-700 mb-1">Upload Photos</label>
-                                <div 
-                                    id="uploadArea" 
+                                <div
+                                    id="uploadArea"
                                     class="upload-area border-1.5 border-dashed rounded p-4 text-center cursor-pointer"
                                 >
                                     <i class="bi bi-cloud-arrow-up text-2xl text-slate-400 mb-1"></i>
                                     <p class="text-slate-600 text-xs mb-1">Drag & drop your photos here</p>
                                     <p class="text-slate-500 text-xs">or</p>
-                                    <button 
-                                        type="button" 
+                                    <button
+                                        type="button"
                                         id="browseButton"
                                         class="btn-primary text-white px-3 py-1.5 rounded text-xs mt-1 inline-flex items-center"
                                     >
                                         <i class="bi bi-folder2-open mr-1"></i> Browse Files
                                     </button>
-                                    <input 
-                                        type="file" 
-                                        id="fileInput" 
-                                        name="photos[]" 
-                                        multiple 
-                                        accept="image/*" 
+                                    <input
+                                        type="file"
+                                        id="fileInput"
+                                        name="photos[]"
+                                        multiple
+                                        accept="image/*"
                                         class="hidden"
                                     >
                                     <p class="text-slate-500 text-xs mt-1">Supports: JPG, PNG, GIF (Max 5MB each)</p>
                                 </div>
-                                
+
                                 <!-- Image Previews -->
                                 <div id="imagePreviews" class="preview-container mt-3 hidden"></div>
-                                
+
                                 <div id="fileList" class="mt-3 space-y-1 hidden">
                                     <h4 class="text-xs font-medium text-slate-700">Selected Files:</h4>
                                     <ul id="fileNames" class="text-xs text-slate-600 space-y-0.5"></ul>
                                 </div>
                             </div>
-                            
+
                             <div class="flex items-center">
-                                <input 
-                                    type="checkbox" 
-                                    id="featured" 
+                                <input
+                                    type="checkbox"
+                                    id="featured"
                                     name="featured"
                                     class="h-3.5 w-3.5 text-blue-600 focus:ring-blue-500 border-slate-300 rounded"
                                 >
@@ -527,9 +527,9 @@
                                     Mark as featured photo
                                 </label>
                             </div>
-                            
-                            <button 
-                                type="submit" 
+
+                            <button
+                                type="submit"
                                 id="uploadButton"
                                 class="btn-primary text-white w-full py-2 rounded text-sm flex items-center justify-center"
                             >
@@ -537,7 +537,7 @@
                             </button>
                         </form>
                     </div>
-                    
+
                     <!-- Recent Uploads - Compact -->
                     <div class="card p-4">
                         <div class="flex justify-between items-center mb-3">
@@ -546,7 +546,7 @@
                                 View All
                             </a>
                         </div>
-                        
+
                         <div class="space-y-2">
                             <div class="flex items-center space-x-3 p-2 border border-slate-200 rounded">
                                 <div class="w-12 h-12 bg-slate-200 rounded flex items-center justify-center flex-shrink-0">
@@ -565,7 +565,7 @@
                                     </button>
                                 </div>
                             </div>
-                            
+
                             <div class="flex items-center space-x-3 p-2 border border-slate-200 rounded">
                                 <div class="w-12 h-12 bg-slate-200 rounded flex items-center justify-center flex-shrink-0">
                                     <i class="bi bi-image text-slate-400 text-sm"></i>
@@ -583,7 +583,7 @@
                                     </button>
                                 </div>
                             </div>
-                            
+
                             <div class="flex items-center space-x-3 p-2 border border-slate-200 rounded">
                                 <div class="w-12 h-12 bg-slate-200 rounded flex items-center justify-center flex-shrink-0">
                                     <i class="bi bi-image text-slate-400 text-sm"></i>
@@ -604,7 +604,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Photo Gallery - Compact -->
                 <div class="card p-4">
                     <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-4 gap-2">
@@ -616,14 +616,14 @@
                                 <option>Design Concepts</option>
                                 <option>Completed Works</option>
                             </select>
-                            <input 
-                                type="text" 
-                                placeholder="Search photos..." 
+                            <input
+                                type="text"
+                                placeholder="Search photos..."
                                 class="px-2 py-1.5 border border-slate-300 rounded text-xs focus:outline-none focus:ring-1 focus:ring-blue-500 w-32"
                             >
                         </div>
                     </div>
-                    
+
                     <div class="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3">
                         <!-- Sample Gallery Items -->
                         <div class="image-preview bg-slate-200 rounded aspect-square flex items-center justify-center">
@@ -645,7 +645,7 @@
                             <i class="bi bi-image text-slate-400 text-lg"></i>
                         </div>
                     </div>
-                    
+
                     <div class="mt-4 flex justify-center">
                         <button class="px-3 py-1.5 border border-slate-300 rounded text-slate-700 hover:bg-slate-50 text-xs font-medium">
                             Load More Photos
@@ -662,19 +662,19 @@
             const sidebarToggle = document.getElementById('sidebarToggle');
             const sidebar = document.getElementById('sidebar');
             const mobileOverlay = document.getElementById('mobileOverlay');
-            
+
             if (sidebarToggle && sidebar && mobileOverlay) {
                 sidebarToggle.addEventListener('click', function() {
                     sidebar.classList.toggle('mobile-open');
                     mobileOverlay.classList.toggle('active');
                 });
-                
+
                 mobileOverlay.addEventListener('click', function() {
                     sidebar.classList.remove('mobile-open');
                     mobileOverlay.classList.remove('active');
                 });
             }
-            
+
             // File upload functionality
             const uploadArea = document.getElementById('uploadArea');
             const browseButton = document.getElementById('browseButton');
@@ -684,85 +684,85 @@
             const imagePreviews = document.getElementById('imagePreviews');
             const uploadForm = document.getElementById('uploadForm');
             const uploadButton = document.getElementById('uploadButton');
-            
+
             // Store selected files for preview
             let selectedFiles = [];
-            
+
             if (uploadArea && browseButton && fileInput) {
                 // Click on upload area or browse button to trigger file input
                 uploadArea.addEventListener('click', function() {
                     fileInput.click();
                 });
-                
+
                 browseButton.addEventListener('click', function(e) {
                     e.stopPropagation();
                     fileInput.click();
                 });
-                
+
                 // Drag and drop functionality
                 uploadArea.addEventListener('dragover', function(e) {
                     e.preventDefault();
                     uploadArea.classList.add('dragover');
                 });
-                
+
                 uploadArea.addEventListener('dragleave', function() {
                     uploadArea.classList.remove('dragover');
                 });
-                
+
                 uploadArea.addEventListener('drop', function(e) {
                     e.preventDefault();
                     uploadArea.classList.remove('dragover');
-                    
+
                     if (e.dataTransfer.files.length) {
                         handleFiles(e.dataTransfer.files);
                     }
                 });
-                
+
                 // File input change
                 fileInput.addEventListener('change', function() {
                     if (fileInput.files.length) {
                         handleFiles(fileInput.files);
                     }
                 });
-                
+
                 // Handle selected files
                 function handleFiles(files) {
                     for (let i = 0; i < files.length; i++) {
                         const file = files[i];
-                        
+
                         // Check if file is an image
                         if (!file.type.match('image.*')) {
                             showNotification('Please select only image files', 'error');
                             continue;
                         }
-                        
+
                         // Check file size (5MB limit)
                         if (file.size > 5 * 1024 * 1024) {
                             showNotification(`File ${file.name} is too large. Max size is 5MB.`, 'error');
                             continue;
                         }
-                        
+
                         // Add to selected files if not already there
                         if (!selectedFiles.some(f => f.name === file.name && f.size === file.size)) {
                             selectedFiles.push(file);
                         }
                     }
-                    
+
                     // Update previews and file list
                     updatePreviews();
                     updateFileList();
                 }
-                
+
                 // Update image previews
                 function updatePreviews() {
                     imagePreviews.innerHTML = '';
-                    
+
                     if (selectedFiles.length > 0) {
                         imagePreviews.classList.remove('hidden');
-                        
+
                         selectedFiles.forEach((file, index) => {
                             const reader = new FileReader();
-                            
+
                             reader.onload = function(e) {
                                 const previewItem = document.createElement('div');
                                 previewItem.className = 'preview-item';
@@ -773,9 +773,9 @@
                                     </div>
                                     <div class="preview-info">${file.name}</div>
                                 `;
-                                
+
                                 imagePreviews.appendChild(previewItem);
-                                
+
                                 // Add remove functionality
                                 const removeBtn = previewItem.querySelector('.preview-remove');
                                 removeBtn.addEventListener('click', function() {
@@ -785,19 +785,19 @@
                                     updateFileList();
                                 });
                             };
-                            
+
                             reader.readAsDataURL(file);
                         });
                     } else {
                         imagePreviews.classList.add('hidden');
                     }
                 }
-                
+
                 // Update file list display
                 function updateFileList() {
                     if (selectedFiles.length > 0) {
                         fileNames.innerHTML = '';
-                        
+
                         selectedFiles.forEach((file, index) => {
                             const listItem = document.createElement('li');
                             listItem.className = 'flex items-center justify-between';
@@ -807,59 +807,59 @@
                             `;
                             fileNames.appendChild(listItem);
                         });
-                        
+
                         fileList.classList.remove('hidden');
                     } else {
                         fileList.classList.add('hidden');
                     }
                 }
-                
+
                 // Format file size
                 function formatFileSize(bytes) {
                     if (bytes === 0) return '0 Bytes';
-                    
+
                     const k = 1024;
                     const sizes = ['Bytes', 'KB', 'MB', 'GB'];
                     const i = Math.floor(Math.log(bytes) / Math.log(k));
-                    
+
                     return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
                 }
             }
-            
+
             // Form submission
             if (uploadForm && uploadButton) {
                 uploadForm.addEventListener('submit', function(e) {
                     e.preventDefault();
-                    
+
                     // Basic validation
                     const title = document.getElementById('photoTitle').value;
                     const category = document.getElementById('photoCategory').value;
-                    
+
                     if (!title) {
                         showNotification('Please enter a photo title', 'error');
                         return;
                     }
-                    
+
                     if (!category) {
                         showNotification('Please select a category', 'error');
                         return;
                     }
-                    
+
                     if (selectedFiles.length === 0) {
                         showNotification('Please select at least one photo', 'error');
                         return;
                     }
-                    
+
                     // Show loading state
                     const originalText = uploadButton.innerHTML;
                     uploadButton.innerHTML = '<span class="loading-spinner mr-1.5"></span> Uploading...';
                     uploadButton.disabled = true;
-                    
+
                     // In a real application, you would submit the form via AJAX
                     // For now, we'll simulate the upload process
                     simulateUpload();
                 });
-                
+
                 // Simulate upload process
                 function simulateUpload() {
                     let progress = 0;
@@ -867,14 +867,14 @@
                         progress += 10;
                         if (progress >= 100) {
                             clearInterval(interval);
-                            
+
                             // Reset button
                             uploadButton.innerHTML = '<i class="bi bi-cloud-upload mr-1.5"></i> Upload Photos';
                             uploadButton.disabled = false;
-                            
+
                             // Show success message
                             showNotification(`${selectedFiles.length} photos uploaded successfully!`, 'success');
-                            
+
                             // Reset form
                             uploadForm.reset();
                             selectedFiles = [];
@@ -884,13 +884,13 @@
                     }, 200);
                 }
             }
-            
+
             // Notification function
             function showNotification(message, type = 'info') {
                 // Create notification element
                 const notification = document.createElement('div');
                 notification.className = `fixed top-3 right-3 p-3 rounded shadow-lg z-50 transform transition-transform duration-200 translate-x-full max-w-xs`;
-                
+
                 // Set background color based on type
                 if (type === 'success') {
                     notification.classList.add('bg-green-500', 'text-white');
@@ -899,26 +899,26 @@
                 } else {
                     notification.classList.add('bg-blue-500', 'text-white');
                 }
-                
+
                 // Add icon based on type
                 let icon = 'bi-info-circle';
                 if (type === 'success') icon = 'bi-check-circle';
                 if (type === 'error') icon = 'bi-exclamation-circle';
-                
+
                 notification.innerHTML = `
                     <div class="flex items-center text-sm">
                         <i class="bi ${icon} mr-2"></i>
                         <span>${message}</span>
                     </div>
                 `;
-                
+
                 document.body.appendChild(notification);
-                
+
                 // Animate in
                 setTimeout(() => {
                     notification.classList.remove('translate-x-full');
                 }, 10);
-                
+
                 // Remove after 3 seconds
                 setTimeout(() => {
                     notification.classList.add('translate-x-full');

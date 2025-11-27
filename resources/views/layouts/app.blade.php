@@ -663,6 +663,7 @@
                     <a href="#" class="footer-link text-blue-100 hover:text-white font-medium">Terms of
                         Service</a>
                     <a href="#" class="footer-link text-blue-100 hover:text-white font-medium">Sitemap</a>
+                    <a href="{{route('dashboard')}}" class="footer-link text-blue-100 hover:text-white font-medium">Login</a>
                 </div>
             </div>
         </div>

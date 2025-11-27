@@ -88,6 +88,26 @@
             transform: translateY(0);
         }
 
+        .btn-secondary {
+            background: #6b7280;
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            position: relative;
+            overflow: hidden;
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 0.3px;
+        }
+
+        .btn-secondary:hover {
+            background: #4b5563;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(107, 114, 128, 0.3);
+        }
+
+        .btn-secondary:active {
+            transform: translateY(0);
+        }
+
         .gradient-text {
             background: var(--primary-gradient);
             -webkit-background-clip: text;
@@ -195,7 +215,7 @@
             </div>
 
             <!-- Login Form -->
-            <form id="loginForm" method="POST" action="{{ route('login') }}" class="space-y-4">
+            <form id="loginForm" method="POST" action="{{ route('login.post') }}" class="space-y-4">
                 @csrf <!-- Laravel CSRF Token -->
 
                 <div>
@@ -249,7 +269,7 @@
                     @enderror
                 </div>
 
-                <div class="flex items-center justify-between text-sm">
+                {{-- <div class="flex items-center justify-between text-sm">
                     <div class="flex items-center">
                         <input
                             type="checkbox"
@@ -262,7 +282,7 @@
                             Ingat saya
                         </label>
                     </div>
-                </div>
+                </div> --}}
 
                 <button
                     type="submit"
@@ -270,6 +290,15 @@
                     class="btn-primary text-white w-full py-2.5 rounded-lg font-medium flex items-center justify-center"
                 >
                     <i class="bi bi-box-arrow-in-right mr-2 text-sm"></i>Masuk
+                </button>
+
+                <!-- Tombol Kembali -->
+                <button
+                    type="button"
+                    id="backButton"
+                    class="btn-secondary text-white w-full py-2.5 rounded-lg font-medium flex items-center justify-center mt-3"
+                >
+                    <i class="bi bi-arrow-left mr-2 text-sm"></i>Kembali ke Beranda
                 </button>
             </form>
         </div>
@@ -302,47 +331,17 @@
                 });
             }
 
+            // Back button functionality
+            const backButton = document.getElementById('backButton');
+            if (backButton) {
+                backButton.addEventListener('click', function() {
+                    window.location.href = "{{ route('home') }}";
+                });
+            }
+
             // Form submission handling
             const loginForm = document.getElementById('loginForm');
             const loginButton = document.getElementById('loginButton');
-
-            if (loginForm) {
-                loginForm.addEventListener('submit', function(e) {
-                    // If we're in a Laravel environment, let the form submit normally
-                    // Otherwise, prevent default and show loading state
-                    if (!window.laravelEnvironment) {
-                        e.preventDefault();
-
-                        // Get form values
-                        const email = document.getElementById('email').value;
-                        const password = document.getElementById('password').value;
-
-                        // Simple validation
-                        if (!email || !password) {
-                            showError('Harap isi semua field yang diperlukan');
-                            return;
-                        }
-
-                        // Show loading state
-                        const originalText = loginButton.innerHTML;
-                        loginButton.innerHTML = '<span class="loading-spinner mr-2"></span>Memproses...';
-                        loginButton.disabled = true;
-
-                        // Simulate API call (replace with actual fetch/AJAX in production)
-                        setTimeout(() => {
-                            // Reset button
-                            loginButton.innerHTML = originalText;
-                            loginButton.disabled = false;
-
-                            // Show success message
-                            alert('Login berhasil! (Ini hanya simulasi frontend)');
-
-                            // In a real application, you would redirect to dashboard
-                            // window.location.href = '/dashboard';
-                        }, 1500);
-                    }
-                });
-            }
 
             // Add focus effects to form inputs
             document.querySelectorAll('.form-input').forEach(input => {
