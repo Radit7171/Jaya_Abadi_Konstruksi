@@ -18,6 +18,9 @@
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <style>
         :root {
             --primary-gradient: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
@@ -291,6 +294,18 @@
         .table tr:hover {
             background: #f8fafc;
         }
+
+        /* Upload button disabled state */
+        .btn-primary:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .btn-primary:disabled:hover {
+            transform: none;
+            box-shadow: none;
+        }
     </style>
 </head>
 
@@ -499,7 +514,7 @@
                                     </button>
                                     <input type="file" id="fileInput" name="photos[]" multiple accept="image/*"
                                         class="hidden">
-                                    <p class="text-slate-500 text-xs mt-1">Supports: JPG, PNG, GIF (Max 5MB each)</p>
+                                    <p class="text-slate-500 text-xs mt-1">Supports: JPG, PNG, GIF</p>
                                 </div>
 
                                 <!-- Image Previews -->
@@ -583,29 +598,6 @@
     </div>
 
     <script>
-        document.getElementById('uploadForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-
-            let formData = new FormData(this);
-
-            fetch("{{ route('admin.upload.photo') }}", {
-                    method: "POST",
-                    headers: {
-                        "X-CSRF-TOKEN": document.querySelector('meta[name="csrf-token"]').content
-                    },
-                    body: formData
-                })
-                .then(res => res.json())
-                .then(data => {
-                    alert(data.message);
-                    console.log(data);
-                })
-                .catch(err => console.error(err));
-        });
-    </script>
-
-
-    <script>
         document.addEventListener('DOMContentLoaded', function() {
             // Mobile sidebar toggle
             const sidebarToggle = document.getElementById('sidebarToggle');
@@ -685,12 +677,6 @@
                             continue;
                         }
 
-                        // Check file size (5MB limit)
-                        if (file.size > 5 * 1024 * 1024) {
-                            showNotification(`File ${file.name} is too large. Max size is 5MB.`, 'error');
-                            continue;
-                        }
-
                         // Add to selected files if not already there
                         if (!selectedFiles.some(f => f.name === file.name && f.size === file.size)) {
                             selectedFiles.push(file);
@@ -716,12 +702,12 @@
                                 const previewItem = document.createElement('div');
                                 previewItem.className = 'preview-item';
                                 previewItem.innerHTML = `
-                                    <img src="${e.target.result}" alt="${file.name}" class="preview-image">
-                                    <div class="preview-remove" data-index="${index}">
-                                        <i class="bi bi-x"></i>
-                                    </div>
-                                    <div class="preview-info">${file.name}</div>
-                                `;
+                                <img src="${e.target.result}" alt="${file.name}" class="preview-image">
+                                <div class="preview-remove" data-index="${index}">
+                                    <i class="bi bi-x"></i>
+                                </div>
+                                <div class="preview-info">${file.name}</div>
+                            `;
 
                                 imagePreviews.appendChild(previewItem);
 
@@ -752,9 +738,9 @@
                             const listItem = document.createElement('li');
                             listItem.className = 'flex items-center justify-between';
                             listItem.innerHTML = `
-                                <span class="truncate flex-1">${file.name}</span>
-                                <span class="text-slate-500 text-xs ml-2">${formatFileSize(file.size)}</span>
-                            `;
+                            <span class="truncate flex-1">${file.name}</span>
+                            <span class="text-slate-500 text-xs ml-2">${formatFileSize(file.size)}</span>
+                        `;
                             fileNames.appendChild(listItem);
                         });
 
@@ -776,191 +762,318 @@
                 }
             }
 
-            // Form submission
-            // if (uploadForm && uploadButton) {
-            //     uploadForm.addEventListener('submit', function(e) {
-            //         e.preventDefault();
+            // Form submission with loading state and SweetAlert
+            if (uploadForm && uploadButton) {
+                uploadForm.addEventListener('submit', async function(e) {
+                    e.preventDefault();
 
-            //         // Basic validation
-            //         const title = document.getElementById('photoTitle').value;
-            //         const category = document.getElementById('photoCategory').value;
+                    // Basic validation
+                    const title = document.getElementById('photoTitle').value;
+                    const category = document.getElementById('photoCategory').value;
 
-            //         if (!title) {
-            //             showNotification('Please enter a photo title', 'error');
-            //             return;
-            //         }
+                    if (!title) {
+                        showNotification('Please enter a photo title', 'error');
+                        return;
+                    }
 
-            //         if (!category) {
-            //             showNotification('Please select a category', 'error');
-            //             return;
-            //         }
+                    if (!category) {
+                        showNotification('Please select a category', 'error');
+                        return;
+                    }
 
-            //         if (selectedFiles.length === 0) {
-            //             showNotification('Please select at least one photo', 'error');
-            //             return;
-            //         }
+                    if (selectedFiles.length === 0) {
+                        showNotification('Please select at least one photo', 'error');
+                        return;
+                    }
 
-            //         // Show loading state
-            //         const originalText = uploadButton.innerHTML;
-            //         uploadButton.innerHTML = '<span class="loading-spinner mr-1.5"></span> Uploading...';
-            //         uploadButton.disabled = true;
+                    // Show loading state
+                    const originalText = uploadButton.innerHTML;
+                    uploadButton.innerHTML =
+                        '<span class="loading-spinner mr-1.5"></span> Uploading...';
+                    uploadButton.disabled = true;
 
-            //         // In a real application, you would submit the form via AJAX
-            //         // For now, we'll simulate the upload process
-            //         simulateUpload();
-            //     });
+                    try {
+                        // Prepare form data
+                        const formData = new FormData();
 
-            //     // Simulate upload process
-            //     function simulateUpload() {
-            //         let progress = 0;
-            //         const interval = setInterval(() => {
-            //             progress += 10;
-            //             if (progress >= 100) {
-            //                 clearInterval(interval);
+                        // Add form fields
+                        formData.append('title', title);
+                        formData.append('category', category);
+                        formData.append('description', document.getElementById('photoDescription')
+                            .value);
+                        formData.append('featured', document.getElementById('featured').checked ? '1' :
+                            '0');
 
-            //                 // Reset button
-            //                 uploadButton.innerHTML =
-            //                     '<i class="bi bi-cloud-upload mr-1.5"></i> Upload Photos';
-            //                 uploadButton.disabled = false;
+                        // Add files
+                        for (let i = 0; i < selectedFiles.length; i++) {
+                            formData.append('photos[]', selectedFiles[i]);
+                        }
 
-            //                 // Show success message
-            //                 showNotification(`${selectedFiles.length} photos uploaded successfully!`,
-            //                     'success');
-
-            //                 // Reset form
-            //                 uploadForm.reset();
-            //                 selectedFiles = [];
-            //                 updatePreviews();
-            //                 updateFileList();
-
-            //                 // Refresh dashboard data
-            //                 loadDashboardData();
-            //             }
-            //         }, 200);
-            //     }
-            // }
-
-            // Load dashboard data dynamically
-            function loadDashboardData() {
-                // Simulate API call to get dashboard data
-                setTimeout(() => {
-                    // Sample dynamic data - in a real app, this would come from your backend
-                    const dashboardData = {
-                        user: {
-                            name: "{{ $user->name }}",
-                            email: "{{ $user->email }}"
-                        },
-                        stats: {
-                            totalPhotos: 1248,
-                            totalProjects: 42,
-                            viewsThisMonth: 5892,
-                            uploadsToday: 12
-                        },
-                        recentUploads: [{
-                                id: 1,
-                                title: "Construction Site A",
-                                timeAgo: "2 hours ago",
-                                category: "Construction Projects"
+                        // Send request to PhotoController
+                        const response = await fetch("{{ route('admin.upload.photo') }}", {
+                            method: "POST",
+                            headers: {
+                                "X-CSRF-TOKEN": document.querySelector(
+                                    'meta[name="csrf-token"]').content
                             },
-                            {
-                                id: 2,
-                                title: "Project Blueprint",
-                                timeAgo: "yesterday",
-                                category: "Design Concepts"
-                            },
-                            {
-                                id: 3,
-                                title: "Completed Building",
-                                timeAgo: "3 days ago",
-                                category: "Completed Works"
-                            }
-                        ],
-                        gallery: [{
-                                id: 1,
-                                title: "Site Progress"
-                            },
-                            {
-                                id: 2,
-                                title: "Foundation Work"
-                            },
-                            {
-                                id: 3,
-                                title: "Structural Framework"
-                            },
-                            {
-                                id: 4,
-                                title: "Interior Design"
-                            },
-                            {
-                                id: 5,
-                                title: "Exterior Finish"
-                            },
-                            {
-                                id: 6,
-                                title: "Landscaping"
-                            }
-                        ]
-                    };
+                            body: formData
+                        });
 
-                    // Update user profile data
-                    document.getElementById('sidebarUserName').textContent = dashboardData.user.name;
-                    document.getElementById('sidebarUserEmail').textContent = dashboardData.user.email;
-                    document.getElementById('headerUserName').textContent = dashboardData.user.name;
+                        const result = await response.json();
 
-                    // Update stats data
-                    document.getElementById('totalPhotos').textContent = formatNumber(dashboardData.stats
-                        .totalPhotos);
-                    document.getElementById('totalProjects').textContent = formatNumber(dashboardData.stats
-                        .totalProjects);
-                    document.getElementById('viewsThisMonth').textContent = formatNumber(dashboardData.stats
-                        .viewsThisMonth);
-                    document.getElementById('uploadsToday').textContent = formatNumber(dashboardData.stats
-                        .uploadsToday);
+                        if (result.success) {
+                            // Show success message with SweetAlert
+                            await Swal.fire({
+                                title: 'Success!',
+                                text: result.message,
+                                icon: 'success',
+                                confirmButtonText: 'OK',
+                                confirmButtonColor: '#3b82f6'
+                            });
 
-                    // Update recent uploads
-                    const recentUploadsContainer = document.getElementById('recentUploads');
-                    recentUploadsContainer.innerHTML = '';
+                            // Reset form
+                            uploadForm.reset();
+                            selectedFiles = [];
+                            updatePreviews();
+                            updateFileList();
 
-                    dashboardData.recentUploads.forEach(upload => {
+                            // Refresh dashboard data from DashboardController
+                            await loadDashboardData();
+                        } else {
+                            throw new Error(result.message || 'Upload failed');
+                        }
+
+                    } catch (error) {
+                        console.error('Upload error:', error);
+
+                        // Show error message with SweetAlert
+                        await Swal.fire({
+                            title: 'Upload Failed',
+                            text: error.message ||
+                                'An error occurred during upload. Please try again.',
+                            icon: 'error',
+                            confirmButtonText: 'OK',
+                            confirmButtonColor: '#ef4444'
+                        });
+                    } finally {
+                        // Reset button state
+                        uploadButton.innerHTML = originalText;
+                        uploadButton.disabled = false;
+                    }
+                });
+            }
+
+            // Load dashboard data dynamically from DashboardController
+            async function loadDashboardData() {
+                try {
+                    // Show loading states
+                    showLoadingStates();
+
+                    // Fetch data from DashboardController
+                    const response = await fetch("{{ route('admin.dashboard.data') }}");
+                    const result = await response.json();
+
+                    if (result.success) {
+                        updateDashboardUI(result.data);
+                    } else {
+                        throw new Error(result.message || 'Failed to load dashboard data');
+                    }
+
+                } catch (error) {
+                    console.error('Error loading dashboard data:', error);
+                    showErrorStates();
+                    showNotification('Failed to load dashboard data', 'error');
+                }
+            }
+
+            // Show loading states
+            function showLoadingStates() {
+                document.getElementById('totalPhotos').textContent = 'Loading...';
+                document.getElementById('totalProjects').textContent = 'Loading...';
+                document.getElementById('viewsThisMonth').textContent = 'Loading...';
+                document.getElementById('uploadsToday').textContent = 'Loading...';
+
+                const recentUploadsContainer = document.getElementById('recentUploads');
+                recentUploadsContainer.innerHTML = `
+                <div class="text-center py-4 text-slate-500">
+                    <div class="loading-spinner inline-block mr-2"></div>
+                    Loading recent uploads...
+                </div>
+            `;
+
+                const photoGalleryContainer = document.getElementById('photoGallery');
+                photoGalleryContainer.innerHTML = `
+                <div class="text-center col-span-full py-8 text-slate-500">
+                    <div class="loading-spinner inline-block mr-2"></div>
+                    Loading gallery...
+                </div>
+            `;
+            }
+
+            // Show error states
+            function showErrorStates() {
+                document.getElementById('totalPhotos').textContent = 'Error';
+                document.getElementById('totalProjects').textContent = 'Error';
+                document.getElementById('viewsThisMonth').textContent = 'Error';
+                document.getElementById('uploadsToday').textContent = 'Error';
+
+                const recentUploadsContainer = document.getElementById('recentUploads');
+                recentUploadsContainer.innerHTML = `
+                <div class="text-center py-4 text-slate-500">
+                    <i class="bi bi-exclamation-triangle text-2xl mb-2"></i>
+                    <p class="text-sm">Failed to load recent uploads</p>
+                </div>
+            `;
+
+                const photoGalleryContainer = document.getElementById('photoGallery');
+                photoGalleryContainer.innerHTML = `
+                <div class="text-center col-span-full py-8 text-slate-500">
+                    <i class="bi bi-exclamation-triangle text-2xl mb-2"></i>
+                    <p class="text-sm">Failed to load gallery</p>
+                </div>
+            `;
+            }
+
+            // Update dashboard UI with data
+            function updateDashboardUI(data) {
+                // Update user profile data
+                document.getElementById('sidebarUserName').textContent = data.user.name;
+                document.getElementById('sidebarUserEmail').textContent = data.user.email;
+                document.getElementById('headerUserName').textContent = data.user.name;
+
+                // Update stats data
+                document.getElementById('totalPhotos').textContent = formatNumber(data.stats.totalPhotos);
+                document.getElementById('totalProjects').textContent = formatNumber(data.stats.totalProjects);
+                document.getElementById('viewsThisMonth').textContent = formatNumber(data.stats.viewsThisMonth);
+                document.getElementById('uploadsToday').textContent = formatNumber(data.stats.uploadsToday);
+
+                // Update recent uploads
+                updateRecentUploads(data.recentUploads);
+
+                // Update photo gallery
+                updatePhotoGallery(data.gallery);
+            }
+
+            // Update recent uploads section
+            function updateRecentUploads(uploads) {
+                const recentUploadsContainer = document.getElementById('recentUploads');
+                recentUploadsContainer.innerHTML = '';
+
+                if (uploads.length > 0) {
+                    uploads.forEach(upload => {
                         const uploadElement = document.createElement('div');
                         uploadElement.className =
                             'flex items-center space-x-3 p-2 border border-slate-200 rounded';
                         uploadElement.innerHTML = `
-                            <div class="w-12 h-12 bg-slate-200 rounded flex items-center justify-center flex-shrink-0">
-                                <i class="bi bi-image text-slate-400 text-sm"></i>
-                            </div>
-                            <div class="flex-1 min-w-0">
-                                <h4 class="text-sm font-medium text-slate-800 truncate">${upload.title}</h4>
-                                <p class="text-xs text-slate-500">${upload.timeAgo}</p>
-                            </div>
-                            <div class="flex space-x-1">
-                                <button class="text-blue-600 hover:text-blue-800 text-sm">
-                                    <i class="bi bi-pencil"></i>
-                                </button>
-                                <button class="text-red-600 hover:text-red-800 text-sm">
-                                    <i class="bi bi-trash"></i>
-                                </button>
-                            </div>
-                        `;
+                        <div class="w-12 h-12 bg-slate-200 rounded flex items-center justify-center flex-shrink-0 overflow-hidden">
+                            ${upload.thumbnail ?
+                                `<img src="/storage/${upload.thumbnail}" alt="${upload.title}" class="w-full h-full object-cover">` :
+                                `<i class="bi bi-image text-slate-400 text-sm"></i>`
+                            }
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <h4 class="text-sm font-medium text-slate-800 truncate">${upload.title}</h4>
+                            <p class="text-xs text-slate-500">${upload.timeAgo}</p>
+                            <span class="inline-block px-2 py-1 text-xs bg-blue-100 text-blue-800 rounded mt-1">${upload.category}</span>
+                        </div>
+                        <div class="flex space-x-1">
+                            <button class="text-blue-600 hover:text-blue-800 text-sm">
+                                <i class="bi bi-pencil"></i>
+                            </button>
+                            <button class="text-red-600 hover:text-red-800 text-sm" onclick="deletePhoto(${upload.id})">
+                                <i class="bi bi-trash"></i>
+                            </button>
+                        </div>
+                    `;
                         recentUploadsContainer.appendChild(uploadElement);
                     });
+                } else {
+                    recentUploadsContainer.innerHTML = `
+                    <div class="text-center py-4 text-slate-500">
+                        <i class="bi bi-inbox text-2xl mb-2"></i>
+                        <p class="text-sm">No recent uploads</p>
+                    </div>
+                `;
+                }
+            }
 
-                    // Update photo gallery
-                    const photoGalleryContainer = document.getElementById('photoGallery');
-                    photoGalleryContainer.innerHTML = '';
+            // Update photo gallery section
+            function updatePhotoGallery(gallery) {
+                const photoGalleryContainer = document.getElementById('photoGallery');
+                photoGalleryContainer.innerHTML = '';
 
-                    dashboardData.gallery.forEach(photo => {
+                if (gallery.length > 0) {
+                    gallery.forEach(photo => {
                         const galleryItem = document.createElement('div');
                         galleryItem.className =
-                            'image-preview bg-slate-200 rounded aspect-square flex items-center justify-center relative';
+                            'image-preview bg-slate-200 rounded aspect-square flex items-center justify-center relative overflow-hidden';
                         galleryItem.innerHTML = `
-                            <i class="bi bi-image text-slate-400 text-lg"></i>
-                            <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white text-xs p-1 truncate">${photo.title}</div>
-                        `;
+                        ${photo.thumbnail ?
+                            `<img src="/storage/${photo.thumbnail}" alt="${photo.title}" class="w-full h-full object-cover">` :
+                            `<i class="bi bi-image text-slate-400 text-lg"></i>`
+                        }
+                        <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white text-xs p-1 truncate">${photo.title}</div>
+                    `;
                         photoGalleryContainer.appendChild(galleryItem);
                     });
-                }, 1000); // Simulate network delay
+                } else {
+                    photoGalleryContainer.innerHTML = `
+                    <div class="text-center col-span-full py-8 text-slate-500">
+                        <i class="bi bi-images text-2xl mb-2"></i>
+                        <p class="text-sm">No photos in gallery</p>
+                    </div>
+                `;
+                }
             }
+
+            // Delete photo function
+            window.deletePhoto = async function(photoId) {
+                const result = await Swal.fire({
+                    title: 'Are you sure?',
+                    text: "You won't be able to revert this!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#ef4444',
+                    cancelButtonColor: '#6b7280',
+                    confirmButtonText: 'Yes, delete it!'
+                });
+
+                if (result.isConfirmed) {
+                    try {
+                        const response = await fetch(`/admin/photos/${photoId}`, {
+                            method: 'DELETE',
+                            headers: {
+                                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]')
+                                    .content,
+                                'Content-Type': 'application/json'
+                            }
+                        });
+
+                        const data = await response.json();
+
+                        if (data.success) {
+                            await Swal.fire({
+                                title: 'Deleted!',
+                                text: 'Photo has been deleted.',
+                                icon: 'success',
+                                confirmButtonColor: '#3b82f6'
+                            });
+
+                            // Refresh dashboard data
+                            await loadDashboardData();
+                        } else {
+                            throw new Error(data.message);
+                        }
+                    } catch (error) {
+                        await Swal.fire({
+                            title: 'Error!',
+                            text: 'Failed to delete photo: ' + error.message,
+                            icon: 'error',
+                            confirmButtonColor: '#ef4444'
+                        });
+                    }
+                }
+            };
 
             // Format numbers with commas
             function formatNumber(num) {
@@ -989,11 +1102,11 @@
                 if (type === 'error') icon = 'bi-exclamation-circle';
 
                 notification.innerHTML = `
-                    <div class="flex items-center text-sm">
-                        <i class="bi ${icon} mr-2"></i>
-                        <span>${message}</span>
-                    </div>
-                `;
+                <div class="flex items-center text-sm">
+                    <i class="bi ${icon} mr-2"></i>
+                    <span>${message}</span>
+                </div>
+            `;
 
                 document.body.appendChild(notification);
 
