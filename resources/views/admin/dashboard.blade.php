@@ -18,6 +18,9 @@
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <style>
         :root {
             --primary-gradient: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
@@ -86,7 +89,8 @@
             background: #f8fafc;
         }
 
-        .upload-area:hover, .upload-area.dragover {
+        .upload-area:hover,
+        .upload-area.dragover {
             border-color: #3b82f6;
             background: #eff6ff;
         }
@@ -120,8 +124,13 @@
         }
 
         @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
         }
 
         /* Preview Image Styles */
@@ -268,7 +277,8 @@
             border-collapse: collapse;
         }
 
-        .table th, .table td {
+        .table th,
+        .table td {
             padding: 0.5rem 0.75rem;
             text-align: left;
             border-bottom: 1px solid #f1f5f9;
@@ -283,6 +293,18 @@
 
         .table tr:hover {
             background: #f8fafc;
+        }
+
+        /* Upload button disabled state */
+        .btn-primary:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .btn-primary:disabled:hover {
+            transform: none;
+            box-shadow: none;
         }
     </style>
 </head>
@@ -312,19 +334,23 @@
                         <i class="bi bi-speedometer2 mr-2 text-sm"></i>
                         <span>Dashboard</span>
                     </a>
-                    <a href="#" class="sidebar-item flex items-center px-2 py-2 rounded text-slate-300 hover:text-white">
+                    <a href="#"
+                        class="sidebar-item flex items-center px-2 py-2 rounded text-slate-300 hover:text-white">
                         <i class="bi bi-images mr-2 text-sm"></i>
                         <span>Gallery</span>
                     </a>
-                    <a href="#" class="sidebar-item flex items-center px-2 py-2 rounded text-slate-300 hover:text-white">
+                    <a href="#"
+                        class="sidebar-item flex items-center px-2 py-2 rounded text-slate-300 hover:text-white">
                         <i class="bi bi-collection-play mr-2 text-sm"></i>
                         <span>Projects</span>
                     </a>
-                    <a href="#" class="sidebar-item flex items-center px-2 py-2 rounded text-slate-300 hover:text-white">
+                    <a href="#"
+                        class="sidebar-item flex items-center px-2 py-2 rounded text-slate-300 hover:text-white">
                         <i class="bi bi-people mr-2 text-sm"></i>
                         <span>Users</span>
                     </a>
-                    <a href="#" class="sidebar-item flex items-center px-2 py-2 rounded text-slate-300 hover:text-white">
+                    <a href="#"
+                        class="sidebar-item flex items-center px-2 py-2 rounded text-slate-300 hover:text-white">
                         <i class="bi bi-gear mr-2 text-sm"></i>
                         <span>Settings</span>
                     </a>
@@ -338,8 +364,9 @@
                         <i class="bi bi-person text-white text-sm"></i>
                     </div>
                     <div class="flex-1 min-w-0">
-                        <p class="text-xs font-medium truncate">Admin User</p>
-                        <p class="text-xs text-slate-400 truncate">admin@jayakonstruksi.com</p>
+                        <!-- Dynamic User Data -->
+                        <p class="text-xs font-medium truncate" id="sidebarUserName">Loading...</p>
+                        <p class="text-xs text-slate-400 truncate" id="sidebarUserEmail">Loading...</p>
                     </div>
                     <a href="{{ route('logout') }}" class="text-slate-400 hover:text-white text-sm">
                         <i class="bi bi-box-arrow-right"></i>
@@ -364,17 +391,19 @@
                     <div class="relative">
                         <button class="text-slate-600 hover:text-slate-800">
                             <i class="bi bi-bell text-lg"></i>
-                            <span class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-3 h-3 flex items-center justify-center text-[10px]">3</span>
+                            <span
+                                class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-3 h-3 flex items-center justify-center text-[10px]">3</span>
                         </button>
                     </div>
 
                     <!-- User Menu -->
                     <div class="relative">
                         <button class="flex items-center space-x-2 text-slate-700">
-                            <div class="w-7 h-7 rounded-full bg-slate-600 flex items-center justify-center text-white text-sm">
+                            <div
+                                class="w-7 h-7 rounded-full bg-slate-600 flex items-center justify-center text-white text-sm">
                                 <i class="bi bi-person"></i>
                             </div>
-                            <span class="hidden md:block text-sm font-medium">Admin</span>
+                            <span class="hidden md:block text-sm font-medium" id="headerUserName">Loading...</span>
                             <i class="bi bi-chevron-down text-xs"></i>
                         </button>
                     </div>
@@ -392,7 +421,7 @@
                             </div>
                             <div>
                                 <p class="text-xs text-slate-500">Total Photos</p>
-                                <h3 class="text-lg font-semibold text-slate-800">1,248</h3>
+                                <h3 class="text-lg font-semibold text-slate-800" id="totalPhotos">Loading...</h3>
                             </div>
                         </div>
                     </div>
@@ -404,7 +433,7 @@
                             </div>
                             <div>
                                 <p class="text-xs text-slate-500">Projects</p>
-                                <h3 class="text-lg font-semibold text-slate-800">42</h3>
+                                <h3 class="text-lg font-semibold text-slate-800" id="totalProjects">Loading...</h3>
                             </div>
                         </div>
                     </div>
@@ -416,7 +445,7 @@
                             </div>
                             <div>
                                 <p class="text-xs text-slate-500">Views This Month</p>
-                                <h3 class="text-lg font-semibold text-slate-800">5,892</h3>
+                                <h3 class="text-lg font-semibold text-slate-800" id="viewsThisMonth">Loading...</h3>
                             </div>
                         </div>
                     </div>
@@ -428,7 +457,7 @@
                             </div>
                             <div>
                                 <p class="text-xs text-slate-500">Uploads Today</p>
-                                <h3 class="text-lg font-semibold text-slate-800">12</h3>
+                                <h3 class="text-lg font-semibold text-slate-800" id="uploadsToday">Loading...</h3>
                             </div>
                         </div>
                     </div>
@@ -440,27 +469,22 @@
                     <div class="card p-4">
                         <h2 class="text-base font-semibold text-slate-800 mb-3">Upload New Photos</h2>
 
-                        <form id="uploadForm" class="space-y-3">
+                        <form id="uploadForm" class="space-y-3" enctype="multipart/form-data">
                             @csrf
 
                             <div>
-                                <label for="photoTitle" class="block text-xs font-medium text-slate-700 mb-1">Photo Title</label>
-                                <input
-                                    type="text"
-                                    id="photoTitle"
-                                    name="title"
+                                <label for="photoTitle" class="block text-xs font-medium text-slate-700 mb-1">Photo
+                                    Title</label>
+                                <input type="text" id="photoTitle" name="title"
                                     class="w-full px-3 py-2 border border-slate-300 rounded text-sm focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
-                                    placeholder="Enter photo title"
-                                >
+                                    placeholder="Enter photo title">
                             </div>
 
                             <div>
-                                <label for="photoCategory" class="block text-xs font-medium text-slate-700 mb-1">Category</label>
-                                <select
-                                    id="photoCategory"
-                                    name="category"
-                                    class="w-full px-3 py-2 border border-slate-300 rounded text-sm focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
-                                >
+                                <label for="photoCategory"
+                                    class="block text-xs font-medium text-slate-700 mb-1">Category</label>
+                                <select id="photoCategory" name="category"
+                                    class="w-full px-3 py-2 border border-slate-300 rounded text-sm focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500">
                                     <option value="">Select Category</option>
                                     <option value="construction">Construction Projects</option>
                                     <option value="design">Design Concepts</option>
@@ -470,41 +494,27 @@
                             </div>
 
                             <div>
-                                <label for="photoDescription" class="block text-xs font-medium text-slate-700 mb-1">Description</label>
-                                <textarea
-                                    id="photoDescription"
-                                    name="description"
-                                    rows="2"
+                                <label for="photoDescription"
+                                    class="block text-xs font-medium text-slate-700 mb-1">Description</label>
+                                <textarea id="photoDescription" name="description" rows="2"
                                     class="w-full px-3 py-2 border border-slate-300 rounded text-sm focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
-                                    placeholder="Enter photo description"
-                                ></textarea>
+                                    placeholder="Enter photo description"></textarea>
                             </div>
 
                             <div>
                                 <label class="block text-xs font-medium text-slate-700 mb-1">Upload Photos</label>
-                                <div
-                                    id="uploadArea"
-                                    class="upload-area border-1.5 border-dashed rounded p-4 text-center cursor-pointer"
-                                >
+                                <div id="uploadArea"
+                                    class="upload-area border-1.5 border-dashed rounded p-4 text-center cursor-pointer">
                                     <i class="bi bi-cloud-arrow-up text-2xl text-slate-400 mb-1"></i>
                                     <p class="text-slate-600 text-xs mb-1">Drag & drop your photos here</p>
                                     <p class="text-slate-500 text-xs">or</p>
-                                    <button
-                                        type="button"
-                                        id="browseButton"
-                                        class="btn-primary text-white px-3 py-1.5 rounded text-xs mt-1 inline-flex items-center"
-                                    >
+                                    <button type="button" id="browseButton"
+                                        class="btn-primary text-white px-3 py-1.5 rounded text-xs mt-1 inline-flex items-center">
                                         <i class="bi bi-folder2-open mr-1"></i> Browse Files
                                     </button>
-                                    <input
-                                        type="file"
-                                        id="fileInput"
-                                        name="photos[]"
-                                        multiple
-                                        accept="image/*"
-                                        class="hidden"
-                                    >
-                                    <p class="text-slate-500 text-xs mt-1">Supports: JPG, PNG, GIF (Max 5MB each)</p>
+                                    <input type="file" id="fileInput" name="photos[]" multiple accept="image/*"
+                                        class="hidden">
+                                    <p class="text-slate-500 text-xs mt-1">Supports: JPG, PNG, GIF</p>
                                 </div>
 
                                 <!-- Image Previews -->
@@ -517,22 +527,15 @@
                             </div>
 
                             <div class="flex items-center">
-                                <input
-                                    type="checkbox"
-                                    id="featured"
-                                    name="featured"
-                                    class="h-3.5 w-3.5 text-blue-600 focus:ring-blue-500 border-slate-300 rounded"
-                                >
+                                <input type="checkbox" id="featured" name="featured"
+                                    class="h-3.5 w-3.5 text-blue-600 focus:ring-blue-500 border-slate-300 rounded">
                                 <label for="featured" class="ml-2 text-xs text-slate-700">
                                     Mark as featured photo
                                 </label>
                             </div>
 
-                            <button
-                                type="submit"
-                                id="uploadButton"
-                                class="btn-primary text-white w-full py-2 rounded text-sm flex items-center justify-center"
-                            >
+                            <button type="submit" id="uploadButton"
+                                class="btn-primary text-white w-full py-2 rounded text-sm flex items-center justify-center">
                                 <i class="bi bi-cloud-upload mr-1.5"></i> Upload Photos
                             </button>
                         </form>
@@ -547,59 +550,11 @@
                             </a>
                         </div>
 
-                        <div class="space-y-2">
-                            <div class="flex items-center space-x-3 p-2 border border-slate-200 rounded">
-                                <div class="w-12 h-12 bg-slate-200 rounded flex items-center justify-center flex-shrink-0">
-                                    <i class="bi bi-image text-slate-400 text-sm"></i>
-                                </div>
-                                <div class="flex-1 min-w-0">
-                                    <h4 class="text-sm font-medium text-slate-800 truncate">Construction Site A</h4>
-                                    <p class="text-xs text-slate-500">Added 2 hours ago</p>
-                                </div>
-                                <div class="flex space-x-1">
-                                    <button class="text-blue-600 hover:text-blue-800 text-sm">
-                                        <i class="bi bi-pencil"></i>
-                                    </button>
-                                    <button class="text-red-600 hover:text-red-800 text-sm">
-                                        <i class="bi bi-trash"></i>
-                                    </button>
-                                </div>
-                            </div>
-
-                            <div class="flex items-center space-x-3 p-2 border border-slate-200 rounded">
-                                <div class="w-12 h-12 bg-slate-200 rounded flex items-center justify-center flex-shrink-0">
-                                    <i class="bi bi-image text-slate-400 text-sm"></i>
-                                </div>
-                                <div class="flex-1 min-w-0">
-                                    <h4 class="text-sm font-medium text-slate-800 truncate">Project Blueprint</h4>
-                                    <p class="text-xs text-slate-500">Added yesterday</p>
-                                </div>
-                                <div class="flex space-x-1">
-                                    <button class="text-blue-600 hover:text-blue-800 text-sm">
-                                        <i class="bi bi-pencil"></i>
-                                    </button>
-                                    <button class="text-red-600 hover:text-red-800 text-sm">
-                                        <i class="bi bi-trash"></i>
-                                    </button>
-                                </div>
-                            </div>
-
-                            <div class="flex items-center space-x-3 p-2 border border-slate-200 rounded">
-                                <div class="w-12 h-12 bg-slate-200 rounded flex items-center justify-center flex-shrink-0">
-                                    <i class="bi bi-image text-slate-400 text-sm"></i>
-                                </div>
-                                <div class="flex-1 min-w-0">
-                                    <h4 class="text-sm font-medium text-slate-800 truncate">Completed Building</h4>
-                                    <p class="text-xs text-slate-500">Added 3 days ago</p>
-                                </div>
-                                <div class="flex space-x-1">
-                                    <button class="text-blue-600 hover:text-blue-800 text-sm">
-                                        <i class="bi bi-pencil"></i>
-                                    </button>
-                                    <button class="text-red-600 hover:text-red-800 text-sm">
-                                        <i class="bi bi-trash"></i>
-                                    </button>
-                                </div>
+                        <div id="recentUploads" class="space-y-2">
+                            <!-- Recent uploads will be populated dynamically -->
+                            <div class="text-center py-4 text-slate-500">
+                                <div class="loading-spinner inline-block mr-2"></div>
+                                Loading recent uploads...
                             </div>
                         </div>
                     </div>
@@ -610,44 +565,30 @@
                     <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-4 gap-2">
                         <h2 class="text-base font-semibold text-slate-800">Photo Gallery</h2>
                         <div class="flex space-x-2">
-                            <select class="px-2 py-1.5 border border-slate-300 rounded text-xs focus:outline-none focus:ring-1 focus:ring-blue-500">
+                            <select
+                                class="px-2 py-1.5 border border-slate-300 rounded text-xs focus:outline-none focus:ring-1 focus:ring-blue-500">
                                 <option>All Categories</option>
                                 <option>Construction Projects</option>
                                 <option>Design Concepts</option>
                                 <option>Completed Works</option>
                             </select>
-                            <input
-                                type="text"
-                                placeholder="Search photos..."
-                                class="px-2 py-1.5 border border-slate-300 rounded text-xs focus:outline-none focus:ring-1 focus:ring-blue-500 w-32"
-                            >
+                            <input type="text" placeholder="Search photos..."
+                                class="px-2 py-1.5 border border-slate-300 rounded text-xs focus:outline-none focus:ring-1 focus:ring-blue-500 w-32">
                         </div>
                     </div>
 
-                    <div class="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3">
-                        <!-- Sample Gallery Items -->
-                        <div class="image-preview bg-slate-200 rounded aspect-square flex items-center justify-center">
-                            <i class="bi bi-image text-slate-400 text-lg"></i>
-                        </div>
-                        <div class="image-preview bg-slate-200 rounded aspect-square flex items-center justify-center">
-                            <i class="bi bi-image text-slate-400 text-lg"></i>
-                        </div>
-                        <div class="image-preview bg-slate-200 rounded aspect-square flex items-center justify-center">
-                            <i class="bi bi-image text-slate-400 text-lg"></i>
-                        </div>
-                        <div class="image-preview bg-slate-200 rounded aspect-square flex items-center justify-center">
-                            <i class="bi bi-image text-slate-400 text-lg"></i>
-                        </div>
-                        <div class="image-preview bg-slate-200 rounded aspect-square flex items-center justify-center">
-                            <i class="bi bi-image text-slate-400 text-lg"></i>
-                        </div>
-                        <div class="image-preview bg-slate-200 rounded aspect-square flex items-center justify-center">
-                            <i class="bi bi-image text-slate-400 text-lg"></i>
+                    <div id="photoGallery"
+                        class="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3">
+                        <!-- Gallery items will be populated dynamically -->
+                        <div class="text-center col-span-full py-8 text-slate-500">
+                            <div class="loading-spinner inline-block mr-2"></div>
+                            Loading gallery...
                         </div>
                     </div>
 
                     <div class="mt-4 flex justify-center">
-                        <button class="px-3 py-1.5 border border-slate-300 rounded text-slate-700 hover:bg-slate-50 text-xs font-medium">
+                        <button
+                            class="px-3 py-1.5 border border-slate-300 rounded text-slate-700 hover:bg-slate-50 text-xs font-medium">
                             Load More Photos
                         </button>
                     </div>
@@ -736,12 +677,6 @@
                             continue;
                         }
 
-                        // Check file size (5MB limit)
-                        if (file.size > 5 * 1024 * 1024) {
-                            showNotification(`File ${file.name} is too large. Max size is 5MB.`, 'error');
-                            continue;
-                        }
-
                         // Add to selected files if not already there
                         if (!selectedFiles.some(f => f.name === file.name && f.size === file.size)) {
                             selectedFiles.push(file);
@@ -767,19 +702,20 @@
                                 const previewItem = document.createElement('div');
                                 previewItem.className = 'preview-item';
                                 previewItem.innerHTML = `
-                                    <img src="${e.target.result}" alt="${file.name}" class="preview-image">
-                                    <div class="preview-remove" data-index="${index}">
-                                        <i class="bi bi-x"></i>
-                                    </div>
-                                    <div class="preview-info">${file.name}</div>
-                                `;
+                                <img src="${e.target.result}" alt="${file.name}" class="preview-image">
+                                <div class="preview-remove" data-index="${index}">
+                                    <i class="bi bi-x"></i>
+                                </div>
+                                <div class="preview-info">${file.name}</div>
+                            `;
 
                                 imagePreviews.appendChild(previewItem);
 
                                 // Add remove functionality
                                 const removeBtn = previewItem.querySelector('.preview-remove');
                                 removeBtn.addEventListener('click', function() {
-                                    const removeIndex = parseInt(this.getAttribute('data-index'));
+                                    const removeIndex = parseInt(this.getAttribute(
+                                        'data-index'));
                                     selectedFiles.splice(removeIndex, 1);
                                     updatePreviews();
                                     updateFileList();
@@ -802,9 +738,9 @@
                             const listItem = document.createElement('li');
                             listItem.className = 'flex items-center justify-between';
                             listItem.innerHTML = `
-                                <span class="truncate flex-1">${file.name}</span>
-                                <span class="text-slate-500 text-xs ml-2">${formatFileSize(file.size)}</span>
-                            `;
+                            <span class="truncate flex-1">${file.name}</span>
+                            <span class="text-slate-500 text-xs ml-2">${formatFileSize(file.size)}</span>
+                        `;
                             fileNames.appendChild(listItem);
                         });
 
@@ -826,9 +762,9 @@
                 }
             }
 
-            // Form submission
+            // Form submission with loading state and SweetAlert
             if (uploadForm && uploadButton) {
-                uploadForm.addEventListener('submit', function(e) {
+                uploadForm.addEventListener('submit', async function(e) {
                     e.preventDefault();
 
                     // Basic validation
@@ -852,44 +788,304 @@
 
                     // Show loading state
                     const originalText = uploadButton.innerHTML;
-                    uploadButton.innerHTML = '<span class="loading-spinner mr-1.5"></span> Uploading...';
+                    uploadButton.innerHTML =
+                        '<span class="loading-spinner mr-1.5"></span> Uploading...';
                     uploadButton.disabled = true;
 
-                    // In a real application, you would submit the form via AJAX
-                    // For now, we'll simulate the upload process
-                    simulateUpload();
-                });
+                    try {
+                        // Prepare form data
+                        const formData = new FormData();
 
-                // Simulate upload process
-                function simulateUpload() {
-                    let progress = 0;
-                    const interval = setInterval(() => {
-                        progress += 10;
-                        if (progress >= 100) {
-                            clearInterval(interval);
+                        // Add form fields
+                        formData.append('title', title);
+                        formData.append('category', category);
+                        formData.append('description', document.getElementById('photoDescription')
+                            .value);
+                        formData.append('featured', document.getElementById('featured').checked ? '1' :
+                            '0');
 
-                            // Reset button
-                            uploadButton.innerHTML = '<i class="bi bi-cloud-upload mr-1.5"></i> Upload Photos';
-                            uploadButton.disabled = false;
+                        // Add files
+                        for (let i = 0; i < selectedFiles.length; i++) {
+                            formData.append('photos[]', selectedFiles[i]);
+                        }
 
-                            // Show success message
-                            showNotification(`${selectedFiles.length} photos uploaded successfully!`, 'success');
+                        // Send request to PhotoController
+                        const response = await fetch("{{ route('admin.upload.photo') }}", {
+                            method: "POST",
+                            headers: {
+                                "X-CSRF-TOKEN": document.querySelector(
+                                    'meta[name="csrf-token"]').content
+                            },
+                            body: formData
+                        });
+
+                        const result = await response.json();
+
+                        if (result.success) {
+                            // Show success message with SweetAlert
+                            await Swal.fire({
+                                title: 'Success!',
+                                text: result.message,
+                                icon: 'success',
+                                confirmButtonText: 'OK',
+                                confirmButtonColor: '#3b82f6'
+                            });
 
                             // Reset form
                             uploadForm.reset();
                             selectedFiles = [];
                             updatePreviews();
                             updateFileList();
+
+                            // Refresh dashboard data from DashboardController
+                            await loadDashboardData();
+                        } else {
+                            throw new Error(result.message || 'Upload failed');
                         }
-                    }, 200);
+
+                    } catch (error) {
+                        console.error('Upload error:', error);
+
+                        // Show error message with SweetAlert
+                        await Swal.fire({
+                            title: 'Upload Failed',
+                            text: error.message ||
+                                'An error occurred during upload. Please try again.',
+                            icon: 'error',
+                            confirmButtonText: 'OK',
+                            confirmButtonColor: '#ef4444'
+                        });
+                    } finally {
+                        // Reset button state
+                        uploadButton.innerHTML = originalText;
+                        uploadButton.disabled = false;
+                    }
+                });
+            }
+
+            // Load dashboard data dynamically from DashboardController
+            async function loadDashboardData() {
+                try {
+                    // Show loading states
+                    showLoadingStates();
+
+                    // Fetch data from DashboardController
+                    const response = await fetch("{{ route('admin.dashboard.data') }}");
+                    const result = await response.json();
+
+                    if (result.success) {
+                        updateDashboardUI(result.data);
+                    } else {
+                        throw new Error(result.message || 'Failed to load dashboard data');
+                    }
+
+                } catch (error) {
+                    console.error('Error loading dashboard data:', error);
+                    showErrorStates();
+                    showNotification('Failed to load dashboard data', 'error');
                 }
+            }
+
+            // Show loading states
+            function showLoadingStates() {
+                document.getElementById('totalPhotos').textContent = 'Loading...';
+                document.getElementById('totalProjects').textContent = 'Loading...';
+                document.getElementById('viewsThisMonth').textContent = 'Loading...';
+                document.getElementById('uploadsToday').textContent = 'Loading...';
+
+                const recentUploadsContainer = document.getElementById('recentUploads');
+                recentUploadsContainer.innerHTML = `
+                <div class="text-center py-4 text-slate-500">
+                    <div class="loading-spinner inline-block mr-2"></div>
+                    Loading recent uploads...
+                </div>
+            `;
+
+                const photoGalleryContainer = document.getElementById('photoGallery');
+                photoGalleryContainer.innerHTML = `
+                <div class="text-center col-span-full py-8 text-slate-500">
+                    <div class="loading-spinner inline-block mr-2"></div>
+                    Loading gallery...
+                </div>
+            `;
+            }
+
+            // Show error states
+            function showErrorStates() {
+                document.getElementById('totalPhotos').textContent = 'Error';
+                document.getElementById('totalProjects').textContent = 'Error';
+                document.getElementById('viewsThisMonth').textContent = 'Error';
+                document.getElementById('uploadsToday').textContent = 'Error';
+
+                const recentUploadsContainer = document.getElementById('recentUploads');
+                recentUploadsContainer.innerHTML = `
+                <div class="text-center py-4 text-slate-500">
+                    <i class="bi bi-exclamation-triangle text-2xl mb-2"></i>
+                    <p class="text-sm">Failed to load recent uploads</p>
+                </div>
+            `;
+
+                const photoGalleryContainer = document.getElementById('photoGallery');
+                photoGalleryContainer.innerHTML = `
+                <div class="text-center col-span-full py-8 text-slate-500">
+                    <i class="bi bi-exclamation-triangle text-2xl mb-2"></i>
+                    <p class="text-sm">Failed to load gallery</p>
+                </div>
+            `;
+            }
+
+            // Update dashboard UI with data
+            function updateDashboardUI(data) {
+                // Update user profile data
+                document.getElementById('sidebarUserName').textContent = data.user.name;
+                document.getElementById('sidebarUserEmail').textContent = data.user.email;
+                document.getElementById('headerUserName').textContent = data.user.name;
+
+                // Update stats data
+                document.getElementById('totalPhotos').textContent = formatNumber(data.stats.totalPhotos);
+                document.getElementById('totalProjects').textContent = formatNumber(data.stats.totalProjects);
+                document.getElementById('viewsThisMonth').textContent = formatNumber(data.stats.viewsThisMonth);
+                document.getElementById('uploadsToday').textContent = formatNumber(data.stats.uploadsToday);
+
+                // Update recent uploads
+                updateRecentUploads(data.recentUploads);
+
+                // Update photo gallery
+                updatePhotoGallery(data.gallery);
+            }
+
+            // Update recent uploads section
+            function updateRecentUploads(uploads) {
+                const recentUploadsContainer = document.getElementById('recentUploads');
+                recentUploadsContainer.innerHTML = '';
+
+                if (uploads.length > 0) {
+                    uploads.forEach(upload => {
+                        const uploadElement = document.createElement('div');
+                        uploadElement.className =
+                            'flex items-center space-x-3 p-2 border border-slate-200 rounded';
+                        uploadElement.innerHTML = `
+                        <div class="w-12 h-12 bg-slate-200 rounded flex items-center justify-center flex-shrink-0 overflow-hidden">
+                            ${upload.thumbnail ?
+                                `<img src="/storage/${upload.thumbnail}" alt="${upload.title}" class="w-full h-full object-cover">` :
+                                `<i class="bi bi-image text-slate-400 text-sm"></i>`
+                            }
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <h4 class="text-sm font-medium text-slate-800 truncate">${upload.title}</h4>
+                            <p class="text-xs text-slate-500">${upload.timeAgo}</p>
+                            <span class="inline-block px-2 py-1 text-xs bg-blue-100 text-blue-800 rounded mt-1">${upload.category}</span>
+                        </div>
+                        <div class="flex space-x-1">
+                            <button class="text-blue-600 hover:text-blue-800 text-sm">
+                                <i class="bi bi-pencil"></i>
+                            </button>
+                            <button class="text-red-600 hover:text-red-800 text-sm" onclick="deletePhoto(${upload.id})">
+                                <i class="bi bi-trash"></i>
+                            </button>
+                        </div>
+                    `;
+                        recentUploadsContainer.appendChild(uploadElement);
+                    });
+                } else {
+                    recentUploadsContainer.innerHTML = `
+                    <div class="text-center py-4 text-slate-500">
+                        <i class="bi bi-inbox text-2xl mb-2"></i>
+                        <p class="text-sm">No recent uploads</p>
+                    </div>
+                `;
+                }
+            }
+
+            // Update photo gallery section
+            function updatePhotoGallery(gallery) {
+                const photoGalleryContainer = document.getElementById('photoGallery');
+                photoGalleryContainer.innerHTML = '';
+
+                if (gallery.length > 0) {
+                    gallery.forEach(photo => {
+                        const galleryItem = document.createElement('div');
+                        galleryItem.className =
+                            'image-preview bg-slate-200 rounded aspect-square flex items-center justify-center relative overflow-hidden';
+                        galleryItem.innerHTML = `
+                        ${photo.thumbnail ?
+                            `<img src="/storage/${photo.thumbnail}" alt="${photo.title}" class="w-full h-full object-cover">` :
+                            `<i class="bi bi-image text-slate-400 text-lg"></i>`
+                        }
+                        <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white text-xs p-1 truncate">${photo.title}</div>
+                    `;
+                        photoGalleryContainer.appendChild(galleryItem);
+                    });
+                } else {
+                    photoGalleryContainer.innerHTML = `
+                    <div class="text-center col-span-full py-8 text-slate-500">
+                        <i class="bi bi-images text-2xl mb-2"></i>
+                        <p class="text-sm">No photos in gallery</p>
+                    </div>
+                `;
+                }
+            }
+
+            // Delete photo function
+            window.deletePhoto = async function(photoId) {
+                const result = await Swal.fire({
+                    title: 'Are you sure?',
+                    text: "You won't be able to revert this!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#ef4444',
+                    cancelButtonColor: '#6b7280',
+                    confirmButtonText: 'Yes, delete it!'
+                });
+
+                if (result.isConfirmed) {
+                    try {
+                        const response = await fetch(`/admin/photos/${photoId}`, {
+                            method: 'DELETE',
+                            headers: {
+                                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]')
+                                    .content,
+                                'Content-Type': 'application/json'
+                            }
+                        });
+
+                        const data = await response.json();
+
+                        if (data.success) {
+                            await Swal.fire({
+                                title: 'Deleted!',
+                                text: 'Photo has been deleted.',
+                                icon: 'success',
+                                confirmButtonColor: '#3b82f6'
+                            });
+
+                            // Refresh dashboard data
+                            await loadDashboardData();
+                        } else {
+                            throw new Error(data.message);
+                        }
+                    } catch (error) {
+                        await Swal.fire({
+                            title: 'Error!',
+                            text: 'Failed to delete photo: ' + error.message,
+                            icon: 'error',
+                            confirmButtonColor: '#ef4444'
+                        });
+                    }
+                }
+            };
+
+            // Format numbers with commas
+            function formatNumber(num) {
+                return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
             }
 
             // Notification function
             function showNotification(message, type = 'info') {
                 // Create notification element
                 const notification = document.createElement('div');
-                notification.className = `fixed top-3 right-3 p-3 rounded shadow-lg z-50 transform transition-transform duration-200 translate-x-full max-w-xs`;
+                notification.className =
+                    `fixed top-3 right-3 p-3 rounded shadow-lg z-50 transform transition-transform duration-200 translate-x-full max-w-xs`;
 
                 // Set background color based on type
                 if (type === 'success') {
@@ -906,11 +1102,11 @@
                 if (type === 'error') icon = 'bi-exclamation-circle';
 
                 notification.innerHTML = `
-                    <div class="flex items-center text-sm">
-                        <i class="bi ${icon} mr-2"></i>
-                        <span>${message}</span>
-                    </div>
-                `;
+                <div class="flex items-center text-sm">
+                    <i class="bi ${icon} mr-2"></i>
+                    <span>${message}</span>
+                </div>
+            `;
 
                 document.body.appendChild(notification);
 
@@ -929,6 +1125,9 @@
                     }, 200);
                 }, 3000);
             }
+
+            // Initialize dashboard data on page load
+            loadDashboardData();
         });
     </script>
 </body>

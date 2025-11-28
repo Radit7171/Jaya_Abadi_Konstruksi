@@ -2,34 +2,41 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\File;
-use Illuminate\Pagination\LengthAwarePaginator;
+use App\Models\Photo;
 use Illuminate\Http\Request;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class GalleryController extends Controller
 {
     public function gallery(Request $request)
     {
-        $path = public_path('images/gallery');
+        // Ambil data dari database
+        $photosQuery = Photo::orderBy('created_at', 'desc');
 
-        // Check if directory exists
-        if (!File::exists($path)) {
-            File::makeDirectory($path, 0755, true);
-            $images = collect([]);
-        } else {
-            $files = File::files($path);
-
-            $images = collect($files)->map(function ($file, $index) {
-                return [
-                    'path' => 'images/gallery/' . $file->getFilename(),
-                    'category' => $this->getCategory($index),
-                    'title' => 'Proyek ' . ($index + 1),
-                    'description' => $this->getDescription($index),
-                    'duration' => $this->getDuration($index),
-                    'category_text' => $this->getCategoryText($index)
-                ];
-            });
+        // Filter by category jika ada
+        if ($request->has('category') && $request->category != 'all') {
+            $photosQuery->where('category', $request->category);
         }
+
+        // Search jika ada
+        if ($request->has('search') && !empty($request->search)) {
+            $photosQuery->where('title', 'like', '%' . $request->search . '%')
+                       ->orWhere('description', 'like', '%' . $request->search . '%');
+        }
+
+        $photos = $photosQuery->get();
+
+        // Map data dari database ke format yang diharapkan view
+        $images = $photos->map(function ($photo, $index) {
+            return [
+                'path' => $photo->file_path, // path dari database
+                'category' => $photo->category,
+                'title' => $photo->title,
+                'description' => $photo->description,
+                'duration' => $this->getDuration($index),
+                'category_text' => $this->getCategoryText($photo->category)
+            ];
+        });
 
         // Pagination setup
         $currentPage = LengthAwarePaginator::resolveCurrentPage();
@@ -46,8 +53,6 @@ class GalleryController extends Controller
                 'pageName' => 'page',
             ]
         );
-
-
 
         // Handle AJAX requests
         if ($request->ajax()) {
@@ -73,36 +78,32 @@ class GalleryController extends Controller
             }
         }
 
+        // Get unique categories for filter
+        $categories = Photo::distinct('category')->whereNotNull('category')->pluck('category');
+
         // Regular request
-        return view('gallery.gallery', compact('paginatedImages'));
+        return view('gallery.gallery', compact('paginatedImages', 'categories'));
     }
 
-    private function getCategory($index)
+    private function getCategoryText($category)
     {
-        $categories = ['structure', 'fabrication', 'maintenance', 'finishing'];
-        return $categories[$index % 4];
-    }
-
-    private function getCategoryText($index)
-    {
-        $categories = ['Struktur Baja', 'Fabrikasi Custom', 'Perbaikan & Maintenance', 'Finishing & Coating'];
-        return $categories[$index % 4];
-    }
-
-    private function getDescription($index)
-    {
-        $descriptions = [
-            'Konstruksi struktur baja untuk gedung komersial dengan standar internasional',
-            'Fabrikasi custom tangga dan railing besi dengan desain modern',
-            'Perbaikan dan maintenance struktur besi untuk industri',
-            'Finishing powder coating dengan warna custom dan tahan lama'
+        $categoryMap = [
+            'construction' => 'Konstruksi Projek',
+            'design' => 'Desain Konsep',
+            'completed' => 'Projek Selesai',
+            'process' => 'Proses Pengerjaan',
+            'structure' => 'Struktur Baja',
+            'fabrication' => 'Fabrikasi Custom',
+            'maintenance' => 'Perbaikan & Maintenance',
+            'finishing' => 'Finishing & Coating'
         ];
-        return $descriptions[$index % 4];
+
+        return $categoryMap[$category] ?? ucfirst($category);
     }
 
     private function getDuration($index)
     {
-        $durations = ['6 Bulan', '3 Minggu', '2 Minggu', '1 Minggu'];
-        return $durations[$index % 4];
+        $durations = ['6 Bulan', '3 Minggu', '2 Minggu', '1 Minggu', '4 Bulan', '2 Bulan'];
+        return $durations[$index % 6];
     }
 }

@@ -4,6 +4,12 @@ use App\Http\Controllers\GalleryController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Artisan;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\PhotoController;
+use App\Http\Controllers\DashboardController;
+
+
+
 
 // index view
 Route::get('/', function () {
@@ -29,7 +35,26 @@ Route::post('/login', [AuthController::class, 'login'])->name('login.post');
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::middleware('auth')->group(function () {
-    Route::get('/dashboard', function () {
-        return view('admin.dashboard');
-    })->name('dashboard');
+    Route::get('/dashboard', [AdminController::class, 'index'])->name('dashboard');
+    // Route::post('/admin/upload-photo', [PhotoController::class, 'upload'])
+    //     ->name('admin.upload.photo');
+});
+
+Route::middleware(['auth'])->group(function () {
+
+    Route::get('/admin/dashboard/data', [DashboardController::class, 'getDashboardData'])
+         ->name('admin.dashboard.data');
+
+    // Photo Routes
+    Route::post('/admin/upload/photo', [PhotoController::class, 'uploadPhoto'])
+         ->name('admin.upload.photo');
+
+    Route::get('/admin/photos/recent', [PhotoController::class, 'getRecentUploads'])
+         ->name('admin.photos.recent');
+
+    Route::get('/admin/photos/gallery', [PhotoController::class, 'getGalleryPhotos'])
+         ->name('admin.photos.gallery');
+
+    Route::delete('/admin/photos/{id}', [PhotoController::class, 'deletePhoto'])
+         ->name('admin.photos.delete');
 });
