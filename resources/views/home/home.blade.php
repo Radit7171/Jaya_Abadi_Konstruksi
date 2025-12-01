@@ -310,7 +310,7 @@
             </div>
 
             <div class="text-center mt-12" data-aos="fade-up" data-aos-duration="800">
-                <a href="#" class="group bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white px-6 py-3 rounded-xl font-semibold shadow-md transform hover:-translate-y-1 transition-all duration-300 inline-flex items-center text-sm">
+                <a href="{{ route('gallery') }}" class="group bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white px-6 py-3 rounded-xl font-semibold shadow-md transform hover:-translate-y-1 transition-all duration-300 inline-flex items-center text-sm">
                     <i class="bi bi-collection-play mr-2"></i>
                     <span>Lihat Semua Proyek</span>
                     <i class="bi bi-arrow-right ml-1 group-hover:translate-x-1 transition-transform"></i>

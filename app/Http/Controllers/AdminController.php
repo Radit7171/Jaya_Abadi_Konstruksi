@@ -10,6 +10,6 @@ class AdminController extends Controller
     {
         $user = Auth::user(); // ambil user login
 
-        return view('admin.dashboard', compact('user'));
+        return view('admin.Dashboard.dashboard', compact('user'));
     }
 }
