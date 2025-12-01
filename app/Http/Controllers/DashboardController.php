@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Photo;
+use App\Models\Visitor; // <-- tambahkan ini
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 
@@ -24,8 +25,10 @@ class DashboardController extends Controller
                                 ->distinct('category')
                                 ->count('category');
 
-            // Views This Month (dummy data - bisa diganti dengan data real jika ada)
-            $viewsThisMonth = rand(5000, 10000);
+            // REAL Views This Month (bukan dummy)
+            $viewsThisMonth = Visitor::whereMonth('created_at', now()->month)
+                ->whereYear('created_at', now()->year)
+                ->count();
 
             // Uploads Today - count photos uploaded today
             $uploadsToday = Photo::whereDate('created_at', today())->count();
