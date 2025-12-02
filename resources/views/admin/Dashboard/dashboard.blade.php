@@ -1,4 +1,4 @@
-@extends('admin.Appadmin')
+@extends('admin.appAdmin')
 
 @section('title', 'Dashboard Admin - Jaya Abadi Konstruksi')
 @section('page-title', 'Dashboard')
